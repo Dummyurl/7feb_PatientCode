@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="aftereventziffypatientcode" default="all">
+  
+  
+  <property file="aftereventziffypatientcode.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.apk"/>
+    <include name="*.zip"/>
+    <include name="*.egg"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.gradle:___local_jars__:d.\aftereventcodes\githubcode\aftereventziffypatientcode\app\libs\android-async-http-1.4.4.jar:unspecified@jar.classpath">
+    <pathelement location="${basedir}/app/libs/android-async-http-1.4.4.jar"/>
+  </path>
+  
+  <path id="library.gradle:___local_jars__:d.\aftereventcodes\githubcode\aftereventziffypatientcode\app\libs\httpclient-4.3.6.jar:unspecified@jar.classpath">
+    <pathelement location="${basedir}/app/libs/httpclient-4.3.6.jar"/>
+  </path>
+  
+  <path id="library.gradle:___local_jars__:d.\aftereventcodes\githubcode\aftereventziffypatientcode\app\libs\httpcore-4.3.3.jar:unspecified@jar.classpath">
+    <pathelement location="${basedir}/app/libs/httpcore-4.3.3.jar"/>
+  </path>
+  
+  <path id="library.gradle:___local_jars__:d.\aftereventcodes\githubcode\aftereventziffypatientcode\app\libs\httpmime-4.3.6.jar:unspecified@jar.classpath">
+    <pathelement location="${basedir}/app/libs/httpmime-4.3.6.jar"/>
+  </path>
+  
+  <path id="library.gradle:_android.arch.core:common:1.0.0@jar.classpath">
+    <pathelement location="C:/Users/Admin/.gradle/caches/modules-2/files-2.1/android.arch.core/common/1.0.0/a2d487452376193fc8c103dd2b9bd5f2b1b44563/common-1.0.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_android.arch.lifecycle:common:1.0.3@jar.classpath">
+    <pathelement location="C:/Users/Admin/.gradle/caches/modules-2/files-2.1/android.arch.lifecycle/common/1.0.3/7d7f60c4783872861222166f6164215f8951c7b1/common-1.0.3.jar"/>
+  </path>
+  
+  <path id="library.gradle:_android.arch.lifecycle:runtime-1.0.3.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/fe942156af1921a1b8822412591d243295e31b0f/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/fe942156af1921a1b8822412591d243295e31b0f/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_cc.cloudist.acplibrary:library-1.2.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/91ec79cbc6ed8524d0e6874c902e0ebeaf8a1651/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/91ec79cbc6ed8524d0e6874c902e0ebeaf8a1651/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.afollestad.material-dialogs:commons-0.9.6.0.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/67d5ecdd307a2e51894a28a717e6393da52799c4/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/67d5ecdd307a2e51894a28a717e6393da52799c4/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.afollestad.material-dialogs:core-0.9.6.0.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/bdc0af529cddd88cb4f4751bf5c5b022f80cda14/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/bdc0af529cddd88cb4f4751bf5c5b022f80cda14/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.amulyakhare:com.amulyakhare.textdrawable-1.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/4d1497efc824027b53bba0b266e21915dc3f3156/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/4d1497efc824027b53bba0b266e21915dc3f3156/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support.constraint:constraint-layout-1.0.2.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/e0c9e56f1b695f216b71460801e44ec9be199d3e/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/e0c9e56f1b695f216b71460801e44ec9be199d3e/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support.constraint:constraint-layout-solver:1.0.2@jar.classpath">
+    <pathelement location="C:/Users/Admin/AppData/Local/Android/Sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:animated-vector-drawable-27.0.2.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/ad55f7ae87d14b7df2e4c6ff7e3fe0d010cd2ab4/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/ad55f7ae87d14b7df2e4c6ff7e3fe0d010cd2ab4/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:appcompat-v7-27.0.2.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/c231dd0657261a776e2df6e18f4d080c2f3756b1/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/c231dd0657261a776e2df6e18f4d080c2f3756b1/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:cardview-v7-26.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/ae1029b3900f24dabb4cd66ea2abd5c66f0d2d28/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/ae1029b3900f24dabb4cd66ea2abd5c66f0d2d28/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:customtabs-23.2.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/f758dd97df32820ea8e5511a33293682c0fae312/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/f758dd97df32820ea8e5511a33293682c0fae312/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:design-27.0.2.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/77fc08f813f786c15c4cf63b6fb9bf5c30a3da0b/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/77fc08f813f786c15c4cf63b6fb9bf5c30a3da0b/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:mediarouter-v7-24.0.0.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/622517698bba4842a4754a1dc29a9b945312ff46/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/622517698bba4842a4754a1dc29a9b945312ff46/output/jars/classes.jar"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/622517698bba4842a4754a1dc29a9b945312ff46/output/jars/libs/internal_impl-24.0.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:multidex-1.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/cffcee3514182d50cb4721dba248e8deabb0a569/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/cffcee3514182d50cb4721dba248e8deabb0a569/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:multidex-instrumentation-1.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/7ac0d787208cd6922884a02ac3eb6af4cf2f2492/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/7ac0d787208cd6922884a02ac3eb6af4cf2f2492/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:palette-v7-24.0.0.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/92b0ac110d3597d774e0ea09f0e995827dd4c57a/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/92b0ac110d3597d774e0ea09f0e995827dd4c57a/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:recyclerview-v7-27.0.2.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/8c41ae06ad52bf40a36168c02ca09c39cde59a2a/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/8c41ae06ad52bf40a36168c02ca09c39cde59a2a/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:support-annotations:27.0.2@jar.classpath">
+    <pathelement location="C:/Users/Admin/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/27.0.2/b9ef4342c934a1a8b107506273dc8061662a322/support-annotations-27.0.2.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:support-compat-27.0.2.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/7d516d9629c621dc614fd73e0889067222f1e878/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/7d516d9629c621dc614fd73e0889067222f1e878/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:support-core-ui-27.0.2.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/4573e0189267a4cc9137d4a71dc284a2cd361c96/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/4573e0189267a4cc9137d4a71dc284a2cd361c96/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:support-core-utils-27.0.2.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/69fc390c519e6188fc259d06c67b65cf1be7be52/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/69fc390c519e6188fc259d06c67b65cf1be7be52/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:support-fragment-27.0.2.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/a85d0d7ac60f18a0f3dce653797b65bae8d8b5f0/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/a85d0d7ac60f18a0f3dce653797b65bae8d8b5f0/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:support-media-compat-27.0.2.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/2cca035b503d17712355bcb850e3970f5eabe249/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/2cca035b503d17712355bcb850e3970f5eabe249/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:support-v13-27.0.2.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/989c7b6cb0b4c979badc324f8623334bc32239c6/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/989c7b6cb0b4c979badc324f8623334bc32239c6/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:support-v4-27.0.2.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/209692ddfd048518d0af19f8c3935e0cf9bae9fa/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/209692ddfd048518d0af19f8c3935e0cf9bae9fa/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:support-v4:19.1.0@jar.classpath">
+    <pathelement location="C:/Users/Admin/AppData/Local/Android/Sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:support-vector-drawable-27.0.2.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/6e5f15838f52b97cbec0126a7216dcd91e6e564b/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/6e5f15838f52b97cbec0126a7216dcd91e6e564b/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.support:transition-27.0.2.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/d540d1e29098acbea424fc824bda45165fe22b14/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/d540d1e29098acbea424fc824bda45165fe22b14/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.android.volley:volley-1.0.0.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/12d1b70c8070c9e7b3331b0d1658f873f4e01081/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/12d1b70c8070c9e7b3331b0d1658f873f4e01081/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.astuetz:pagerslidingtabstrip-1.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/77e8fb879347cc28159d76fe5739d104bd72e87c/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/77e8fb879347cc28159d76fe5739d104bd72e87c/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.bignerdranch.android:recyclerview-multiselect-0.2.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/30a2943289fb8c8d28e54778c81674b9c0958432/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/30a2943289fb8c8d28e54778c81674b9c0958432/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.daimajia.androidanimations:library-1.0.3.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/a0554b0b2b519aa2959515f492476c8ead5ca8b8/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/a0554b0b2b519aa2959515f492476c8ead5ca8b8/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.daimajia.slider:library-1.1.5.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/f23795efbeeaf52156a14afd7e753351764da65e/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/f23795efbeeaf52156a14afd7e753351764da65e/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.facebook.android:facebook-android-sdk-4.0.0.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/cf69a438c26a66cfdc29838d7fd6eb1432755344/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/cf69a438c26a66cfdc29838d7fd6eb1432755344/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.getbase:floatingactionbutton-1.9.0.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/f4e063816d5991a0f09629323e050ed036e5eeb7/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/f4e063816d5991a0f09629323e050ed036e5eeb7/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.github.aakira:expandable-layout-1.6.0.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/42484976027f2e8457f32907269b41caf30b309b/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/42484976027f2e8457f32907269b41caf30b309b/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.github.bumptech.glide:glide:3.7.0@jar.classpath">
+    <pathelement location="C:/Users/Admin/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.7.0/9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4/glide-3.7.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/745ae80db1f56bb8175efcab5d062e304a32ab03/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/745ae80db1f56bb8175efcab5d062e304a32ab03/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-ads-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/44e8715c36559fa930538342e2c306fb59ce6c59/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/44e8715c36559fa930538342e2c306fb59ce6c59/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-ads-lite-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/d849a7ab38854a4ef0ed3fdd3ac4bcfa8f965554/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/d849a7ab38854a4ef0ed3fdd3ac4bcfa8f965554/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-analytics-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/8d2a133583ef6e983e36d7dc0fde0cd9ab17b93d/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/8d2a133583ef6e983e36d7dc0fde0cd9ab17b93d/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-analytics-impl-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/7378642b3b9128190bd336a03f93a59594ca6ce2/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/7378642b3b9128190bd336a03f93a59594ca6ce2/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-appinvite-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/13bb067b7a367722878afb7e507d304cb8f31bff/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/13bb067b7a367722878afb7e507d304cb8f31bff/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-auth-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/e6508402eef6a4280bdae05fc63c5d11472eae70/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/e6508402eef6a4280bdae05fc63c5d11472eae70/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-auth-base-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/855afa88ee2bc034d386a9f092df4e8f9f946be3/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/855afa88ee2bc034d386a9f092df4e8f9f946be3/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-awareness-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/6c84f4f71b9dd25c0485b23222ca664c9a29e566/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/6c84f4f71b9dd25c0485b23222ca664c9a29e566/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-base-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/9ad88bc7840c7508c671276dc9eb19a206c3ebcf/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/9ad88bc7840c7508c671276dc9eb19a206c3ebcf/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-basement-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/f8a02cc08a963ed7d501455d906eb4f6275459bb/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/f8a02cc08a963ed7d501455d906eb4f6275459bb/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-cast-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/60c0f27f55511e92cf01274dbbf1cc4fa9123607/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/60c0f27f55511e92cf01274dbbf1cc4fa9123607/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-cast-framework-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/4cf48557f4e4a89a3aabe9903fa9d9925cd6088e/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/4cf48557f4e4a89a3aabe9903fa9d9925cd6088e/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-clearcut-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/d529b125bab8b4048a7cf99e18927209d50d2a01/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/d529b125bab8b4048a7cf99e18927209d50d2a01/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-drive-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/3077932032963f7a4138f4d9862d2882764b80e0/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/3077932032963f7a4138f4d9862d2882764b80e0/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-fitness-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/ba45ee406b3b9f37f631b9a08bfe6e7128c06909/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/ba45ee406b3b9f37f631b9a08bfe6e7128c06909/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-games-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/a8a65b1caa654a6fd242284d47e81268e8c8a695/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/a8a65b1caa654a6fd242284d47e81268e8c8a695/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-gass-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/ef4b933fda50c650e6f56af6d799cc00305d85df/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/ef4b933fda50c650e6f56af6d799cc00305d85df/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-gcm-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/6d7aeeded15e2829c9793671ccf76c33bc99785d/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/6d7aeeded15e2829c9793671ccf76c33bc99785d/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-identity-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/d1dd733855f0422a9ec502f4dbf2582c792e3179/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/d1dd733855f0422a9ec502f4dbf2582c792e3179/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-iid-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/edd2fd9f12406007ddeb268e9c6d8f615a5c3770/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/edd2fd9f12406007ddeb268e9c6d8f615a5c3770/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-instantapps-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/12fea9d1f9287b7287e0054918d2ff02df1c4da1/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/12fea9d1f9287b7287e0054918d2ff02df1c4da1/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-location-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/d181fbb94d514e3a8d0d8d96e81636771ef73ecc/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/d181fbb94d514e3a8d0d8d96e81636771ef73ecc/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-maps-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/4e312ca6773681fb3eb3ca80baec0c6a72984b0d/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/4e312ca6773681fb3eb3ca80baec0c6a72984b0d/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-nearby-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/b34997d5ff2b95fdc57eae0d9c26268c1e072746/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/b34997d5ff2b95fdc57eae0d9c26268c1e072746/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-panorama-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/c032cc4d05b8349075599a29058097d5508f5863/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/c032cc4d05b8349075599a29058097d5508f5863/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-places-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/ee84e6371ece263e314359238f91352ed2ce7a48/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/ee84e6371ece263e314359238f91352ed2ce7a48/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-plus-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/4f4f8add1d7d2ecad7ab75ee5b4ef6f2c3ac0365/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/4f4f8add1d7d2ecad7ab75ee5b4ef6f2c3ac0365/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-safetynet-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/92513f8636e1fafd3b08c1adc427fcd4694ed9b0/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/92513f8636e1fafd3b08c1adc427fcd4694ed9b0/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-tagmanager-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/cedc845294f5efb34effca6902831ecfb33e5ea1/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/cedc845294f5efb34effca6902831ecfb33e5ea1/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-tagmanager-api-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/0095a0a3241639919732cc4d9fdf5e4b3a240a95/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/0095a0a3241639919732cc4d9fdf5e4b3a240a95/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-tagmanager-v4-impl-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/2f70b33760493fe419b7f3ef39b282c1536ac10d/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/2f70b33760493fe419b7f3ef39b282c1536ac10d/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-tasks-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/a006299cfcc652161adcc7daf51027cb6d633ca6/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/a006299cfcc652161adcc7daf51027cb6d633ca6/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-vision-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/4587c691fee08720c7079ab64e466d4f636fd057/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/4587c691fee08720c7079ab64e466d4f636fd057/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-wallet-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/de151df450dd717b5bf235395c790dd53f44ce6e/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/de151df450dd717b5bf235395c790dd53f44ce6e/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.android.gms:play-services-wearable-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/ee4a324e476699d2f9abea0ecac69a99a5413dc9/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/ee4a324e476699d2f9abea0ecac69a99a5413dc9/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.code.gson:gson:2.8.0@jar.classpath">
+    <pathelement location="C:/Users/Admin/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.0/c4ba5371a29ac9b2ad6129b1d39ea38750043eff/gson-2.8.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.firebase:firebase-analytics-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/7cc6e03b47773dcdf3dd1927e2619ea20efb7f41/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/7cc6e03b47773dcdf3dd1927e2619ea20efb7f41/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.firebase:firebase-analytics-impl-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/fbdf1c2a68bfb1e5814394becff2b10995c27a13/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/fbdf1c2a68bfb1e5814394becff2b10995c27a13/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.firebase:firebase-appindexing-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/a1101bdc1b0fcd80f4486cdc9b49a0e924d22984/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/a1101bdc1b0fcd80f4486cdc9b49a0e924d22984/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.firebase:firebase-auth-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/493d5978761e056f02aef499c3325811baf74c28/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/493d5978761e056f02aef499c3325811baf74c28/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.firebase:firebase-common-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/5c793f48da6880a02a64ff4e12d6001add9cf3ce/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/5c793f48da6880a02a64ff4e12d6001add9cf3ce/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.firebase:firebase-config-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/21392f6681c1a529e1455baebaa79e3e50a56013/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/21392f6681c1a529e1455baebaa79e3e50a56013/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.firebase:firebase-core-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/9262600de33958056f3eec776e4532dce66989af/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/9262600de33958056f3eec776e4532dce66989af/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.firebase:firebase-crash-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/c59393d4e942c2a73ac394487da4f7259c905c86/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/c59393d4e942c2a73ac394487da4f7259c905c86/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.firebase:firebase-database-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/10f17cfabcda2da2237ec4c4e0001fde5a3e2463/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/10f17cfabcda2da2237ec4c4e0001fde5a3e2463/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.firebase:firebase-database-connection-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/2563a386674479564eaf0964f61d0dff3c67ee3f/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/2563a386674479564eaf0964f61d0dff3c67ee3f/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.firebase:firebase-iid-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/5feff1e11e9727bcd7ffac9aa1a511fe7995090d/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/5feff1e11e9727bcd7ffac9aa1a511fe7995090d/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.firebase:firebase-messaging-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/49ce0093a58693f88db1f07e3877e0fd419ec0e6/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/49ce0093a58693f88db1f07e3877e0fd419ec0e6/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.firebase:firebase-storage-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/3c1857cc108aa96a405fabe563e56ed7e9bcc550/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/3c1857cc108aa96a405fabe563e56ed7e9bcc550/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.firebase:firebase-storage-common-10.0.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/228aebadd6381da9f1cc1baa0bfe72c942a0ba47/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/228aebadd6381da9f1cc1baa0bfe72c942a0ba47/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.iarcuschin:simpleratingbar-0.1.5.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/afae632583fed90176aa941a4602029f869c8d98/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/afae632583fed90176aa941a4602029f869c8d98/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.jakewharton:disklrucache:2.0.2@jar.classpath">
+    <pathelement location="C:/Users/Admin/.gradle/caches/modules-2/files-2.1/com.jakewharton/disklrucache/2.0.2/93b399470e72c0bc8cb52379943b63c9aa586cd8/disklrucache-2.0.2.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.kaopiz:kprogresshud-1.1.0.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/95c49062ebd4089e73ad687a00d4f55335d7fd2d/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/95c49062ebd4089e73ad687a00d4f55335d7fd2d/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.nineoldandroids:library:2.4.0@jar.classpath">
+    <pathelement location="C:/Users/Admin/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.parse.bolts:bolts-android:1.1.4@jar.classpath">
+    <pathelement location="C:/Users/Admin/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.4/129874135e6081269ace2312092031558865de12/bolts-android-1.1.4.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.payu.custombrowser:payu-custom-browser-7.2.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/b5243dbf3622312002a9ebd07a3f1de6d5dc84e2/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/b5243dbf3622312002a9ebd07a3f1de6d5dc84e2/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.payu.magicretry:magicretry-1.0.6.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/a8887b3b87115e84f1057a502b3d6ad330ecd672/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/a8887b3b87115e84f1057a502b3d6ad330ecd672/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.payumoney.core:payumoney-sdk-7.4.4.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/8b33157814d2c3904a286ba2c25b3ef5bd183a81/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/8b33157814d2c3904a286ba2c25b3ef5bd183a81/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.payumoney.graphics:asset-download-sdk-0.3.2.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/c00f69072ba8021c21b4159d2bd17d141f983ddb/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/c00f69072ba8021c21b4159d2bd17d141f983ddb/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.payumoney.sdkui:plug-n-play-1.4.4.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/fb30c089565090b861cd92469e84a12c502bcb68/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/fb30c089565090b861cd92469e84a12c502bcb68/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.squareup.okhttp3:logging-interceptor:3.4.1@jar.classpath">
+    <pathelement location="C:/Users/Admin/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/logging-interceptor/3.4.1/381fc1096ba65040d8e80ea43b2e1d9bad02345e/logging-interceptor-3.4.1.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.squareup.okhttp3:okhttp:3.4.1@jar.classpath">
+    <pathelement location="C:/Users/Admin/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.4.1/c7c4f9e35c2fd5900da24f9872e3971801f08ce0/okhttp-3.4.1.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.squareup.okio:okio:1.9.0@jar.classpath">
+    <pathelement location="C:/Users/Admin/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.9.0/f824591a0016efbaeddb8300bee54832a1398cfa/okio-1.9.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.squareup.picasso:picasso:2.5.2@jar.classpath">
+    <pathelement location="C:/Users/Admin/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.squareup.retrofit2:converter-gson:2.1.0@jar.classpath">
+    <pathelement location="C:/Users/Admin/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.1.0/aa557d71ead91cbf26e0c316a0f593d168303309/converter-gson-2.1.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.squareup.retrofit2:retrofit:2.1.0@jar.classpath">
+    <pathelement location="C:/Users/Admin/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.1.0/2de7cd8b95b7021b1d597f049bcb422055119f2c/retrofit-2.1.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.wdullaer:materialdatetimepicker-3.5.1.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/c9603c69eab715eb34883b9444cf3a0809e6c2c0/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/c9603c69eab715eb34883b9444cf3a0809e6c2c0/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_de.hdodenhof:circleimageview-2.2.0.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/0fcdbba81a73430d54a5f20ef9a845133fdea02d/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/0fcdbba81a73430d54a5f20ef9a845133fdea02d/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_junit:junit:4.12@jar.classpath">
+    <pathelement location="C:/Users/Admin/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/2973d150c0dc1fefe998f834810d68f278ea58ec/junit-4.12.jar"/>
+  </path>
+  
+  <path id="library.gradle:_me.zhanghai.android.materialprogressbar:library-1.4.2.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/98147189c78af12ce326289ad3020824b15729eb/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/98147189c78af12ce326289ad3020824b15729eb/output/jars/classes.jar"/>
+  </path>
+  
+  <path id="library.gradle:_org.androidannotations:androidannotations-api:3.2@jar.classpath">
+    <pathelement location="C:/Users/Admin/.gradle/caches/modules-2/files-2.1/org.androidannotations/androidannotations-api/3.2/89b33bb1e996eb2c4089f79d1b8651c71fe8e2d1/androidannotations-api-3.2.jar"/>
+  </path>
+  
+  <path id="library.gradle:_org.hamcrest:hamcrest-core:1.3@jar.classpath">
+    <pathelement location="C:/Users/Admin/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar"/>
+  </path>
+  
+  <path id="library.gradle:_org.jsoup:jsoup:1.10.2@jar.classpath">
+    <pathelement location="C:/Users/Admin/.gradle/caches/modules-2/files-2.1/org.jsoup/jsoup/1.10.2/33ee82e324f4b1e40167f3dc5e01234a1c5cab61/jsoup-1.10.2.jar"/>
+  </path>
+  
+  <path id="library.gradle:_pl.droidsonroids.gif:android-gif-drawable-1.2.12.classpath">
+    <pathelement location="C:/Users/Admin/.android/build-cache/01edea5e3c7f5181345829935fe1789b42056ee6/output/res"/>
+    <pathelement location="C:/Users/Admin/.android/build-cache/01edea5e3c7f5181345829935fe1789b42056ee6/output/jars/classes.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/module_aftereventziffypatientcode.xml"/>
+  
+  <import file="${basedir}/emoji/module_emoji.xml"/>
+  
+  <import file="${basedir}/app/module_app.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.aftereventziffypatientcode, clean.module.emoji, clean.module.app" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.aftereventziffypatientcode, compile.module.emoji, compile.module.app" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>

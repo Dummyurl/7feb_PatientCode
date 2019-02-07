@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <CheckBox
+            android:id="@+id/check_medicine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:buttonTint="@color/colorPrimary"
+            android:text="17ytujhjh"
+            android:ellipsize="end"
+            android:padding="@dimen/padding_5"
+            android:maxLength="30"
+            android:textAllCaps="true"
+            android:textColor="@color/grey"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:layout_gravity="center"
+          android:weightSum="1">
+
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="Quantity :"
+              android:layout_weight="0.8"
+              android:layout_gravity="center|end"
+              android:textAlignment="textEnd"
+              android:textSize="@dimen/dimen_14sp"
+              android:padding="@dimen/padding_5"/>
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_weight="0.2">
+              <EditText
+                  android:id="@+id/edit_qty"
+                  android:layout_width="100dp"
+                  android:layout_height="wrap_content"
+                  android:hint="enter qty"
+                  android:textAlignment="center"
+                  android:padding="@dimen/padding_10"
+                  android:background="@drawable/bg_rect_border"
+                  android:textSize="14sp"
+                  />
+          </LinearLayout>
+
+      </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_aftereventziffypatientcode" default="compile.module.aftereventziffypatientcode">
+  <dirname property="module.aftereventziffypatientcode.basedir" file="${ant.file.module_aftereventziffypatientcode}"/>
+  
+  <property name="module.jdk.home.aftereventziffypatientcode" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.aftereventziffypatientcode" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.aftereventziffypatientcode" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.aftereventziffypatientcode" value="-encoding UTF-8 -source 1.6 -target 1.6 ${compiler.args}"/>
+  
+  <property name="aftereventziffypatientcode.output.dir" value="${module.aftereventziffypatientcode.basedir}/build/classes/production/AfterEventZiffyPatientCode"/>
+  <property name="aftereventziffypatientcode.testoutput.dir" value="${module.aftereventziffypatientcode.basedir}/build/classes/test/AfterEventZiffyPatientCode"/>
+  
+  <path id="aftereventziffypatientcode.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="aftereventziffypatientcode.module.production.classpath">
+    <path refid="${module.jdk.classpath.aftereventziffypatientcode}"/>
+  </path>
+  
+  <path id="aftereventziffypatientcode.runtime.production.module.classpath">
+    <pathelement location="${aftereventziffypatientcode.output.dir}"/>
+  </path>
+  
+  <path id="aftereventziffypatientcode.module.classpath">
+    <path refid="${module.jdk.classpath.aftereventziffypatientcode}"/>
+    <pathelement location="${aftereventziffypatientcode.output.dir}"/>
+  </path>
+  
+  <path id="aftereventziffypatientcode.runtime.module.classpath">
+    <pathelement location="${aftereventziffypatientcode.testoutput.dir}"/>
+    <pathelement location="${aftereventziffypatientcode.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.aftereventziffypatientcode">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.aftereventziffypatientcode">
+    <patternset refid="excluded.from.module.aftereventziffypatientcode"/>
+  </patternset>
+  
+  
+  <target name="compile.module.aftereventziffypatientcode" depends="compile.module.aftereventziffypatientcode.production,compile.module.aftereventziffypatientcode.tests" description="Compile module AfterEventZiffyPatientCode"/>
+  
+  <target name="compile.module.aftereventziffypatientcode.production" depends="register.custom.compilers" description="Compile module AfterEventZiffyPatientCode; production classes"/>
+  
+  <target name="compile.module.aftereventziffypatientcode.tests" depends="register.custom.compilers,compile.module.aftereventziffypatientcode.production" description="compile module AfterEventZiffyPatientCode; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.aftereventziffypatientcode" description="cleanup module">
+    <delete dir="${aftereventziffypatientcode.output.dir}"/>
+    <delete dir="${aftereventziffypatientcode.testoutput.dir}"/>
+  </target>
+</project>

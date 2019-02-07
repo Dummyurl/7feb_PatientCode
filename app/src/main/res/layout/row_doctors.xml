@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:padding="10dp"
+    android:background="@drawable/bg_round_rect">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="centerCrop"
+                android:padding="5dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:layout_weight="0.94"
+            android:layout_margin="8dp">
+
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="Dr. Mahesh Kale"
+                android:textAllCaps="true"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/specilaity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/degree"
+                android:text="BHMS"
+                android:paddingTop="3dp"
+                android:textColor="@color/grey"
+                android:textSize="10dp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/degree"
+                android:layout_below="@+id/title"
+                android:paddingTop="3dp"
+                android:textColor="@color/greyshade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxEms="10"
+                android:maxLines="1"
+                android:text="clinic name and address"
+                android:textSize="10dp"
+                />
+
+
+            <TextView
+                android:id="@+id/clinic"
+                android:layout_below="@+id/specilaity"
+                android:paddingTop="3dp"
+                android:textColor="@color/grey"
+                android:text="Nobel hospital"
+                android:textSize="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxEms="20"
+                android:maxLines="1"/>
+
+            <TextView
+                android:id="@+id/charges"
+                android:layout_below="@+id/clinic"
+                android:paddingTop="3dp"
+                android:textColor="@color/grey"
+                android:text="Nobel hospital"
+                android:textSize="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxEms="20"
+                android:maxLines="1"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bookmark"
+                />
+
+            <TextView
+                android:id="@+id/txt_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4.5"
+                android:textSize="10dp"
+                android:textColor="@color/white"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="15dp"/>
+
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_below="@id/rtbProductRating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            >
+
+            <TextView
+                android:id="@+id/txt_avail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Availability 7:00 - 9:00"
+                android:textSize="10dp"
+                android:textColor="@color/grey"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:layout_weight="1.6"
+                />
+
+            <TextView
+                android:id="@+id/book"
+                android:layout_width="wrap_content"
+                android:text="BOOK"
+                android:layout_gravity="right"
+                android:gravity="center"
+                android:textSize="13dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:padding="5dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.4"
+                android:background="@drawable/gray_stroke"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

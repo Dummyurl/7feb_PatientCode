@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+                <item
+                    android:id="@+id/nav_profile"
+                    android:title="My Profile" />
+                <item
+                    android:id="@+id/nav_appointment"
+                    android:title="@string/nav_my_appointment" />
+                <item
+                    android:id="@+id/nav_wallet"
+                    android:title="My Wallet"
+                    android:visible="false" />
+                <item
+                    android:id="@+id/nav_history"
+                    android:title="My Appointments" />
+                <item
+                    android:id="@+id/nav_password"
+                    android:title="@string/nav_change_password" />
+
+                <item
+                    android:id="@+id/nav_vaccination"
+                    android:title="@string/nav_vaccination"
+                    android:visible="false" />
+                <item
+                    android:id="@+id/nav_refer"
+                    android:title="@string/nav_refer"/>
+                <item
+                    android:id="@+id/nav_login"
+                    android:title="@string/nav_login" />
+            <item
+                android:id="@+id/nav_share"
+                android:title="@string/nav_share" />
+            <item
+                android:id="@+id/nav_rating"
+                android:title="@string/nav_rating" />
+           <item
+                android:id="@+id/nav_logout"
+                android:title="@string/nav_logout" />
+
+</menu>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/appbackground">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/fb_button"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_5">
+
+                    <RadioGroup
+                        android:id="@+id/radioLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+
+                        android:scaleX="0.9"
+                        android:scaleY="0.9"
+                        android:weightSum="1.2">
+
+                        <RadioButton
+                            android:id="@+id/checkHome"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.4"
+                            android:text="Home"
+                            android:textSize="15sp" />
+                        <!-- <TextView
+                            android:id="@+id/text_home"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="address"
+                            android:padding="@dimen/padding_5"
+                            android:textSize="15sp"
+                            android:layout_weight="0.2"
+
+                            android:visibility="visible"
+                            android:layout_marginRight="@dimen/padding_10"
+                            android:layout_marginLeft="@dimen/padding_15"/>-->
+                        <RadioButton
+                            android:id="@+id/checkCurrent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_weight="0.4"
+                            android:text="Current"
+                            android:textSize="15sp" />
+                        <!--<TextView
+                            android:id="@+id/text_current"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="address"
+                            android:visibility="visible"
+                            android:padding="@dimen/padding_5"
+                            android:textSize="15sp"
+                            android:layout_marginRight="@dimen/padding_10"
+                            android:layout_marginLeft="@dimen/padding_15"/>-->
+                        <RadioButton
+                            android:id="@+id/checkOther"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.4"
+                            android:text="Other"
+                            android:textSize="15sp" />
+                        <!--   <EditText
+                            android:id="@+id/edit_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint=" Enter Address"
+                            android:visibility="visible"
+                            android:padding="@dimen/padding_10"
+                            android:textSize="12sp"
+                            android:background="@drawable/bg_button_border"
+                            android:layout_marginRight="@dimen/padding_10"
+                            android:layout_marginLeft="@dimen/padding_15"/>-->
+
+                    </RadioGroup>
+
+                    <TextView
+                        android:id="@+id/text_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding_15"
+                        android:layout_marginBottom="@dimen/dimen_5dp"
+                        android:hint="Selected Address"
+                        android:padding="10dp"
+                        android:textColorHint="@color/greyshade"
+                        android:textSize="15sp"
+                        android:visibility="visible"
+                        android:background="@drawable/fb_button" />
+
+                    <EditText
+                        android:id="@+id/edit_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding_15"
+                        android:layout_marginBottom="@dimen/dimen_5dp"
+                        android:background="@drawable/fb_button"
+                        android:hint=" Enter Address"
+                        android:imeOptions="actionDone"
+                        android:padding="@dimen/padding_10"
+                        android:maxLines="3"
+                        android:maxLength="60"
+                        android:textSize="12sp"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/padding_15"
+                        android:layout_marginBottom="@dimen/dimen_5dp">
+
+                        <TextView
+                            android:id="@+id/text_proceed"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/my_gradient_drawable"
+                            android:padding="@dimen/padding_10"
+                            android:text="Proceed"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+
+
+
+                <TextView
+                    android:id="@+id/text_no_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Address not found."
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <!--
+        <RelativeLayout
+            android:id="@+id/layout_addNewAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:background="@android:color/transparent" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="bottom"
+                    android:background="@color/colorPrimary"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/text_proceed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="proceed"
+                        android:textColor="@color/white"
+                        android:textAlignment="center"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        android:layout_marginRight="2dp"
+                        android:textSize="17sp"
+                        tools:ignore="RtlCompat" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+-->
+    </RelativeLayout>
+
+</LinearLayout>
+

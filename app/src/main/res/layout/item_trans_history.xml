@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/view_bg">
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardMaxElevation="@dimen/padding_5"
+        app:cardCornerRadius="3dp"
+        android:paddingLeft="@dimen/padding_10"
+        android:paddingRight="@dimen/padding_10"
+        android:paddingTop="@dimen/padding_10"
+        android:paddingBottom="@dimen/padding_10"
+        android:layout_margin="@dimen/padding_5"
+        app:cardBackgroundColor="@color/white">
+
+        <LinearLayout
+            android:id="@+id/layout_item_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:weightSum="1"
+                android:layout_margin="@dimen/padding_5">
+
+                <TextView
+                    android:id="@+id/txt_txn_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:gravity="start"
+                    android:layout_weight="0.5"
+                    android:text="1000452339"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/txtv_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="end"
+                    android:visibility="visible"
+                    android:text="Successful"
+                    android:textColor="#35bc3a"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+          <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="0.5"
+                android:padding="@dimen/padding_5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="for  "
+                    android:textColor="@color/black"
+                    android:textSize="12sp"/>
+                <TextView
+                    android:id="@+id/txt_paid_for"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lab booking"
+                    android:padding="2dp"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+              <TextView
+                  android:id="@+id/txt_amount"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="0.5"
+                  android:text="₹.5500"
+                  android:textSize="12sp"
+                  android:gravity="end"
+                  android:padding="@dimen/padding_5"
+                  android:layout_marginRight="@dimen/padding_15"/>
+          </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="0.5"
+                android:layout_marginBottom="@dimen/padding_5"
+                android:layout_marginLeft="@dimen/padding_5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="To "
+                    android:textColor="@color/black"
+                    android:textSize="12sp"/>
+                <TextView
+                    android:id="@+id/txt_paid_to"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dr.Payal Karkhile"
+                    android:padding="2dp"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+
+                <TextView
+                    android:id="@+id/txt_date_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="07/09/2018 12:00PM"
+                    android:textSize="12sp"
+                    android:layout_weight="0.5"
+                    android:paddingRight="@dimen/padding_5"
+                    android:paddingBottom="@dimen/padding_5"
+                    android:layout_marginLeft="@dimen/padding_5"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/text_view_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="View Details >>"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    android:layout_weight="0.5"
+                    android:textAlignment="textEnd"
+                    android:paddingRight="@dimen/padding_5"
+                    android:paddingBottom="@dimen/padding_5"
+                    android:layout_marginLeft="@dimen/padding_5"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+
+
+
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/tv_not_found"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="No Data Found..."/>
+
+</LinearLayout>

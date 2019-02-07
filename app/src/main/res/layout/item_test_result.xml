@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:id="@+id/row1"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_rect_border"
+            android:padding="5dp"
+            android:text="Parameter"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="11sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_rect_border"
+            android:padding="5dp"
+            android:text="Observation"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="11sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_rect_border"
+            android:padding="5dp"
+            android:text="Range"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="11sp" />
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/row_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:background="@drawable/bg_rect_border"
+        android:gravity="center">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/dimen_2dp"
+            android:weightSum="2"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:layout_gravity="center"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/parameter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Parameter"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:maxLength="25"
+                android:layout_marginLeft="@dimen/dimen_2dp"
+                android:textColor="@color/dark_grey"
+                android:textSize="12sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/view"
+                android:padding="5dp"
+                android:textColor="@color/blue"
+                android:textSize="10sp"
+                android:layout_gravity="center"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/observation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="7dp"
+            android:text="fyfytd"
+            android:textAlignment="center"
+            android:textColor="@color/dark_grey"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/range"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="7dp"
+            android:text="jhgyug"
+            android:textAlignment="center"
+            android:textColor="@color/dark_grey"
+            android:textSize="10sp" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+

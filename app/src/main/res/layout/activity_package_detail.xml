@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/text_test_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxEms="20"
+                android:maxLines="1"
+                android:paddingLeft="10dp"
+                android:text="TEST NAME"
+                android:textColor="@color/black_dark"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/package_test_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/package_name"
+                android:layout_marginBottom="@dimen/dimen_2dp"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:text="Includes 10 Test"
+                android:textColor="@color/grey"
+                android:textSize="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="5dp"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/text_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="5dp"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="2dp"
+                    android:text=" Rs. 12345  "
+                    android:textColor="@color/opaque_black"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/package_discount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/package_name"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/dottedstroke"
+                    android:gravity="center_horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="3dp"
+                    android:text="25% OFF 50% Coupen Discount"
+                    android:textColor="@color/green"
+                    android:textSize="8dp"
+
+                    />
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:gravity="left|bottom"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:text="Provided By : "
+                android:textColor="@color/grey"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+
+                <ImageView
+                    android:id="@+id/imgv_pack_lab"
+                    android:layout_width="91dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/tyrocare" />
+
+                <TextView
+                    android:id="@+id/txtv_add_package"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:gravity="left|center"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="15dp"
+                    android:text="Thyrocare Laboratories Ltd."
+                    android:textColor="@color/black_dark"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:gravity="left|bottom"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:text="Precautions : "
+                android:textColor="@color/grey"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:background="@color/light_yellow"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:gravity="left|bottom"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:text="Tests Included : "
+                android:textColor="@color/grey"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:gravity="left"
+                    android:text="Thyroid profile Total Kidney Panel\nLipid Profile\nIron Deficiency Profile\nVitamin B12\nLDL/HDL Ratio\nDiabetic Screen\nTotal Cholesterol/ HDL Cholesterol Ratio"
+                    android:textColor="@color/grey"
+                    android:textSize="10sp"
+                    android:padding="5dp"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:gravity="left"
+                    android:text="Thyroid profile Total Kidney Panel\nLipid Profile\nIron Deficiency Profile\nVitamin B12\nLDL/HDL Ratio\nDiabetic Screen\nTotal Cholesterol/ HDL Cholesterol Ratio"
+                    android:textColor="@color/grey"
+                    android:textSize="10sp"
+                    android:padding="5dp"
+                    android:layout_weight="1"/>
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:gravity="left|bottom"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:text="Package Overview : "
+                android:textColor="@color/grey"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:gravity="left"
+                    android:text="Thyroid profile Total Kidney Panel\nLipid Profile\nIron Deficiency Profile\nVitamin B12\nLDL/HDL Ratio\nDiabetic Screen\nTotal Cholesterol/ HDL Cholesterol Ratio"
+                    android:textColor="@color/grey"
+                    android:textSize="10sp"
+                    android:padding="5dp"
+                    android:layout_weight="1"/>
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="Book Package"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/bookpack"/>
+
+</RelativeLayout>
+

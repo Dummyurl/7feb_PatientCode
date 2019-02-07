@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appbackground">
+
+
+   <HorizontalScrollView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <LinearLayout
+           android:id="@+id/layout_test_selected"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:background="@color/colorPrimary"></LinearLayout>
+
+   </HorizontalScrollView>
+
+
+    <TextView
+        android:id="@+id/txt_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/padding_10"
+        android:drawablePadding="3dp"
+        android:drawableRight="@drawable/ic_plus_button"
+        android:text="location"
+        />
+
+    <LinearLayout
+        android:id="@+id/search_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/txt_location"
+        android:layout_margin="@dimen/padding_10"
+        android:background="@drawable/fb_button"
+        android:clickable="true">
+
+
+        <EditText
+            android:id="@+id/edit_search_lab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:background="@android:color/transparent"
+            android:drawableLeft="@drawable/places_ic_search"
+            android:drawablePadding="5dp"
+            android:focusableInTouchMode="true"
+            android:hint="Search Lab"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            android:maxLength="20"
+            android:padding="10dp"
+            android:textColor="@color/greyshade"
+            android:textColorHint="@color/greyshade"
+            android:textSize="14dp" />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/search_layout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/appbackground"
+        android:padding="10dp">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_lablist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <TextView
+            android:id="@+id/txt_not_found"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="@string/labs_not_found"/>
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/image_filter"
+        android:layout_alignParentBottom="true"
+        android:layout_width="30dp"
+        android:src="@drawable/ic_filter"
+        android:textColor="#ffffff"
+        android:layout_height="30dp"
+        android:padding="5dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:visibility="gone"/>
+
+
+
+
+</RelativeLayout>

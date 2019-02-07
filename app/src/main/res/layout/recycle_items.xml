@@ -1,0 +1,190 @@
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_round_rect"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:id="@+id/thumbnail_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_toLeftOf="@+id/active_image"
+            android:layout_toRightOf="@id/thumbnail_image"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginTop="5dp">
+
+            <TextView
+                android:id="@+id/recycle_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                tools:text="Title"
+                android:layout_weight="0.7"
+                android:maxEms="12"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:singleLine="true"/>
+
+            <TextView
+                android:id="@+id/dose_type"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textSize="10dp"
+                android:text="Dose type : Daily"
+                android:textColor="@color/grey"
+                android:layout_weight="0.7"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="15dp"/>
+            </LinearLayout>
+
+
+
+            <TextView
+                android:id="@+id/med_names"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textSize="10dp"
+                android:text="medicine name"
+                android:textColor="@color/grey"
+                android:layout_weight="1"
+                android:paddingTop="5dp"/>
+
+            <TextView
+                android:id="@+id/recycle_date_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/black"
+                tools:text="Date"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/morning"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:layout_weight="0.5"
+                    android:textSize="10dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/grey"
+                    tools:text="Morning"
+                    android:visibility="visible"
+                    android:paddingTop="2dp"/>
+                <TextView
+                android:id="@+id/afternoon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                    android:textAlignment="center"
+                    android:visibility="visible"
+
+                    android:textSize="10dp"
+                    android:layout_weight="0.5"
+
+                    android:textColor="@color/grey"
+                tools:text="Afternoon"
+                android:paddingTop="2dp"/>
+                <TextView
+                android:id="@+id/evening"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textSize="10dp"
+                    android:textAlignment="center"
+                    android:visibility="visible"
+
+
+                    android:textColor="@color/grey"
+                tools:text="Evening"
+                    android:layout_weight="0.5"
+
+                    android:paddingTop="2dp"/>
+                <TextView
+                android:id="@+id/night"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                    android:textAlignment="center"
+                    android:visibility="visible"
+
+
+                    android:textSize="10dp"
+                    android:layout_weight="0.5"
+                    android:textColor="@color/grey"
+                tools:text="Night"
+                android:paddingTop="2dp"/>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/active_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/ic_notifications_off_grey600_24dp"
+            android:visibility="gone" />
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/greyshade"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"></View>
+
+
+
+
+    </LinearLayout>

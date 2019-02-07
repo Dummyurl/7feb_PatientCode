@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.ziffytech">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission
+        android:name="android.permission.DUMP"
+        tools:ignore="ProtectedPermissions" />
+
+    <application
+        android:name=".activities.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_ziffy_logo_updated"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon,android:allowBackup"
+        tools:ignore="GoogleAppIndexingWarning">
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyACgd0-453D2itJBmrkjSB7zpz8eBXCCPY" />
+
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.ziffytech.util.GenericFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
+        <!--
+        <meta-data
+            android:name="com.payumoney.sdkui:plug-n-play:1.4.4"
+            android:value="">
+        </meta-data>
+        -->
+        <!--
+        AIzaSyBeJkckF86J-7gUYImpWfhw1qKDYB6hjXo
+        AIzaSyAHInaosZ-bxZ5cQ-VzOSWwdIsAKiEJT-Y
+        AIzaSyACgd0-453D2itJBmrkjSB7zpz8eBXCCPY
+        -->
+        <!-- AIzaSyCqoNhgryOjc69lv1GJwk1_PpeWoz5370A -->
+
+
+
+
+        <meta-data android:name="com.facebook.accountkit.ApplicationName"
+            android:value="@string/app_name" />
+        <meta-data android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/FACEBOOK_APP_ID" />
+        <meta-data android:name="com.facebook.accountkit.ClientToken"
+            android:value="@string/ACCOUNT_KIT_CLIENT_TOKEN" />
+
+
+        <activity
+            android:name="com.facebook.accountkit.ui.AccountKitActivity"
+            android:theme="@style/AppLoginTheme.Salmon"
+            tools:replace="android:theme" />
+
+        <meta-data android:name="com.facebook.accountkit.FacebookAppEventsEnabled"
+            android:value="true"/>
+
+
+        <activity android:name="com.facebook.accountkit.ui.AccountKitEmailRedirectActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="@string/ak_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+
+
+
+        <service android:name=".util.GPSTracker" />
+        <service android:name=".configfcm.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".configfcm.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!--
+     Set custom default icon. This is used when no icon is set for incoming notification messages.
+     See README(https://goo.gl/l4GJaQ) for more.
+        -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/second" />
+        <!--
+        Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+
+        <!--   <meta-data
+               android:name="com.facebook.sdk.ApplicationId"
+               android:value="@string/facebook_app_id" /> -->
+
+        <activity
+            android:name=".activities.MainActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.MapActivity" />
+        <activity android:name=".activities.Otppage" />
+        <activity
+            android:name=".activities.ListActivity"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.DetailsSalonActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.DetailsConsulationActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activities.ForgotPassword"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.TimeSlotActivity"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.ThanksActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activities.PersonInfoActivity"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.LoginActivity"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.RegisterActivity"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.UpdateProfileActivity"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.ChangePasswordActivity"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.MyAppointmentsActivity"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.SearchActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activities.LocationActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activities.FindDoctorActivity"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.MedicineOrderActivity"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.MedicineOrderAdressActivity"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.MedicalRecords"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.ChatActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.QuestionReplies"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.BookActivity"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.ProfileActivity"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".alarm.AlarmMe"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activities.RelativeProfile"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.AddMember"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".alarm.EditAlarm"
+            android:configChanges="orientation|screenSize"
+            android:label="Edit alarm"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".alarm.AlarmNotification"
+            android:configChanges="orientation|screenSize"
+            android:label="Alarm Notification"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".alarm.Preferences"
+            android:configChanges="orientation|screenSize"
+            android:label="Preferences" />
+        <activity
+            android:name=".activities.PersonalDetailsActivity"
+            android:configChanges="orientation"
+            android:label="PersonalDetailsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.AskQuestionActiivty"
+            android:configChanges="orientation"
+            android:label="PersonalDetailsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.AddQuestionActivity"
+            android:configChanges="orientation"
+            android:label="PersonalDetailsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.MedicationActivity"
+            android:configChanges="orientation"
+            android:label="PersonalDetailsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.MedicationAddActivity"
+            android:configChanges="orientation"
+            android:label="PersonalDetailsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.MyDoctorsActivity"
+            android:configChanges="orientation"
+            android:label="PersonalDetailsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.DoctorMainCategoriesActivity"
+            android:configChanges="orientation"
+            android:label="PersonalDetailsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.AskQuestionDetails"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".chat.UserChatActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Laucher Activity -->
+
+        <activity
+            android:name=".activities.SplashActivity"
+            android:configChanges="orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.PaymentActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activities.LifeStyleActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.MedicalDetails"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+
+        <!--
+        <receiver android:name=".activities.SmsReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+        -->
+
+        <receiver
+            android:name=".alarm.AlarmReceiver"
+            android:process=":remote" />
+        <receiver android:name=".alarm.BootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+
+        <provider
+            android:name=".chat.DataProvider"
+            android:authorities="com.ziffytech.provider"
+            android:exported="false" />
+
+        <activity
+            android:name=".remainder.ReminderAddActivity"
+            android:label="@string/title_activity_add_reminder" />
+        <activity
+            android:name=".remainder.ReminderEditActivity"
+            android:label="@string/title_activity_edit_reminder" />
+        <activity
+            android:name=".remainder.RemainderActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.ActivityViewImager"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+
+        <receiver android:name=".remainder.AlarmReceiver" />
+        <receiver android:name=".remainder.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <!--
+        <receiver android:name=".activities.SmsReceiver">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+        -->
+
+        <activity android:name=".booklab.location" />
+        <activity android:name=".booklab.SearchLabActivity" />
+        <activity android:name=".booklab.LabViewActivity" />
+        <activity android:name=".booklab.LabListActivity" />
+        <activity android:name=".booklab.RecommmendedTest" />
+        <activity android:name=".booklab.LabDetailList" />
+        <activity android:name=".activities.MasterWebView" />
+        <activity android:name=".remainder.EditRemainder" />
+        <activity android:name=".activities.ehrdump2" />
+        <activity android:name=".activities.Bookbycall" />
+        <activity android:name=".activities.ZiffyLabBooking" />
+        <activity android:name=".activities.TestingBooking" />
+        <activity
+            android:name=".activities.SelfTestserach"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activities.SelfLabSelectActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".activities.LabViewDetailActivity" />
+        <activity android:name=".activities.BillingActivity" />
+        <activity android:name=".activities.AppointmentDetailsActivity" />
+        <activity android:name=".activities.InvoicePDF" />
+        <activity android:name=".Wallet.WalletActivity" />
+        <activity android:name=".activities.WebviewActivity" />
+        <activity android:name=".Wallet.MyPayuDemoActivity" />
+        <activity android:name=".vaccination.VaccinationActivity" />
+        <activity android:name=".activities.AddressSelectcActivity" />
+        <activity android:name=".activities.LabTestHistoryActivity" />
+        <activity android:name="com.payumoney.sdkui.ui.activities.PayUmoneyActivity" />
+        <activity android:name="com.payumoney.core.SdkWebViewActivityNew" />
+        <activity android:name="com.payu.custombrowser.CBActivity" />
+        <activity android:name=".activities.AllMedicalReports" />
+        <activity android:name=".activities.TestResult" />
+        <activity android:name=".activities.PackageLabSelectActivity" />
+        <activity android:name=".activities.TestAppointmentList" />
+        <activity android:name=".Wallet.OfferScreen" />
+        <activity android:name=".thyrocare.PackageDetail" />
+        <activity android:name=".activities.OrderPrescribedMedicine" />
+        <activity android:name=".activities.MedicationHistory" />
+    </application>
+
+</manifest>

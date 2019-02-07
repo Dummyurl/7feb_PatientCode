@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/lab" />
+
+        <RelativeLayout
+            android:id="@+id/rel_startchat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/lltitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/rating"
+                        android:padding="5dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="name of doctor"
+                        android:textAllCaps="true"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/specilaity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/degree"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="speciality"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textSize="@dimen/text_small"
+                        android:layout_gravity="center"
+
+                        android:gravity="center_horizontal"/>
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lltitle"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:gravity="center_horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/degree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:textSize="@dimen/text_small"
+                    android:text="MBBS"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:layout_margin="5dp"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"/>
+
+
+                <TextView
+                    android:id="@+id/clinic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="2dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textSize="@dimen/text_small"
+                    android:text="Clinic name"/>
+
+
+            </LinearLayout>
+
+
+
+
+            <Button
+                android:id="@+id/book"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="true"
+                android:background="@color/white"
+                android:clickable="false"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="Start Chat"
+                android:textColor="@color/colorPrimary"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_below="@id/rtbProductRating"
+        android:layout_width="match_parent"
+         android:layout_marginTop="5dp"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/greyshade"
+            android:padding="5dp">
+
+        </View>
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="@color/white">
+
+    <com.ziffytech.util.RoundedImageView
+        android:id="@+id/avatar"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:padding="5dp"/>
+
+    <RelativeLayout
+        android:id="@+id/namell"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_toRightOf="@+id/avatar"
+        android:layout_height="wrap_content"
+        >
+
+        <github.ankushsachdeva.emojicon.EmojiconTextView
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/textonline"
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mahesh Bhople"
+            android:ellipsize="end"
+            android:textColor="@color/grey"
+            android:singleLine="true"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:paddingLeft="10dp"
+            />
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_height="wrap_content"
+            android:text="9"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:padding="5dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:background="@drawable/unread_count"
+            android:layout_toRightOf="@+id/avatar"
+            android:textSize="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:id="@+id/textlastseen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WED FEB 27 2016"
+            android:layout_centerVertical="true"
+
+            />
+
+        <TextView
+            android:layout_toLeftOf="@+id/textlastseen"
+            android:id="@+id/textonline"
+            android:layout_marginRight="4dp"
+            android:layout_width="9dp"
+            android:visibility="gone"
+            android:layout_height="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/unread_count"
+            />
+
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/msgll"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_below="@+id/namell"
+        android:layout_toRightOf="@+id/avatar"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/msg_view"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="5dp"
+
+            />
+
+        <github.ankushsachdeva.emojicon.EmojiconTextView
+            android:id="@+id/textlastmsg"
+            android:layout_width="match_parent"
+            android:textSize="10dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:textColor="@color/greyshade"
+            android:text="Hi"
+            android:padding="2dp"
+            android:layout_marginLeft="5dp"
+            android:singleLine="true"
+            />
+
+
+
+        <TextView
+            android:visibility="invisible"
+            android:id="@+id/textid"
+            android:layout_height="1dp"
+            android:text="1"
+            android:layout_width="1dp"
+            />
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

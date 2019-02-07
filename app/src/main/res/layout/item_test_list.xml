@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/txtv_detail_test_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lipid profile"
+        android:textSize="10dp"
+        android:textColor="@color/gray"
+        android:padding="5dp"
+        />
+
+</android.support.constraint.ConstraintLayout>

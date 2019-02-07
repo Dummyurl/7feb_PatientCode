@@ -1,0 +1,148 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="horizontal">
+
+        <TableRow
+            android:id="@+id/row2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:background="@color/colorPrimary"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:layout_weight="0.9"
+                android:padding="5dp"
+                android:background="@drawable/bg_rect_border"
+                android:text="Vaccine"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_weight="0.3"
+                android:padding="5dp"
+                android:text="Due on"
+                android:background="@drawable/bg_rect_border"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_weight="0.3"
+                android:padding="5dp"
+                android:text="Given on"
+                android:background="@drawable/bg_rect_border"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_weight="0.3"
+                android:padding="5dp"
+                android:text="Batch"
+                android:background="@drawable/bg_rect_border"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_weight="0.2"
+                android:background="@drawable/bg_rect_border"
+                android:padding="5dp"
+                android:text="Weight"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+        </TableRow>
+
+
+        <TableRow
+            android:id="@+id/row1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:background="@color/card_bg_color">
+
+            <TextView
+                android:id="@+id/vc_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:layout_weight="0.9"
+                android:padding="5dp"
+                android:background="@drawable/bg_rect_border"
+                android:text="-"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/vc_due_on_date"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_weight="0.3"
+                android:padding="5dp"
+                android:text="-"
+                android:background="@drawable/bg_rect_border"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/vc_given_on_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_weight="0.3"
+                android:padding="5dp"
+                android:text="-"
+                android:background="@drawable/bg_rect_border"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/vc_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_weight="0.3"
+                android:padding="5dp"
+                android:text="-"
+                android:background="@drawable/bg_rect_border"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+            <TextView
+                android:id="@+id/vc_batch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_weight="0.2"
+                android:background="@drawable/bg_rect_border"
+                android:padding="5dp"
+                android:text="-"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+        </TableRow>
+    </TableLayout>
+
+
+</RelativeLayout>

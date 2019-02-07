@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/padding_10"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        app:cardCornerRadius="3dp"
+        app:cardElevation="3dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_5"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/padding_5"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ziffytech"
+                    android:textStyle="bold|italic"
+                    android:textSize="16sp"
+                    android:padding="3dp"
+                    android:layout_weight="0.35"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/promocode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LAB100"
+                    android:padding="3dp"
+                    android:background="#f2b264"
+                    android:textStyle="normal"
+                    android:textSize="14sp"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/text_apply"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="APPLY"
+                    android:padding="3dp"
+                    android:layout_weight="0.35"
+                    android:textStyle="normal"
+                    android:textAlignment="textEnd"
+                    android:layout_marginRight="@dimen/padding_10"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+          <!--  <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Get ₹100 in your ziffy wallet"
+                android:textSize="12sp"
+                android:textColor="@color/grey"/>-->
+            <TextView
+               android:id="@+id/text_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Use code LAB100 to avail this offer."
+                android:textSize="12sp"
+                android:padding="@dimen/padding_5"
+                android:textColor="@color/greyshade"/>
+            <TextView
+                android:id="@+id/view_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View Details"
+                android:textSize="12sp"
+                android:padding="@dimen/padding_5"
+                android:textColor="@color/green"/>
+
+
+
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

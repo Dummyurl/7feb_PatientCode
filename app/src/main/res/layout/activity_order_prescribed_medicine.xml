@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appbackground"
+    >
+
+    <TextView
+        android:id="@+id/titleforlabtest"
+        android:layout_width="match_parent"
+        android:text="Prescribed Medicines "
+        android:textColor="@color/greyshade"
+        android:textSize="14sp"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:id="@+id/notfound"
+        android:layout_width="wrap_content"
+        android:text="No record found"
+        android:textColor="@color/greyshade"
+        android:textSize="16sp"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content" />
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="@dimen/padding_5"
+        android:layout_below="@+id/titleforlabtest">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_medicine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:textColor="@color/white"
+        android:text="Proceed"
+        android:background="@drawable/my_gradient_back"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+        android:textStyle="bold"/>
+
+
+</RelativeLayout>

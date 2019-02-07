@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/fb_button"
+        android:padding="1dp">
+
+
+        <RelativeLayout
+            android:layout_width="115dp"
+            android:layout_height="130dp"
+            android:background="@drawable/gray_stroke"
+            android:gravity="center"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/img_pak"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:src="@drawable/hometestpak" />
+
+
+            <TextView
+                android:id="@+id/package_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_pak"
+                android:layout_centerInParent="true"
+                android:ellipsize="end"
+                android:maxLength="16"
+                android:maxLines="1"
+                android:textAllCaps="true"
+                android:textSize="10dp"
+                android:textStyle="bold"
+                android:text=""/>
+
+            <TextView
+                android:id="@+id/package_test_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/package_name"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="@dimen/dimen_2dp"
+                android:paddingBottom="5dp"
+                android:textSize="10dp"
+
+                />
+
+
+            <TextView
+                android:id="@+id/package_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/package_test_count"
+                android:layout_centerInParent="true"
+                android:padding="1dp"
+                android:textAllCaps="true"
+                android:textSize="10dp" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

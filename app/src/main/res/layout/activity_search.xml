@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_search"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appbackground">
+
+
+    <ScrollView
+        android:id="@+id/scrollView5"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp"
+        android:scrollbars="none"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="25dp">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:text="Sort By "
+                android:padding="5dp"
+                android:layout_marginTop="10dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="@color/grey"
+                android:padding="2dp"></View>
+
+            <RadioGroup
+                android:id="@+id/radiosort"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                android:weightSum="2">
+
+
+                <RadioButton
+                    android:id="@+id/newest"
+                    android:layout_width="wrap_content"
+                    android:text="Nearest"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:id="@+id/popularity"
+                    android:layout_width="wrap_content"
+                    android:text="Popularity"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+
+                <RadioButton
+                    android:id="@+id/price_high_to_low"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Fee - High to Low" />
+
+                <RadioButton
+                    android:id="@+id/price_low_to_high"
+                    android:layout_width="wrap_content"
+                    android:text="Fee - Low to High"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:text="Filter By "
+                android:padding="5dp"
+                android:layout_marginTop="10dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:background="@color/grey"
+                android:padding="2dp"></View>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:visibility="gone">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="@string/cover_area" />
+                <TextView
+                    android:layout_width="50dp"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textArea"
+                    />
+
+            </LinearLayout>
+
+            <SeekBar
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/seekBar"
+                android:visibility="gone"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Consultation Fee"
+                    android:textColor="@color/black"
+                    />
+                <TextView
+                    android:layout_width="50dp"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textAreaFee"
+                    />
+
+            </LinearLayout>
+
+            <SeekBar
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/seekBarFee"
+                android:visibility="gone"/>
+
+            <RadioGroup
+                android:id="@+id/radiofee"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content"
+                android:weightSum="2">
+
+
+                <RadioButton
+                    android:id="@+id/fee"
+                    android:layout_width="wrap_content"
+                    android:text="Free"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:id="@+id/min"
+                    android:layout_width="wrap_content"
+                    android:text="0 - 200"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+
+                <RadioButton
+                    android:id="@+id/mid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="200 - 500" />
+
+                <RadioButton
+                    android:id="@+id/high"
+                    android:layout_width="wrap_content"
+                    android:text="500 +"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+            </RadioGroup>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ratings"
+                android:textColor="@color/black"
+                android:paddingTop="@dimen/padding_10"
+                android:visibility="gone"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/padding_10"
+                android:paddingBottom="@dimen/padding_10"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textAreaRating"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    />
+
+                <SeekBar
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/seekBarRating" />
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Availability"
+                android:textColor="@color/black"
+                android:padding="10dp"/>
+
+            <RadioGroup
+                android:id="@+id/radioAvail"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:weightSum="2">
+
+
+                <RadioButton
+                    android:id="@+id/today"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Today"
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:id="@+id/tomorrow"
+                    android:layout_width="wrap_content"
+                    android:text="Tomorrow"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+
+                <RadioButton
+                    android:visibility="gone"
+                    android:id="@+id/home"
+                    android:layout_width="wrap_content"
+                    android:text="Home"
+                    android:layout_height="wrap_content" />
+
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gender"
+                android:textColor="@color/black"
+                android:padding="10dp"/>
+
+            <RadioGroup
+                android:id="@+id/radioGender"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:layout_marginBottom="65dp">
+
+
+                <RadioButton
+                    android:id="@+id/male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Male  "
+                    android:checked="true"/>
+
+                <RadioButton
+                    android:id="@+id/female"
+                    android:layout_width="wrap_content"
+                    android:text="Female"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+
+            </RadioGroup>
+
+
+
+            <AutoCompleteTextView
+                android:visibility="gone"
+                android:id="@+id/search_keyword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_search"
+                android:textSize="@dimen/text_normal"
+                android:background="@drawable/edittext_shadow"
+                android:textColorHint="@color/colorTextDarkGray"/>
+
+
+            <!-- <LinearLayout
+                 android:visibility="gone"
+                 android:layout_marginTop="@dimen/padding_10"
+                 android:clickable="true"
+                 android:onClick="LocalityViewClick"
+                 android:id="@+id/search_layout"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:background="@drawable/edittext_shadow">
+                 <TextView
+                     android:id="@+id/chooseLocality"
+                     android:layout_weight="1"
+                     android:layout_width="0dp"
+                     android:textSize="@dimen/text_normal"
+                     android:layout_height="wrap_content"
+                     android:text="@string/choose_locality"
+                     android:textColor="@color/colorTextDarkGray"
+                     android:layout_gravity="center_vertical"
+                     />
+                 &lt;!&ndash;<ImageView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:src="@drawable/places_ic_search"/>&ndash;&gt;
+             </LinearLayout>-->
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Switch
+                    android:text="@string/allow_nearby"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/switch1"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+    <Button
+        android:onClick="SearchButtonClick1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/search"
+        android:textColor="@color/colorTextWhite"
+        android:background="@drawable/my_gradient_back"
+        android:id="@+id/filterserachbutton"
+        />
+
+
+</RelativeLayout>
