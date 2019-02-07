@@ -30,7 +30,7 @@ public class AATextToSpeech extends CommonActivity implements TextToSpeech.OnIni
 
         tts = new TextToSpeech(this, this);
 
-         btnSpeak = (Button) findViewById(R.id.btnSpeak);
+        btnSpeak = (Button) findViewById(R.id.btnSpeak);
 
         txtText = (EditText) findViewById(R.id.editText);
 
