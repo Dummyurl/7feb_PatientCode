@@ -1,8 +1,10 @@
 <component name="libraryTable">
   <library name="Gradle: com.daimajia.androidanimations:library-1.0.3">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-1.0.3.aar/2578f2aa595f8562dabf3f26d9f4452e/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-1.0.3.aar/2578f2aa595f8562dabf3f26d9f4452e/jars/classes.jar!/" />
+
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-1.0.3.aar/713901be1a549ba153fe31bdd4a34eed/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-1.0.3.aar/713901be1a549ba153fe31bdd4a34eed/res" />
+
     </CLASSES>
     <JAVADOC />
     <SOURCES>

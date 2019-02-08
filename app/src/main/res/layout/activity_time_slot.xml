@@ -46,6 +46,7 @@
                             android:layout_margin="10dp"
                             android:adjustViewBounds="true"
                             android:scaleType="fitXY"
+                            android:background="@drawable/circle"
                             />
 
                         <LinearLayout
