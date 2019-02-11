@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:id="@+id/relative">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@color/colorPrimary">
+
+
+
+                <LinearLayout
+                    android:id="@+id/appBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/AppTheme.AppBarOverlay"
+                    android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/white"
+                            android:id="@+id/txtv_todays_date"
+                            android:layout_marginBottom="15dp"
+                            android:paddingLeft="20dp"
+                            android:textSize="16dp"
+                            android:textStyle="bold"/>
+
+
+                        <devs.mulham.horizontalcalendar.HorizontalCalendarView
+                            android:id="@+id/calendarView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:textColorSelected="#FFFF"
+                            app:sizeBottomText="11dp"
+                            app:sizeMiddleText="12dp"
+                            app:sizeTopText="11dp"/>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Free sample collection : A Phlebotomist will visit at selected time to collect samples"
+                                    android:padding="15dp"
+                                    android:textColor="@color/red"
+                                    android:textSize="12dp"
+                                    android:layout_gravity="left"
+                                    android:gravity="left"
+                                    android:id="@+id/label_inst"/>
+
+                                <android.support.v7.widget.RecyclerView
+                                    android:layout_margin="5dp"
+                                    android:padding="5dp"
+                                    android:id="@+id/recyclerview_timeslot"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/label_inst">
+
+                                </android.support.v7.widget.RecyclerView>
+
+                        </RelativeLayout>
+
+
+
+
+
+                </LinearLayout>
+
+        </ScrollView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@drawable/ic_correct"
+            android:visibility="gone"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:weightSum="3"
+            android:orientation="horizontal"
+            android:background="@drawable/shadow"
+            android:padding="15dp"
+            >
+
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:text="1"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/circle"
+                    android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:id="@+id/cartcount"
+                    android:textSize="12dp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10dp"
+                    android:text="Test Selected \nThyrocare Laboratories Ltd. Lab"
+                    android:layout_weight="0.5"
+                    android:layout_gravity="center"
+                    android:gravity="center|left"
+                    android:paddingLeft="10dp"
+                    android:textStyle="bold"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Go to cart"
+                    android:layout_gravity="center"
+                    android:gravity="center|right"
+                    android:padding="5dp"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    android:layout_weight="2"
+                    android:textAllCaps="true"
+                    android:id="@+id/txtv_gocart"/>
+
+
+        </LinearLayout>
+
+
+</RelativeLayout>

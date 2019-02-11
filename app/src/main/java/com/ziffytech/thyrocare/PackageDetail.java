@@ -48,7 +48,6 @@ public class PackageDetail extends CommonActivity implements View.OnClickListene
     SharedPreferences.Editor editor;
     String key = "Key";
     TextView cartcount;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -101,8 +100,6 @@ public class PackageDetail extends CommonActivity implements View.OnClickListene
     {
         //Intent i = new Intent(PackageDetail.this,Timeslotforthyro.class);
         //startActivity(i);
-
-
         HashMap<String, String> params2 = new HashMap<String, String>();
         params2.put("thyro_profile_id",detailmodel.getThyro_profile_id());
         params2.put("test_code",detailmodel.getTest_code_Detail());

@@ -304,6 +304,7 @@
     <orderEntry type="library" name="Gradle: com.daimajia.androidanimations:library:1.0.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-lite-license:12.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.daimajia.slider:library:1.1.5@aar" level="project" />
+    <orderEntry type="library" name="Gradle: devs.mulham.horizontalcalendar:horizontalcalendar:1.3.4@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.astuetz:pagerslidingtabstrip:1.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-gass:12.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.android:facebook-messenger:4.39.0@aar" level="project" />
