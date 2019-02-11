@@ -9,6 +9,7 @@ import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,12 +19,24 @@ import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.Volley;
+
+
 import com.google.firebase.messaging.FirebaseMessaging;
+
+import com.google.gson.Gson;
 import com.ziffytech.Config.ApiParams;
 import com.ziffytech.Config.ConstValue;
 import com.ziffytech.R;
+import com.ziffytech.activities.CustomRequestForString;
 import com.ziffytech.activities.LoginActivity;
 import com.ziffytech.models.ActiveModels;
+import com.ziffytech.thyrocare.Allthyropackageslisting;
+import com.ziffytech.thyrocare.CartDetailModel;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,6 +51,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Locale;
 
+import static com.ziffytech.util.Preferences.MyPREFERENCES;
+
 /**
  * Created by LENOVO on 4/20/2016.
  */
@@ -45,6 +60,16 @@ public class CommonClass {
     Activity activity;
     public SharedPreferences settings;
     ProgressDialog dialog;
+    CartDetailModel model;
+    String key = "Key";
+    ArrayList<CartDetailModel> ModelArrayList=new ArrayList();
+    SharedPreferences shref;
+    SharedPreferences.Editor editor;
+    ArrayList<CartDetailModel> cartmodelArraylist;
+    String cartelementcart;
+
+
+
     public CommonClass(Activity activity){
         this.activity = activity;
         settings = activity.getSharedPreferences(ApiParams.PREF_NAME, 0);
@@ -198,27 +223,27 @@ public class CommonClass {
     public Double get_service_total_amount(){
         Double totalAmount = 0.0;
 
-            //JSONArray jArray = new JSONArray(getSession(ApiParams.PRICE_CART));
-            if (ActiveModels.LIST_SERVICES_MODEL != null) {
-                for (int i = 0; i < ActiveModels.LIST_SERVICES_MODEL.size(); i++) {
-                    if (ActiveModels.LIST_SERVICES_MODEL.get(i).isChecked())
-                        totalAmount = totalAmount + Double.parseDouble(ActiveModels.LIST_SERVICES_MODEL.get(i).getDiscountAmount());
-                }
+        //JSONArray jArray = new JSONArray(getSession(ApiParams.PRICE_CART));
+        if (ActiveModels.LIST_SERVICES_MODEL != null) {
+            for (int i = 0; i < ActiveModels.LIST_SERVICES_MODEL.size(); i++) {
+                if (ActiveModels.LIST_SERVICES_MODEL.get(i).isChecked())
+                    totalAmount = totalAmount + Double.parseDouble(ActiveModels.LIST_SERVICES_MODEL.get(i).getDiscountAmount());
             }
+        }
 
         return  totalAmount;
     }
     public String get_service_total_times(){
         String time = "00:00:00";
         //String[] timesplit = null;
-            //JSONArray jArray = new JSONArray(getSession(ApiParams.PRICE_CART));
-            if (ActiveModels.LIST_SERVICES_MODEL != null) {
-                for (int i = 0; i < ActiveModels.LIST_SERVICES_MODEL.size(); i++) {
-                    if (ActiveModels.LIST_SERVICES_MODEL.get(i).isChecked())
-                        time = totalTime(time, ActiveModels.LIST_SERVICES_MODEL.get(i).getBusiness_approxtime());
-                }
+        //JSONArray jArray = new JSONArray(getSession(ApiParams.PRICE_CART));
+        if (ActiveModels.LIST_SERVICES_MODEL != null) {
+            for (int i = 0; i < ActiveModels.LIST_SERVICES_MODEL.size(); i++) {
+                if (ActiveModels.LIST_SERVICES_MODEL.get(i).isChecked())
+                    time = totalTime(time, ActiveModels.LIST_SERVICES_MODEL.get(i).getBusiness_approxtime());
             }
-            //timesplit = time.split(":");
+        }
+        //timesplit = time.split(":");
 
         return  time;
     }
@@ -435,4 +460,92 @@ public class CommonClass {
                 elapsedHours, elapsedMinutes, elapsedSeconds);
 
     }
+
+    public void GetCartDetails(Activity context)
+    {
+
+
+        shref = context.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        editor = shref.edit();
+
+        model = new CartDetailModel();
+
+        HashMap<String, String> params3 = new HashMap<String, String>();
+        String userid = getSession("user_id");
+        params3.put("user_id",userid);
+        Toast.makeText(context, ""+userid, Toast.LENGTH_SHORT).show();
+        CustomRequestForString customRequestForString3 = new CustomRequestForString(Request.Method.POST, ApiParams.CARTDETAIL, params3, this.createRequestSuccessListenerCartDetail(), this.createRequestErrorListenerCartDetail());
+        RequestQueue requestQueue3 = Volley.newRequestQueue(context);
+        requestQueue3.add(customRequestForString3);
+
+    }
+
+
+    /********************************** Cart Detail *******************************************************************/
+
+
+    private Response.Listener<String> createRequestSuccessListenerCartDetail()
+    {
+        return new Response.Listener<String>()
+        {
+            @Override
+            public void onResponse(String response)
+            {
+
+                Log.e("Billing_Detail_THYRO", response.toString());
+
+                cartmodelArraylist = new ArrayList<>();
+
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+
+                    int result = jsonObject.getInt("status");
+
+                    JSONArray jsonArray = jsonObject.getJSONArray("card_total");
+                    JSONArray jsonArray2 = jsonObject.getJSONArray("info");
+                    cartelementcart = String.valueOf(jsonArray2.length());
+
+                    Log.e("CartCount",cartelementcart);
+                    model.setElementsincart(cartelementcart);
+
+                    for (int i = 0; i < jsonArray.length(); i++)
+                    {
+                        JSONObject object = jsonArray.getJSONObject(i);
+                        model.setTotal(object.getInt("total"));
+                        model.setSubtotal(object.getInt("subtotal"));
+                        model.setDiscount(object.getInt("discount"));
+                        cartmodelArraylist.add(model);
+                    }
+
+                    Gson gson = new Gson();
+                    String json = gson.toJson(cartmodelArraylist);
+                    editor.putString(key, json);
+                    editor.commit();
+
+                } catch (JSONException e)
+                {
+                    e.printStackTrace();
+                }
+
+            }
+        };
+    }
+
+    private Response.ErrorListener createRequestErrorListenerCartDetail()
+    {
+        return new Response.ErrorListener()
+        {
+            @Override
+            public void onErrorResponse(VolleyError error)
+            {
+                Log.i("##", "##" + error.toString());
+                //App.showAlert("Something Went Wrong, Please Try again",MultiTestSearchActivity.this);
+            }
+        };
+    }
+
+
+
+    /***********************************************************************************************************************************/
+
 }

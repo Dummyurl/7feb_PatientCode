@@ -26,6 +26,9 @@ import com.ziffytech.R;
 import com.ziffytech.booklab.RecommmendedTest;
 import com.ziffytech.booklab.models.SelectedPackageModel;
 import com.ziffytech.models.PackageModel;
+import com.ziffytech.thyrocare.Allthyropackageslisting;
+import com.ziffytech.thyrocare.ThyroPackageAdapter;
+import com.ziffytech.thyrocare.TopfivepickModel;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -47,6 +50,11 @@ public class ZiffyLabBooking extends CommonActivity implements View.OnClickListe
     GridLayoutManager layoutManager;
     ArrayList<SelectedPackageModel> arrayPAckage = new ArrayList<>();
 
+    ArrayList<TopfivepickModel> tyro5modelArrayList;
+    RecyclerView recyclerViewPackage2;
+    LinearLayoutManager layoutManager2;
+    TextView seeall;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,9 +64,12 @@ public class ZiffyLabBooking extends CommonActivity implements View.OnClickListe
         txtv_test_available = (Button) findViewById(R.id.txtv_test_available);
         txtv_test_available.setOnClickListener(this);
 
+        seeall = (TextView)findViewById(R.id.seeall);
+        seeall.setOnClickListener(this);
+
         recyclerViewPackage = (RecyclerView) findViewById(R.id.recyclerview_package);
-        layoutManager = new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false);
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        layoutManager = new GridLayoutManager(this, 1, GridLayoutManager.HORIZONTAL, false);
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerViewPackage.setHasFixedSize(true);
         recyclerViewPackage.setLayoutManager(layoutManager);
 
@@ -68,6 +79,18 @@ public class ZiffyLabBooking extends CommonActivity implements View.OnClickListe
         RequestQueue requestQueue1 = Volley.newRequestQueue(this);
         requestQueue1.add(customRequestForString1);
         showPrgressBar();
+
+
+        recyclerViewPackage2 = (RecyclerView) findViewById(R.id.recyclerview_package_thyro);
+        layoutManager2 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        layoutManager2.setOrientation(LinearLayoutManager.HORIZONTAL);
+        recyclerViewPackage2.setHasFixedSize(true);
+        recyclerViewPackage2.setLayoutManager(layoutManager2);
+
+        HashMap<String, String> params2 = new HashMap<String, String>();
+        CustomRequestForString customRequestForString2 = new CustomRequestForString(Request.Method.POST, ApiParams.GET_THYRO_5_PACKAGES, params2, this.createRequestSuccessListenerThyropack(), this.createRequestErrorListenerThyropack());
+        RequestQueue requestQueue2 = Volley.newRequestQueue(this);
+        requestQueue2.add(customRequestForString2);
 
 
         Intent iin = getIntent();
@@ -92,82 +115,8 @@ public class ZiffyLabBooking extends CommonActivity implements View.OnClickListe
 
     }
 
-    /*private void getAlllabtest()
-    {
-        al_lab_id.clear();
-        al_lab_category.clear();
-        al_lab_test_name.clear();
 
-        String base = "https://www.ziffytech.com/admin/Lab_api/get_tests_all";
 
-        AsyncHttpClient client =  new AsyncHttpClient();
-        RequestParams params = new RequestParams();
-        client.post(base, params, new AsyncHttpResponseHandler()
-        {
-            @TargetApi(Build.VERSION_CODES.KITKAT)
-            @Override
-            public void onSuccess(String items)
-            {
-                try
-                {
-                    JSONObject root = new JSONObject(items);
-                    //String message = root.optString("message");
-                    String Status = root.optString("responce");
-                    JSONArray arr = root.getJSONArray("data");
-                    for (int i = 0; i < arr.length(); i++)
-                    {
-                        JSONObject obj = (JSONObject) arr.get(i);
-
-                        al_lab_id.add("" + obj.optString("id"));
-                        al_lab_category.add("" + obj.optString("category"));
-                        al_lab_test_name.add("" + obj.optString("test_name"));
-
-                        Toast.makeText(ZiffyLabBooking.this, ""+al_lab_test_name, Toast.LENGTH_SHORT).show();
-
-                        SetAdapter();
-
-                    }
-
-                } catch (JSONException e)
-                {
-                    e.printStackTrace();
-                    //Toast.makeText(Productpage.this, " "+e, Toast.LENGTH_LONG).show();
-                }
-            }
-            @Override
-            public void onFailure(int statusCode, Throwable error, String content)
-            {
-                Toast.makeText(ZiffyLabBooking.this, "Please wait , Server Currently Busy...", Toast.LENGTH_LONG).show();
-                //progressBar.setVisibility(View.GONE);
-            }
-        });
-    }
-
-    private void SetAdapter()
-    {
-        testlistadapter = new Adaptertestlist(ZiffyLabBooking.this,al_lab_id,al_lab_category,al_lab_test_name);
-        simpleGrid.setAdapter(testlistadapter);
-        editSearchlab.addTextChangedListener(this);
-        //pd.dismiss();
-    }*/
-
-    public void setrecomonded(int[] imgpath_orignal) {
-        LinearLayout rec = (LinearLayout) findViewById(R.id.hori_recom);
-        //ViewGroup.LayoutParams params=new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(200, 200);
-        // for(int g=0;g<5;g++)
-        for (int g = 0; g < imgpath_orignal.length; g++) {
-            ImageView recimg = new ImageView(ZiffyLabBooking.this);
-            recimg.setId(g + 1);
-            recimg.setPadding(25, 10, 10, 10);
-            //Toast.makeText(New_Detailactivity.this,"Hi............", Toast.LENGTH_SHORT).show();
-            recimg.setImageResource(imgpath_orignal[g]);
-            // recimg.setImageResource(R.drawable.carwalelogo);
-            recimg.setLayoutParams(params);
-            rec.addView(recimg);
-        }
-
-    }
 
     @Override
     public void onClick(View v) {
@@ -180,28 +129,17 @@ public class ZiffyLabBooking extends CommonActivity implements View.OnClickListe
             startActivity(i);
         }
 
-    }
-    /*@Override
-    public void beforeTextChanged(CharSequence s, int start, int count, int after)
-    {
+        if(v.getId() == R.id.seeall)
+        {
+            Intent i = new Intent(ZiffyLabBooking.this, Allthyropackageslisting.class);
+            startActivity(i);
+        }
 
     }
-    @Override
-    public void onTextChanged(CharSequence s, int start, int before, int count)
+
+
+    private Response.Listener<String> createRequestSuccessListenerPackage()
     {
-        String search = editSearchlab.getText().toString();
-        testlistadapter.getFilter().filter(search);
-        testlistadapter.notifyDataSetChanged();
-    }
-
-    @Override
-    public void afterTextChanged(Editable s)
-    {
-
-    }*/
-
-
-    private Response.Listener<String> createRequestSuccessListenerPackage() {
         return new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -250,35 +188,27 @@ public class ZiffyLabBooking extends CommonActivity implements View.OnClickListe
                             @Override
                             public void onItemClick(View view, int position) {
                                 arrayPAckage.clear();
+
                                 SelectedPackageModel selectedModel = new SelectedPackageModel();
 
                                 PackageModel packageModel = packageModelArrayList.get(position);
 
                                 Log.e("MODEL_PACKAGE", String.valueOf(packageModel));
-
                                 selectedModel.setTest_code(packageModel.getTest_code());
                                 Log.e("SELCTED_PCKG_ID", packageModel.getTest_code());
-
                                 selectedModel.setPrice(packageModel.getTest_price());
                                 Log.e("SELCTED_PCKG_PRICE", packageModel.getTest_price());
-
                                 selectedModel.setNames(packageModel.getProf_name());
                                 Log.e("SELCTED_PCKG_NAME", packageModel.getProf_name());
-
-
                                 selectedModel.setTest_names(packageModel.getTest_name());
                                 Log.e("SELCTED_PCKG_NAME", packageModel.getTest_name());
-
                                 selectedModel.setLab_test_id(packageModel.getProf_id());
                                 Log.e("SELECTEDLAB_TEST_ID", packageModel.getProf_id());
-
-
                                 selectedModel.setISTestProfile("P");
 
-
                                 arrayPAckage.add(selectedModel);
-                                Log.e("SELECTED PACKAGE", "" + arrayPAckage);
 
+                                Log.e("SELECTED PACKAGE", "" + arrayPAckage);
 
                                 Intent intent = new Intent(ZiffyLabBooking.this, PackageLabSelectActivity.class);
                                 intent.putExtra("test", new Gson().toJson(arrayPAckage).toString());
@@ -291,24 +221,22 @@ public class ZiffyLabBooking extends CommonActivity implements View.OnClickListe
                                 Log.e("PCKG", new Gson().toJson(arrayPAckage).toString());
                                 startActivity(intent);
 
-
                             }
                         });
 
-
                     }
 
-                } catch (JSONException e) {
+                } catch (JSONException e)
+                {
                     e.printStackTrace();
                 }
-
 
             }
         };
     }
 
-
-    private Response.ErrorListener createRequestErrorListenerPackage() {
+    private Response.ErrorListener createRequestErrorListenerPackage()
+    {
         return new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
@@ -318,4 +246,81 @@ public class ZiffyLabBooking extends CommonActivity implements View.OnClickListe
             }
         };
     }
+
+
+    private Response.Listener<String> createRequestSuccessListenerThyropack()
+    {
+        return new Response.Listener<String>()
+        {
+            @Override
+            public void onResponse(String response)
+            {
+
+                Log.e("PACKAGE_RESPONSE_THYRO", response.toString());
+                tyro5modelArrayList = new ArrayList<>();
+
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    String result = jsonObject.getString("status");
+
+
+                    JSONArray jsonArray = jsonObject.getJSONArray("data");
+
+                    for (int i = 0; i < jsonArray.length(); i++)
+                    {
+
+                        JSONObject object = jsonArray.getJSONObject(i);
+
+                        TopfivepickModel topfivemodel = new TopfivepickModel();
+
+                        topfivemodel.setThyro_profile_id(object.getString("thyro_profile_id"));
+                        Log.e("profile_id", object.getString("thyro_profile_id"));
+
+                        topfivemodel.setTest_code(object.getString("test_code"));
+                        Log.e("Test_code", object.getString("test_code"));
+
+                        topfivemodel.setName(object.getString("name"));
+                        Log.e("Name", object.getString("name"));
+
+                        topfivemodel.setActual_amount(object.getString("actual_amount"));
+                        Log.e("Actual_amount", object.getString("actual_amount"));
+
+                        topfivemodel.setTest_count(object.getInt("test_count"));
+                        Log.e("Test_count", String.valueOf(object.getInt("test_count")));
+
+                        topfivemodel.setZiffy_profile_price(object.getString("ziffy_profile_price"));
+                        Log.e("Ziffy_profile_price", object.getString("ziffy_profile_price"));
+
+                        tyro5modelArrayList.add(topfivemodel);
+                        Log.e("Arraylist", String.valueOf(tyro5modelArrayList));
+                    }
+
+                    ThyroPackageAdapter packageAdapter = new ThyroPackageAdapter(ZiffyLabBooking.this, tyro5modelArrayList);
+                    recyclerViewPackage2.setAdapter(packageAdapter);
+
+
+                } catch (JSONException e)
+                {
+                    e.printStackTrace();
+                }
+
+            }
+        };
+    }
+
+    private Response.ErrorListener createRequestErrorListenerThyropack()
+    {
+        return new Response.ErrorListener()
+        {
+            @Override
+            public void onErrorResponse(VolleyError error)
+            {
+                Log.i("##", "##" + error.toString());
+                hideProgressBar();
+                //App.showAlert("Something Went Wrong, Please Try again",MultiTestSearchActivity.this);
+            }
+        };
+    }
+
+
 }

@@ -12,6 +12,24 @@ package com.ziffytech.Config;
 
 public class ApiParams
 {
+
+
+ /************************Thyro API******************************/
+ public static String Thyrocare = "thyrocare_api";
+
+ public  static String GET_THYRO_5_PACKAGES = ConstValue.BASE_URL+Thyrocare+"/get_popular_package";
+ public  static String GETALLTHYROPACK = ConstValue.BASE_URL+Thyrocare+"/all_thyrocare_packages";
+ public static String PACK_DETAIL = ConstValue.BASE_URL+Thyrocare+"/package_details";
+ public static String GETTIMESLOT = ConstValue.BASE_URL+Thyrocare+"/get_time_slot";
+
+ /*****************Cart Api Thyro**************************/
+
+ public static String ADDTOCART = ConstValue.BASE_URL+Thyrocare+"/add_to_card";
+ public static String REMOVETOCART = ConstValue.BASE_URL+Thyrocare+"/remove_card";
+ public static String REMOVEFROMCART = ConstValue.BASE_URL+Thyrocare+"/remove_card";
+ public static String CARTDETAIL = ConstValue.BASE_URL+Thyrocare+"/card_details";
+ public static String BILLINGDETAIL = ConstValue.BASE_URL+Thyrocare+"/billing_details_api";
+
  public static final String VER_CODE ="https://www.ziffytech.com/admin/api/version_app" ;
 
 
@@ -69,7 +87,7 @@ public class ApiParams
  public static String REGISTER_URL = ConstValue.BASE_URL+"/index.php/"+API_V+"/signup";
  public static String BOOKAPPOINTMENT_URL = ConstValue.BASE_URL+"/index.php/"+API_V+"/add_appointment";
  public static String CHANGE_PASSWORD_URL = ConstValue.BASE_URL+"/index.php/"+API_V+"/change_password";
- public static String FORGOT_PASSWORD_URL = ConstValue.BASE_URL+API_V+"/forgot_password_mail_for_user";
+ public static String FORGOT_PASSWORD_URL = ConstValue.BASE_URL+"/index.php/"+API_V+"/forgot_password_mail_for_user";
  public static String USERDATA_URL = ConstValue.BASE_URL+"/index.php/"+API_V+"/get_userdata";
  public static String UPDATEPROFILE_URL = ConstValue.BASE_URL+"/index.php/"+API_V+"/update_profile";
  // public static String MYAPPOINTMENTS_URL = ConstValue.BASE_URL+"/index.php/"+API_V+"/my_appointments";
@@ -105,9 +123,6 @@ public class ApiParams
  // http://13.127.253.100:90/admin/Lab_api/blood_report_list_for_apinew
  public  static String TEST_APP_CANCEL= ConstValue.BASE_URL+"/api_n/cancel_lab_test_appointment";
  public static String GET_MEDICAL_HISTORY=ConstValue.BASE_URL;
-
- public  static String GET_OTP_SMS = ConstValue.BASE_URL+API_V+"/app_smsziffy";
-
 
  /**PATIENT CONSULT API****/
 
@@ -169,9 +184,6 @@ public class ApiParams
  public static String INJURIES = "INJURIES";
  public static String CHRONIC = "CHRONIC";
 
- public static String OTP = "otp";
- public static String EHR = "ehr";
-
  public static String VERSION = "patient_ver_code";
 
  public static String CURRENT_CITY = "city";
@@ -188,13 +200,6 @@ public class ApiParams
  public static String LAB_NOTIFICATION = "";
 
 
-
-
- /************************Thyro API******************************/
- public static String Thyrocare = "/thyrocare_api";
-
- public  static String GET_THYRO_5_PACKAGES = ConstValue.BASE_URL+Thyrocare+"/get_popular_package";
- public  static String GETALLTHYROPACK = ConstValue.BASE_URL+Thyrocare+"+/all_thyrocare_package";
 
 
 

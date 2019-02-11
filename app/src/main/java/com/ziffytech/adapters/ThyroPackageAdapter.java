@@ -16,7 +16,6 @@ import com.ziffytech.Config.ConstValue;
 import com.ziffytech.R;
 import com.ziffytech.activities.ZiffyLabBooking;
 import com.ziffytech.models.TopfivepickModel;
-import com.ziffytech.thyrocare.PackageDetail;
 
 import java.util.ArrayList;
 
