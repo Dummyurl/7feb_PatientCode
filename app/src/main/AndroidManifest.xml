@@ -27,15 +27,14 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:icon,android:allowBackup"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:icon,android:allowBackup">
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyACgd0-453D2itJBmrkjSB7zpz8eBXCCPY" />
-
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -44,7 +43,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths"/>
+                android:resource="@xml/provider_paths" />
         </provider>
         <!--
         <meta-data
@@ -59,36 +58,35 @@
         -->
         <!-- AIzaSyCqoNhgryOjc69lv1GJwk1_PpeWoz5370A -->
 
-
-
-
-        <meta-data android:name="com.facebook.accountkit.ApplicationName"
+        <meta-data
+            android:name="com.facebook.accountkit.ApplicationName"
             android:value="@string/app_name" />
-        <meta-data android:name="com.facebook.sdk.ApplicationId"
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/FACEBOOK_APP_ID" />
-        <meta-data android:name="com.facebook.accountkit.ClientToken"
+        <meta-data
+            android:name="com.facebook.accountkit.ClientToken"
             android:value="@string/ACCOUNT_KIT_CLIENT_TOKEN" />
-
 
         <activity
             android:name="com.facebook.accountkit.ui.AccountKitActivity"
             android:theme="@style/AppLoginTheme.Salmon"
             tools:replace="android:theme" />
 
-        <meta-data android:name="com.facebook.accountkit.FacebookAppEventsEnabled"
-            android:value="true"/>
-
+        <meta-data
+            android:name="com.facebook.accountkit.FacebookAppEventsEnabled"
+            android:value="true" />
 
         <activity android:name="com.facebook.accountkit.ui.AccountKitEmailRedirectActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="@string/ak_login_protocol_scheme" />
             </intent-filter>
         </activity>
-
-
 
         <service android:name=".util.GPSTracker" />
         <service android:name=".configfcm.MyFirebaseMessagingService">
@@ -117,9 +115,11 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
 
-        <!--   <meta-data
+        <!--
+               <meta-data
                android:name="com.facebook.sdk.ApplicationId"
-               android:value="@string/facebook_app_id" /> -->
+               android:value="@string/facebook_app_id" />
+        -->
 
         <activity
             android:name=".activities.MainActivity"
@@ -418,6 +418,7 @@
         <activity android:name=".thyrocare.PackageDetail" />
         <activity android:name=".activities.OrderPrescribedMedicine" />
         <activity android:name=".activities.MedicationHistory" />
+        <activity android:name=".activities.MultiAddressActivity"></activity>
     </application>
 
 </manifest>

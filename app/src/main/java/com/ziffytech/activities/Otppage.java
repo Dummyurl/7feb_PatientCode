@@ -47,7 +47,7 @@ public class Otppage extends CommonActivity implements View.OnClickListener {
         txtv_verifyotp.setOnClickListener(this);
         txtv_resend = (TextView) findViewById(R.id.txtv_resend);
         txtv_resend.setOnClickListener(this);
-        common.setSession(ApiParams.OTP,"true");
+      //  common.setSession(ApiParams.OTP,"true");
 
         try {
 

@@ -196,13 +196,12 @@ public class MedicineOrderActivity extends CommonActivity {
 
         bitmap=thumbnail;
 
-        imageView.setImageBitmap(thumbnail);
+        imageView.setImageBitmap(bitmap);
 
         textView.setVisibility(View.GONE);
         textView.isClickable();
     }
 
-    @SuppressWarnings("deprecation")
     private void onSelectFromGalleryResult(Intent data) {
 
         Bitmap bm = null;
@@ -239,7 +238,7 @@ public class MedicineOrderActivity extends CommonActivity {
     public byte[] getFileDataFromDrawable(Bitmap bitmap)
     {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 80, byteArrayOutputStream);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
         return byteArrayOutputStream.toByteArray();
 
     }

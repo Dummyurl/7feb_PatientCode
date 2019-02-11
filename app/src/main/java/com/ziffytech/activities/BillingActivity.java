@@ -160,7 +160,7 @@ public class BillingActivity extends CommonActivity {
 
                 total_price.setText(ConstValue.CURRENCY+" "+fAmt);
                 final_total.setText(ConstValue.CURRENCY+" "+String.valueOf(final_price));
-                text_address.setText(getIntent().getStringExtra("address"));
+                //text_address.setText(getIntent().getStringExtra("address"));
 
 
                 text_details.setOnClickListener(new View.OnClickListener() {
@@ -561,6 +561,7 @@ public class BillingActivity extends CommonActivity {
 
 
                     } else {
+
                         isWalletUse = false;
                         isCash = true;
                         isPayUmoney = false;
@@ -569,7 +570,6 @@ public class BillingActivity extends CommonActivity {
                         layout_wallet_check.setVisibility(View.GONE);
 
                         final_price = Double.parseDouble(fAmt);
-                        //total_price.setText(ConstValue.CURRENCY + fAmt);
                         final_total.setText(ConstValue.CURRENCY + final_price);
                         txtv_total_discount.setText(ConstValue.CURRENCY + "0.00");
 
@@ -581,8 +581,6 @@ public class BillingActivity extends CommonActivity {
                         layout_offers_applied.setVisibility(View.GONE);
 
                         txt_current_wallet_balance.setText("Wallet Balance:- " + ConstValue.CURRENCY + common.getSession("ziffy_wallet_amt"));
-
-
                     }
                 } else if (checkedId == R.id.payUmoney) {
 

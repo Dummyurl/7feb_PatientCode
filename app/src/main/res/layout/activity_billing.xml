@@ -40,9 +40,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/padding_10"
                         android:textSize="13sp"
+                        android:drawableLeft="@drawable/ic_clinic_address"
+                        android:hint="Select Address"
                         android:padding="@dimen/padding_5"
-                        android:visibility="gone"
-                        android:drawableLeft="@drawable/ic_home"
+                        android:visibility="visible"
+
                         android:drawablePadding="@dimen/padding_5"/>
                     <View
                         android:layout_width="match_parent"
