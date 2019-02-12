@@ -39,7 +39,6 @@ public class Ordersummarythyro extends CommonActivity implements View.OnClickLis
     Gson gson;
     TextView txtv_checkout;
     ArrayList<SelectedPackageModel> arrayPAckage = new ArrayList<>();
-
     ArrayList<SelectedPackageModel>  arrayPAckageTesname = new ArrayList<>();
     String carttotal;
 

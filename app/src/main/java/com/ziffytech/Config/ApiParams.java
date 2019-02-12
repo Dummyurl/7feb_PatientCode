@@ -57,8 +57,7 @@ public class ApiParams
 
  public static final String GET_PRESCRIBED_MEDICINE ="" ;
 
-
-
+ public  static String GET_OTP_SMS = ConstValue.BASE_URL+API_V+"/app_smsziffy";
 
  public  static String GET_CHAT_USER_LIST = ConstValue.BASE_URL+API_V+"/get_book_doctor_list";
  public  static String GET_ALL_DOCTORS = ConstValue.BASE_URL+API_V+"/get_all_doctors";
@@ -66,8 +65,6 @@ public class ApiParams
 
  /*public static  String LAB_URL = ConstValue.BASE_URL+"Lab_api/get_lab_all";*/
  public static String LAB_URL = ConstValue.BASE_URL+"Lab_api/filter_lab_Latlong";
-
-
 
  public static String GET_PROMOCODE= ConstValue.BASE_URL+API_V+"/get_promo_code";
  public static String APPLY_PROMO_CODE= ConstValue.BASE_URL+API_V+"/select_promocode";

@@ -55,7 +55,7 @@ public class ehrdump2 extends CommonActivity implements View.OnClickListener {
 
 
                 Log.e("###","check true");
-                common.setSession(ApiParams.EHR,"true");
+                //common.setSession(ApiParams.EHR,"true");
                  GotoApi();
             }
             else

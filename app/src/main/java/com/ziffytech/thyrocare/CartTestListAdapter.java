@@ -69,6 +69,7 @@ public class CartTestListAdapter extends RecyclerView.Adapter<CartTestListAdapte
                 String userid =  common.getSession("user_id");
                 Toast.makeText(context, ""+testid, Toast.LENGTH_SHORT).show();
                 Removepack(testid,testcode,userid,position);
+
             }
         });
     }
@@ -173,8 +174,6 @@ public class CartTestListAdapter extends RecyclerView.Adapter<CartTestListAdapte
             ((Activity)context).finish();
             Intent intent = new Intent(context, Ordersummarythyro.class);
             context.startActivity(intent);
-
-
         }
 
 

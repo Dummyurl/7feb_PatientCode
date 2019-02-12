@@ -32,10 +32,8 @@ public class TestDetailadpater extends RecyclerView.Adapter<TestDetailadpater.Vi
     @Override
     public void onBindViewHolder(ViewHolder holder, int position)
     {
-
         PackageDetailModel model =modelArrayList.get(position);
         holder.txtv_detail_test_name.setText(model.getTest_name_detail());
-
     }
 
     @Override
