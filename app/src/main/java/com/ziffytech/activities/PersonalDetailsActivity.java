@@ -270,8 +270,22 @@ public class PersonalDetailsActivity extends CommonActivity {
 
                     feet.setText("");
                     inches.setText("");
+                }else {
+                    String height = data.getString("height");
+
+                    String s1=height;
+
+                    String ft=s1.substring(0,1);
+                    String in=s1.substring(2,3);
+
+                    feet.setText(ft);
+                    inches.setText(in);
+
                 }
-                String height=data.getString("height");
+
+
+
+
 /*
 
                 String str=height.substring(height.lastIndexOf("'") + 1);

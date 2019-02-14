@@ -97,7 +97,13 @@ public class ThanksActivity extends CommonActivity {
                 @Override
                 public void onClick(View view) {
 
-                    confirm();
+
+                  isProfile=checkProfile();
+
+                  if (isProfile){
+                      confirm();
+                  }
+
                 }
 
             });
@@ -343,7 +349,7 @@ public class ThanksActivity extends CommonActivity {
     }
 
 
-   /* private boolean checkProfile() {
+    private boolean checkProfile() {
 
 
         if (!common.getSession("salutation").equals("")) {
@@ -363,7 +369,6 @@ public class ThanksActivity extends CommonActivity {
 
         return isProfile;
     }
-*/
 
     private com.android.volley.Response.ErrorListener createRequestErrorListenerReschedule() {
         return new com.android.volley.Response.ErrorListener() {

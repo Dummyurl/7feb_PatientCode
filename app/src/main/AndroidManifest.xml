@@ -423,17 +423,21 @@
         <activity android:name="com.payumoney.core.SdkWebViewActivityNew" />
         <activity android:name="com.payu.custombrowser.CBActivity" />
         <activity android:name=".activities.AllMedicalReports" />
-        <activity android:name=".activities.TestResult" android:screenOrientation="portrait" />
+        <activity android:name=".activities.TestResult"
+            android:screenOrientation="portrait" />
         <activity android:name=".activities.PackageLabSelectActivity" />
         <activity android:name=".activities.TestAppointmentList" />
         <!-- <activity android:name=".thyrocare.PackageDetail" />-->
         <activity android:name=".activities.OrderPrescribedMedicine" />
         <activity android:name=".activities.MedicationHistory" />
         <activity android:name=".activities.ZiffyLabBooking"></activity>
-        <activity android:name=".thyrocare.Allthyropackageslisting" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name=".thyrocare.Allthyropackageslisting"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
         <activity android:name=".thyrocare.PackageDetail" />
         <activity android:name=".thyrocare.Timeslotforthyro" />
         <activity android:name=".thyrocare.Ordersummarythyro" />
+
+
     </application>
 
 </manifest>

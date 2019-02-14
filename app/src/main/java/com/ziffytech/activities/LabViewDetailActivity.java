@@ -327,12 +327,12 @@ public class LabViewDetailActivity extends CommonActivity implements View.OnClic
 
                                 Log.e("flag","0");
 
-                                intent.putExtra("total_price", total_amt);
+                                intent.putExtra("total_price",getIntent().getStringExtra("total"));
                                 Log.e("***"+"total_price",total_amt);
                             }else  if (getIntent().getStringExtra("flag").equals("1")){
 
                                 Log.e("flag","0");
-                                intent.putExtra("total_price", price);
+                                intent.putExtra("total_price",getIntent().getStringExtra("total"));
                                 Log.e("***"+"total_price",price);
                             }
 

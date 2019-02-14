@@ -127,7 +127,7 @@ public class AppointmentDetailsActivity extends CommonActivity {
             Log.e("####", getIntent().getStringExtra("start_time") + getIntent().getStringExtra("appointment_date"));
 
             //tax.setText(" Rs. " + getIntent().getStringExtra("tax"));
-            total_price.setText(ConstValue.CURRENCY + getIntent().getStringExtra("final_total"));
+            total_price.setText(getIntent().getStringExtra("final_total"));
             final_total.setText(ConstValue.CURRENCY+ getIntent().getStringExtra("final_total"));
 
         } else if (getIntent().getStringExtra("status").equals("3")){

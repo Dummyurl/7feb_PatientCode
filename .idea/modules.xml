@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Abhijeet_Gitcode_7feb.iml" filepath="$PROJECT_DIR$/Abhijeet_Gitcode_7feb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NewPatientCode11.02.iml" filepath="$PROJECT_DIR$/NewPatientCode11.02.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/emoji/emoji.iml" filepath="$PROJECT_DIR$/emoji/emoji.iml" />
     </modules>

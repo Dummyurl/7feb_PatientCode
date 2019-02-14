@@ -88,7 +88,8 @@ public class BillingActivity extends CommonActivity {
 
             if (getIntent().getStringExtra("status").equals("0")) {//
                 fAmt = getIntent().getStringExtra("total_price");
-                final_price = Double.parseDouble(getIntent().getStringExtra("total_price"));
+               String s1=getIntent().getStringExtra("total_price").replace(ConstValue.CURRENCY,"");
+                final_price = Double.parseDouble(s1.replace("()",""));
                 Log.e("final_price", String.valueOf(final_price));
 
             } else if (getIntent().getStringExtra("status").equals("1")) {//appti
@@ -158,7 +159,7 @@ public class BillingActivity extends CommonActivity {
 
                 Log.e("####", "SELF TEST");
 
-                total_price.setText(ConstValue.CURRENCY+" "+fAmt);
+                total_price.setText(fAmt);
                 final_total.setText(ConstValue.CURRENCY+" "+String.valueOf(final_price));
                 text_address.setText(getIntent().getStringExtra("address"));
 
@@ -444,7 +445,7 @@ public class BillingActivity extends CommonActivity {
                     });
                     AlertDialog dialog = ad.create();
                     dialog.show();
-                    dialog.setCancelable(false);
+
 
 
                 }
