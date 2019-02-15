@@ -239,9 +239,9 @@ public class BillingActivity extends CommonActivity {
                 final_price = price;
                 Log.e("###", String.valueOf(final_price));
                 // tax.setText(ConstValue.CURRENCY + taxamt);
-                fAmt = getIntent().getStringExtra("total").replace(ConstValue.CURRENCY, " ");
-                total_price.setText(fAmt);
-                final_total.setText(String.valueOf(final_price));
+                fAmt = getIntent().getStringExtra("total");
+                total_price.setText(ConstValue.CURRENCY+fAmt);
+                final_total.setText(ConstValue.CURRENCY+String.valueOf(final_price));
                 text_address.setText(getIntent().getStringExtra("address"));
 
 

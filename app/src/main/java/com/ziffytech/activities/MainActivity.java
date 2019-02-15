@@ -1042,9 +1042,14 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
 
     private void CheckUPdate()
     {
+
         VersionModel ver = new VersionModel();
         String appVersionName = BuildConfig.VERSION_NAME;
         String version = ver.getPatient_ver_code();
+
+
+        Log.e("appVersionName",appVersionName);
+        Log.e("VERSION",ApiParams.VERSION);
 
         //Toast.makeText(this, ""+appVersionName+"Mangesh ver : "+version, Toast.LENGTH_SHORT).show();
 

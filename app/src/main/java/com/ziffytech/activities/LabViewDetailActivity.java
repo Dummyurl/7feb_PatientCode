@@ -301,7 +301,7 @@ public class LabViewDetailActivity extends CommonActivity implements View.OnClic
                             Log.e("***TEST Name", testName);
                             intent.putExtra("address",getIntent().getStringExtra("address"));
                             intent.putExtra("test_names", testName);
-                            intent.putExtra("total", getIntent().getStringExtra("total").replace(ConstValue.CURRENCY," " +
+                            intent.putExtra("total", getIntent().getStringExtra("total").replace(ConstValue.CURRENCY,"" +
                                     ""));
                             // Log.e("**TEST PRICE",total_amt);
                             intent.putExtra("status", "2");
