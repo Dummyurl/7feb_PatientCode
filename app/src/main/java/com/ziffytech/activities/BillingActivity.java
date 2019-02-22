@@ -76,6 +76,7 @@ public class BillingActivity extends CommonActivity {
     boolean isAmt50 = false;
     String discountType = "";
     LinearLayout ll_note;
+    String s1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +89,7 @@ public class BillingActivity extends CommonActivity {
 
             if (getIntent().getStringExtra("status").equals("0")) {//
                 fAmt = getIntent().getStringExtra("total_price");
-               String s1=getIntent().getStringExtra("total_price").replace(ConstValue.CURRENCY,"");
+              s1=getIntent().getStringExtra("total_price").replace(ConstValue.CURRENCY,"");
                 final_price = Double.parseDouble(s1.replace("()",""));
                 Log.e("final_price", String.valueOf(final_price));
 
@@ -569,7 +570,7 @@ public class BillingActivity extends CommonActivity {
                         checkWallet.setVisibility(View.GONE);
                         layout_wallet_check.setVisibility(View.GONE);
 
-                        final_price = Double.parseDouble(fAmt);
+                        final_price = Double.parseDouble(s1);
                         //total_price.setText(ConstValue.CURRENCY + fAmt);
                         final_total.setText(ConstValue.CURRENCY + final_price);
                         txtv_total_discount.setText(ConstValue.CURRENCY + "0.00");

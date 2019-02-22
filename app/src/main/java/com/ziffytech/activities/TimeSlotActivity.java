@@ -553,8 +553,18 @@ public class TimeSlotActivity extends CommonActivity implements DatePickerDialog
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.imgv_bookcall) {
-            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", "7066532000", null));
-            startActivity(intent);
+
+
+            if(selected_business.getIs_ziffydoc().equals("1")){
+
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", selected_business.getDoct_phone(), null));
+                startActivity(intent);
+            }else {
+
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", "7066532000", null));
+                startActivity(intent);
+            }
+
         }
         if (v.getId() == R.id.imgv_chat) {
           /*  Intent intent = new Intent(TimeSlotActivity.this, ChatActivity.class);

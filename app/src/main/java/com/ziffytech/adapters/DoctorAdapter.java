@@ -24,7 +24,7 @@ import java.util.ArrayList;
 /**
  * Created by Light link on 04/07/2016.
  */
-public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ProductHolder>
+public class  DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ProductHolder>
  {
 
     ArrayList<DoctorModel> list;
@@ -77,8 +77,15 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ProductHol
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel","7066532000", null));
-                activity.startActivity(intent);
+                if (categoryModel.getIs_ziffydoc().equals("0")){
+                    Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel","+917066532000", null));
+                    activity.startActivity(intent);
+                }else if (categoryModel.getIs_ziffydoc().equals("1")){
+
+                    Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel",categoryModel.getDoct_phone(), null));
+                    activity.startActivity(intent);
+                }
+
             }
         });
 /*
