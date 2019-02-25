@@ -14,8 +14,7 @@
         android:background="#e5e5e5"
         android:orientation="vertical"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        >
+        android:clickable="true">
 
 
         <LinearLayout

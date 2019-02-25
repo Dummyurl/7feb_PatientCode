@@ -62,7 +62,7 @@ public class  DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ProductHo
         holder.distance.setText("Distance : "+categoryModel.getDistance()+" KM");
 
 
-
+Log.e("ZIFFYDOC",categoryModel.getDoct_phone());
         if (categoryModel.getIs_ziffydoc().equals("0")){
 
             holder.book.setVisibility(View.GONE);

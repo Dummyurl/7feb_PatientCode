@@ -86,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="Special Health Packages Divination : "
+                android:text="Special Health Packages Divinations: "
                 android:textSize="12dp"
                 android:textStyle="bold"
                 android:layout_marginLeft="15dp"/>
@@ -116,6 +116,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:weightSum="2"
+                android:visibility="gone"
                 android:orientation="horizontal">
 
                 <TextView
@@ -151,6 +152,7 @@
                 <android.support.v7.widget.RecyclerView
                     android:layout_margin="5dp"
                     android:padding="5dp"
+                    android:visibility="gone"
                     android:id="@+id/recyclerview_package_thyro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">

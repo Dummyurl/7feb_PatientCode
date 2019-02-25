@@ -131,7 +131,7 @@
                     android:visibility="gone"/>
 
                 <TextView
-                    android:id="@+id/book"
+                    android:id="@+id/call"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"

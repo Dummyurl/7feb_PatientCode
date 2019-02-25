@@ -119,6 +119,9 @@ public class Bookbycall extends CommonActivity {
                                     model.setDoct_experience(object.getString("doct_experience"));
                                     Log.e("doct_experience", object.getString("doct_experience"));
 
+                                    model.setIs_ziffydoc(object.getString("is_ziffydoc"));
+                                    Log.e("is_ziffydoc", object.getString("is_ziffydoc"));
+
                                     // model.setDoct_phone(object.getString("doct_phone"));
                                     // Log.e("doct_phone", object.getString("doct_phone"));
 
@@ -294,9 +297,20 @@ public class Bookbycall extends CommonActivity {
             holder.book.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
+                    Log.e("doc phone",categoryModel.getDoct_phone()+categoryModel.getIs_ziffydoc()+"#");
+
+                    if (categoryModel.getIs_ziffydoc().equals("0")){
+                        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel","+917066532000", null));
+                        activity.startActivity(intent);
+                    }else if (categoryModel.getIs_ziffydoc().equals("1")){
+
+                        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel",categoryModel.getDoct_phone(), null));
+                        activity.startActivity(intent);
+                    }
+
                     // Toast.makeText(activity, "Book by call", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", categoryModel.getDoct_phone(), null));
-                    startActivity(intent);
+
 
                 }
 
@@ -332,7 +346,7 @@ public class Bookbycall extends CommonActivity {
                 lbl_degree = (TextView) itemView.findViewById(R.id.degree);
                 lbl_speciality = (TextView) itemView.findViewById(R.id.specilaity);
                 rel_startchat = (RelativeLayout) itemView.findViewById(R.id.rel_startchat);
-                book = (TextView) itemView.findViewById(R.id.book);
+                book = (TextView) itemView.findViewById(R.id.call);
             }
         }
 

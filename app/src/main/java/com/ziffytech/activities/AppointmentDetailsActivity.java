@@ -128,7 +128,7 @@ public class AppointmentDetailsActivity extends CommonActivity {
 
             //tax.setText(" Rs. " + getIntent().getStringExtra("tax"));
             total_price.setText(getIntent().getStringExtra("final_total"));
-            final_total.setText(ConstValue.CURRENCY+ getIntent().getStringExtra("final_total"));
+            final_total.setText(getIntent().getStringExtra("final_total"));
 
         } else if (getIntent().getStringExtra("status").equals("3")){
 
@@ -234,7 +234,7 @@ public class AppointmentDetailsActivity extends CommonActivity {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
 
                         text_package.setText(jsonObject.getString("package_name"));
-                        package_price.setText(ConstValue.CURRENCY+" "+jsonObject.getString("price"));
+                        package_price.setText(ConstValue.CURRENCY + " " + jsonObject.getString("price"));
 
 
                         String tests = jsonObject.getString("name");
@@ -370,11 +370,12 @@ public class AppointmentDetailsActivity extends CommonActivity {
 
 
             // tax.setText(" Rs. " + getIntent().getStringExtra("tax"));
-            total_price.setText(ConstValue.CURRENCY+ getIntent().getStringExtra("total_price"));
-            final_total.setText(ConstValue.CURRENCY+ getIntent().getStringExtra("final_total"));
+            total_price.setText( getIntent().getStringExtra("total_price"));
+            final_total.setText(ConstValue.CURRENCY + getIntent().getStringExtra("final_total"));
 
 
         }
+
     }
 
 

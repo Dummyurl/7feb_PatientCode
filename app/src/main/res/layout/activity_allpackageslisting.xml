@@ -56,11 +56,6 @@
                         android:textColorHint="@color/greyshade"
                         android:textSize="14dp" />
 
-                    <!--<ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/places_ic_search"/>-->
 
                 </LinearLayout>
 

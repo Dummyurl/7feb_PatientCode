@@ -246,24 +246,40 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_height"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text=""
+                    android:visibility="gone"
+                    android:padding="10dp"
+                    android:textColorHint="@color/greyshade"
+                    android:textSize="12dp"/>
+
+            <LinearLayout
+                android:id="@+id/layout_height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_2"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
 
+
                 <EditText
                     android:id="@+id/feet"
-                    android:maxLength="4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:hint="5"
-                    android:inputType="number"
-                    android:padding="10dp"
                     android:layout_weight="0.5"
+                    android:hint="5"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="1"
                     android:textColorHint="@color/greyshade"
-                    android:textSize="12dp"/>
-
+                    android:textSize="12dp" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -275,16 +291,16 @@
 
                 <EditText
                     android:id="@+id/inches"
-                    android:maxLength="4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:hint="2"
                     android:layout_weight="0.5"
+                    android:hint="2"
+                    android:imeOptions="actionNext"
                     android:inputType="number"
-                    android:padding="10dp"
+                    android:maxLength="1"
                     android:textColorHint="@color/greyshade"
-                    android:textSize="12dp"/>
+                    android:textSize="12dp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -294,6 +310,8 @@
                     android:layout_weight="0.5"
                     android:textColorHint="@color/greyshade"
                     android:textSize="12dp"/>
+
+            </LinearLayout>
 
             </LinearLayout>
 

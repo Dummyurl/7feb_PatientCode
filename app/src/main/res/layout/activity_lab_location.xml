@@ -63,14 +63,6 @@
             android:padding="10dp"
             android:textColor="@color/grey"/>
 
-
-
-
-
-
-
-
-
         <TextView
             android:id="@+id/selectedlocation"
             android:layout_width="match_parent"
@@ -78,11 +70,6 @@
             android:padding="5dp"
             android:textColor="@color/black"
             android:layout_height="wrap_content" />
-
-
-
-
-
     </LinearLayout>
 
     <Button

@@ -17,8 +17,10 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
@@ -52,6 +54,10 @@ public class PersonalDetailsActivity extends CommonActivity {
     SharedPreferences sharedPreferences;
     Button button;
     ImageView img_address;
+    private String mheight;
+    TextView txt_height;
+    LinearLayout layout_height;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,6 +86,8 @@ public class PersonalDetailsActivity extends CommonActivity {
         aadhar = (EditText)findViewById(R.id.aadhar_no);
 
         locality = (EditText)findViewById(R.id.location);
+        txt_height = (TextView) findViewById(R.id.txt_height);
+        layout_height = (LinearLayout) findViewById(R.id.layout_height);
 
 
 
@@ -266,7 +274,60 @@ public class PersonalDetailsActivity extends CommonActivity {
 
              //   height.setText(data.getString("height"));
 
-                if (data.getString("height").equals("")){
+
+                if (data.isNull("height")){
+                    Log.e("###true","height");
+                    mheight="-";
+                }else
+                {
+                    Log.e("###false","height");
+                    mheight=data.getString("height");
+                    txt_height.setVisibility(View.VISIBLE);
+                    txt_height.setText(mheight);
+                    layout_height.setVisibility(View.GONE);
+
+                }
+
+
+             /*   String s1=mheight;
+                int length=s1.length();
+
+
+                if (s1.equals("-")){
+
+                    feet.setText("0");
+                    inches.setText("0");
+                }else {
+
+
+                    if (s1.length()==3){
+
+
+                        String s2=s1.substring(0,1);
+                        String s3=mheight.substring(2,3);
+
+                        feet.setText(s2);
+                        inches.setText(s3);
+
+                    }else if (s1.length()==1){
+
+                        feet.setText(s1);
+                        inches.setText(0);
+                    }else if (s1.length()==4 && s1.contains("")){
+
+                        String s2=s1.substring(0,1);
+                        String s3=mheight.substring(2,3);
+
+                        feet.setText(s2);
+                        inches.setText(s3);
+                    }
+
+                }*/
+
+
+
+
+              /*  if (data.getString("height").equals("")){
 
                     feet.setText("");
                     inches.setText("");
@@ -282,7 +343,7 @@ public class PersonalDetailsActivity extends CommonActivity {
                     inches.setText(in);
 
                 }
-
+*/
 
 
 
@@ -490,6 +551,7 @@ public class PersonalDetailsActivity extends CommonActivity {
         String emer=emer_contact.getText().toString();
         String blood=bloodGroup.getText().toString();
         boolean cancel = false;
+
         View focusView = null;
 
 

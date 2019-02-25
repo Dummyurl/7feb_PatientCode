@@ -144,6 +144,7 @@ public class MedicineOrderActivity extends CommonActivity {
                     dialog.dismiss();
                 }
             }
+
         });
         builder.show();
     }
@@ -151,6 +152,7 @@ public class MedicineOrderActivity extends CommonActivity {
 
     private void galleryIntent() {
         Intent intent = new Intent();
+
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);//
         startActivityForResult(Intent.createChooser(intent, "Select File"), SELECT_FILE);

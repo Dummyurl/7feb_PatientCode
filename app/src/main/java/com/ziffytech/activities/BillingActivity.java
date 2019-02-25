@@ -101,6 +101,8 @@ public class BillingActivity extends CommonActivity {
             } else if (getIntent().getStringExtra("status").equals("2")) {
                 fAmt = getIntent().getStringExtra("total");
                 final_price = Double.parseDouble(getIntent().getStringExtra("total"));
+                s1=getIntent().getStringExtra("total").replace(ConstValue.CURRENCY,"");
+
                 Log.e("final_price", String.valueOf(final_price));
             }else if (getIntent().getStringExtra("status").equals("3")) {
                 fAmt = getIntent().getStringExtra("total_price");

@@ -169,7 +169,7 @@ public class ehrdump2 extends CommonActivity implements View.OnClickListener {
         Log.e("###", "check true3");
         finish();
         Intent intent = new Intent(ehrdump2.this, MainActivity.class);
-        intent.putExtra("new", "new");
+        intent.putExtra("new", " ");
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }

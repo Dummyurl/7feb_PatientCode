@@ -102,6 +102,23 @@ public class ThanksActivity extends CommonActivity {
 
                   if (isProfile){
                       confirm();
+                  }else {
+
+
+                      AlertDialog.Builder ad = new AlertDialog.Builder(ThanksActivity.this);
+                      ad.setMessage("Please update your profile");
+
+                      ad.setPositiveButton("UPDATE", new DialogInterface.OnClickListener() {
+                          @Override
+                          public void onClick(DialogInterface dialogInterface, int i) {
+
+                              startActivity(new Intent(ThanksActivity.this, PersonalDetailsActivity.class));
+                          }
+                      });
+                      AlertDialog dialog = ad.create();
+                      dialog.show();
+
+
                   }
 
                 }
@@ -415,11 +432,6 @@ public class ThanksActivity extends CommonActivity {
 
                                 }
                             });
-
-
-
-
-
                     } else {
 
                         MyUtility.showAlertMessage(ThanksActivity.this, "This time slot is recently booked.Please select other time slot.");

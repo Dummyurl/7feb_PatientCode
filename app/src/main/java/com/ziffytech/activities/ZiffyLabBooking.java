@@ -68,8 +68,8 @@ public class ZiffyLabBooking extends CommonActivity implements View.OnClickListe
         seeall.setOnClickListener(this);
 
         recyclerViewPackage = (RecyclerView) findViewById(R.id.recyclerview_package);
-        layoutManager = new GridLayoutManager(this, 1, GridLayoutManager.HORIZONTAL, false);
-        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        layoutManager = new GridLayoutManager(this, 2, GridLayoutManager.HORIZONTAL, false);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerViewPackage.setHasFixedSize(true);
         recyclerViewPackage.setLayoutManager(layoutManager);
 
@@ -82,16 +82,17 @@ public class ZiffyLabBooking extends CommonActivity implements View.OnClickListe
 
 
         recyclerViewPackage2 = (RecyclerView) findViewById(R.id.recyclerview_package_thyro);
+
         layoutManager2 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         layoutManager2.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerViewPackage2.setHasFixedSize(true);
         recyclerViewPackage2.setLayoutManager(layoutManager2);
 
-        HashMap<String, String> params2 = new HashMap<String, String>();
+     /*   HashMap<String, String> params2 = new HashMap<String, String>();
         CustomRequestForString customRequestForString2 = new CustomRequestForString(Request.Method.POST, ApiParams.GET_THYRO_5_PACKAGES, params2, this.createRequestSuccessListenerThyropack(), this.createRequestErrorListenerThyropack());
         RequestQueue requestQueue2 = Volley.newRequestQueue(this);
         requestQueue2.add(customRequestForString2);
-
+*/
 
         Intent iin = getIntent();
         Bundle b = iin.getExtras();
