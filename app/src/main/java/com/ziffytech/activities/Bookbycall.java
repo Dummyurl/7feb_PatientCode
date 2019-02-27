@@ -122,12 +122,12 @@ public class Bookbycall extends CommonActivity {
                                     model.setIs_ziffydoc(object.getString("is_ziffydoc"));
                                     Log.e("is_ziffydoc", object.getString("is_ziffydoc"));
 
-                                    // model.setDoct_phone(object.getString("doct_phone"));
-                                    // Log.e("doct_phone", object.getString("doct_phone"));
+                                     model.setDoct_phone(object.getString("doct_phone"));
+                                     Log.e("doct_phone", object.getString("doct_phone"));
 
 
-                                    model.setDoct_phone(object.getString("doct_phone_help"));
-                                    Log.e("doct_phone", object.getString("doct_phone_help"));
+                                  //  model.setDoct_phone(object.getString("doct_phone_help"));
+                                  //  Log.e("doct_phone", object.getString("doct_phone_help"));
 
                                     model.setBus_google_street(object.getString("city"));
                                     Log.e("city", object.getString("city"));

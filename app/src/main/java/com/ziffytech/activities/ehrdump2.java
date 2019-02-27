@@ -109,7 +109,7 @@ public class ehrdump2 extends CommonActivity implements View.OnClickListener {
         CustomRequestForString customRequestForString = new CustomRequestForString(Request.Method.POST, base, params, this.createRequestSuccessListenerTestList(), this.createRequestErrorListenerTestList());
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(customRequestForString);
-        showPrgressBar();
+
 
         customRequestForString.setRetryPolicy(new DefaultRetryPolicy(
                 MY_SOCKET_TIMEOUT_MS,

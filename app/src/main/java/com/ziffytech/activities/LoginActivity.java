@@ -937,9 +937,19 @@ public class LoginActivity extends CommonActivity implements View.OnClickListene
 
     @Override
     public void onBackPressed() {
-        rel_bottom_login.setVisibility(View.VISIBLE);
-        lin_email_login.setVisibility(View.GONE);
-        lin_slider.setVisibility(View.VISIBLE);
+        if (rel_bottom_login.getVisibility()==View.VISIBLE){
+
+            finish();
+
+        }else{
+            rel_bottom_login.setVisibility(View.VISIBLE);
+            lin_email_login.setVisibility(View.GONE);
+            lin_slider.setVisibility(View.VISIBLE);
+
+        }
+
+
+
     }
 
 

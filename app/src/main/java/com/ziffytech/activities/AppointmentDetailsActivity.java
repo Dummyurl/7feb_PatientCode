@@ -370,8 +370,14 @@ public class AppointmentDetailsActivity extends CommonActivity {
 
 
             // tax.setText(" Rs. " + getIntent().getStringExtra("tax"));
-            total_price.setText( getIntent().getStringExtra("total_price"));
+            if (getIntent().getStringExtra("total_price").contains(ConstValue.CURRENCY)){
+                total_price.setText( getIntent().getStringExtra("total_price"));
+            }else {
+                total_price.setText( ConstValue.CURRENCY+getIntent().getStringExtra("total_price"));
+            }
+
             final_total.setText(ConstValue.CURRENCY + getIntent().getStringExtra("final_total"));
+
 
 
         }

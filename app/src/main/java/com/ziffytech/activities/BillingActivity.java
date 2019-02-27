@@ -40,7 +40,8 @@ import java.util.HashMap;
 import java.util.Random;
 
 
-public class BillingActivity extends CommonActivity {
+public class BillingActivity extends CommonActivity
+{
 
     private static final int MY_SOCKET_TIMEOUT_MS = 5000;
     private static final String CASHBACK = "cash_back";
@@ -272,16 +273,18 @@ public class BillingActivity extends CommonActivity {
 
                 layout_offers.setVisibility(View.VISIBLE);
 
-                //     final double price = Double.parseDouble(getIntent().getStringExtra("total").replace(ConstValue.CURRENCY, " "));
-               /* Log.e("###", String.valueOf(price));
+                //final double price = Double.parseDouble(getIntent().getStringExtra("total").replace(ConstValue.CURRENCY, " "));
+                /* Log.e("###", String.valueOf(price));
                 final double taxamt = (price * 10) / 100;
                 Log.e("###", String.valueOf(taxamt));
                 final_price = price;
                 Log.e("###", String.valueOf(final_price));*/
                 // tax.setText(ConstValue.CURRENCY + taxamt);
                 //    fAmt = getIntent().getStringExtra("total").replace(ConstValue.CURRENCY, " ");
-                  total_price.setText(ConstValue.CURRENCY+" "+fAmt);
-                  final_total.setText(String.valueOf(ConstValue.CURRENCY+" "+final_price));
+
+                total_price.setText(ConstValue.CURRENCY+" "+fAmt);
+                final_total.setText(String.valueOf(ConstValue.CURRENCY+" "+final_price));
+
                 //text_address.setText(getIntent().getStringExtra("address"));
 
 
@@ -336,16 +339,10 @@ public class BillingActivity extends CommonActivity {
                     intent.putExtra("Activity", "2");
                     intent.putExtra("trans_amt", fAmt);
                     intent.putExtra("isPaymentOptionChecked", isPaymentOptionChecked);
-
                 }
                 startActivityForResult(intent, 178);
             }
         });
-
-
-
-
-
 
         /*            FOR EVERY TRANSACTION  USER CAN USE 50 WALLET BALANCE ONLY    */
 
@@ -353,24 +350,21 @@ public class BillingActivity extends CommonActivity {
             @Override
             public void onClick(View v) {
 
-
                 boolean isProfile = checkProfile();
-
-
                 if (isProfile) {
                     if (isPaymentOptionChecked) {
                         if (isCash) {
 
                             checkWallet.setVisibility(View.GONE);
-
-                            if (isOfferApplied) {
+                            if (isOfferApplied)
+                            {
                                 isCash = false;
                                 isPayUmoney = true;
                                 MyUtility.showAlertMessage(BillingActivity.this, "This promo code is not applicable for pay by cash option");
-                            } else {
-
-                                if (getIntent().hasExtra("status")) {
-
+                            } else
+                            {
+                                if (getIntent().hasExtra("status"))
+                                {
                                     Log.e("Pay_by_cash", "true");
                                     if (getIntent().getStringExtra("status").equalsIgnoreCase("0")) {
                                         Log.e("########", "0");
@@ -464,8 +458,10 @@ public class BillingActivity extends CommonActivity {
             // calculateWalletAmt(true);
             checkWallet.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+                {
                     calculateWalletAmt(isChecked);
+
                 }
             });
         } else {
@@ -496,10 +492,12 @@ public class BillingActivity extends CommonActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 isPaymentOptionChecked = true;
 
-                if (checkedId == R.id.cash) {
+                if (checkedId == R.id.cash)
+                {
 
 
-                    if (checkWallet.isChecked()) {
+                    if (checkWallet.isChecked())
+                    {
                         checkWallet.setChecked(false);
                         calculateWalletAmt(false);
                     }
@@ -580,13 +578,9 @@ public class BillingActivity extends CommonActivity {
                         promoCodeId = "";
                         PromoCodeName = "";
                         discountType = "";
-
                         layout_offers.setVisibility(View.GONE);
                         layout_offers_applied.setVisibility(View.GONE);
-
                         txt_current_wallet_balance.setText("Wallet Balance:- " + ConstValue.CURRENCY + common.getSession("ziffy_wallet_amt"));
-
-
                     }
                 } else if (checkedId == R.id.payUmoney) {
 
@@ -630,7 +624,9 @@ public class BillingActivity extends CommonActivity {
                         discountType = "";
                         //  isCashback = false;
                         isOfferApplied = false;
-                    } else if (discountType.equals(CASHBACK)) {
+
+                    } else if (discountType.equals(CASHBACK))
+                    {
                         tv_apply.setVisibility(View.GONE);
                         layout_offers.setVisibility(View.VISIBLE);
                         discountType = "";
@@ -663,11 +659,11 @@ public class BillingActivity extends CommonActivity {
             /// isWalletP = false;
 
             if (discountType.equals(CASHBACK)) {
-                final_price = Double.parseDouble(fAmt);
+                final_price = Double.parseDouble(fAmt.replace(ConstValue.CURRENCY,""));
             } else if (discountType.equals(DISCOUNT)) {
                 final_price = final_price + 50;
             } else {
-                final_price = Double.parseDouble(fAmt);
+                final_price = Double.parseDouble(fAmt.replace(ConstValue.CURRENCY,""));
             }
             final_total.setText(String.valueOf(final_price));
             walletAmt = Double.parseDouble(common.getSession(ApiParams.ZIFFY_WALLET_AMT));
@@ -676,19 +672,18 @@ public class BillingActivity extends CommonActivity {
 
     }
 
-    private void confirmBooking() {
+    private void confirmBooking()
+    {
 
         /*txn_id
           amount
           payment_mode*/
-
-
-
-        /*        $is_use_wallet =  $this->input->post("is_use_wallet");
+        /* $is_use_wallet =  $this->input->post("is_use_wallet");
         $wallet_amt =  $this->input->post("wallet_amt");
         $promo_id =  $this->input->post("promo_id");*/
 
-        if (MyUtility.isConnected(BillingActivity.this)) {
+        if (MyUtility.isConnected(BillingActivity.this))
+        {
             HashMap<String, String> params = new HashMap<String, String>();
             params.put("bus_id", getIntent().getStringExtra("bus_id"));
             params.put("user_id", getIntent().getStringExtra("user_id"));
@@ -705,12 +700,12 @@ public class BillingActivity extends CommonActivity {
             Log.e("is_use_wallet", String.valueOf(is_use_wallet));
 
 
-            if (isPayUmoney) {
+            if (isPayUmoney)
+            {
                 params.put("payment_mode", "online");
                 params.put("txn_id", txn_id);
                 Log.e("Payu" + "txn_id", txn_id);
                 params.put("is_use_wallet", String.valueOf(is_use_wallet));
-
 
                 if (isOfferApplied) {
 
@@ -736,16 +731,13 @@ public class BillingActivity extends CommonActivity {
 
             } else if (isCash) {
 
-
                 params.put("payment_mode", "cash");
                 params.put("wallet_amt", wallet_amt);
                 params.put("amount", String.valueOf(final_price));
                 params.put("txn_id", "0");
                 params.put("is_use_wallet", "0");
 
-
             }
-
 
             Log.e("PARAMS", params.toString());
 
@@ -818,7 +810,12 @@ public class BillingActivity extends CommonActivity {
             } else if (isCash) {
                 params.put("payment_mode", "cash");
                 params.put("txn_id", "0");
-                params.put("amount", String.valueOf(final_price));
+                if (String.valueOf(final_price).contains(ConstValue.CURRENCY)){
+                    params.put("amount", String.valueOf(final_price).replace(ConstValue.CURRENCY,""));
+                }else {
+                    params.put("amount", String.valueOf(final_price));
+                }
+
                 params.put("is_use_wallet", "0");
             }
 
@@ -915,15 +912,17 @@ public class BillingActivity extends CommonActivity {
                     params.put("is_use_wallet", String.valueOf(is_use_wallet));
 
 
-                    if (isOfferApplied) {
-
+                    if (isOfferApplied)
+                    {
                         params.put("promo_id", promoCodeId);
 
-                        if (is_use_wallet == 1) {
+                        if (is_use_wallet == 1)
+                        {
                             params.put("is_use_wallet", "1");
                             params.put("wallet_amt", String.valueOf(walletAmt));
                             params.put("amount", String.valueOf(final_price));
-                        } else {
+                        } else
+                        {
                             params.put("is_use_wallet", "0");
                             params.put("wallet_amt", String.valueOf(walletAmt));
                             params.put("amount", String.valueOf(final_price));
@@ -1385,26 +1384,19 @@ public class BillingActivity extends CommonActivity {
     private void calculateAmt() {
 
 
-        if (discountType.equals(DISCOUNT)) {
-
+        if (discountType.equals(DISCOUNT))
+        {
             Log.e("###", "true");
             final_price = final_price - discount_amt;
             final_total.setText(String.valueOf(final_price));
             txtv_total_discount.setText(ConstValue.CURRENCY + String.valueOf(discount_amt));
             Log.e("Final_price", String.valueOf(final_price));
 
-
-        } else if (discountType.equals(CASHBACK)) {
-
+        } else if (discountType.equals(CASHBACK))
+        {
             final_total.setText(String.valueOf(final_price));
-
         }
-
-
     }
-
-
-
 
 }
 

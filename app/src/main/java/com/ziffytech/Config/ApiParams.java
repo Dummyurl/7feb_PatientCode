@@ -53,7 +53,7 @@ public class ApiParams
  public static String PAYMENT_URL = ConstValue.BASE_URL+"/index.php/payorder/paypal";
  public  static String GET_DOCTORS_BY_NAME = ConstValue.BASE_URL+API_V+"/get_doctors_by_name";
  // public  static String GET_DOCTORS_BY_FILTER = ConstValue.BASE_URL+API_V+"/filter_doctor";
- public  static String GET_DOCTORS_BY_FILTER = ConstValue.BASE_URL+"api_n"+"/filter_doctor";
+ public  static String GET_DOCTORS_BY_FILTER = ConstValue.BASE_URL+"api_n/filter_doctor";
 
  public static final String GET_PRESCRIBED_MEDICINE ="" ;
 

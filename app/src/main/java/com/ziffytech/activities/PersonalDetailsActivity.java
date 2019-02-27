@@ -58,6 +58,7 @@ public class PersonalDetailsActivity extends CommonActivity {
     TextView txt_height;
     LinearLayout layout_height;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,6 +99,16 @@ public class PersonalDetailsActivity extends CommonActivity {
         weight = (EditText)findViewById(R.id.weight);
         emer_contact = (EditText)findViewById(R.id.emer_contact);
         bloodGroup = (EditText)findViewById(R.id.blood_group);
+
+        txt_height.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                txt_height.setVisibility(View.GONE);
+                layout_height.setVisibility(View.VISIBLE);
+
+            }
+        });
        /* img_address = (ImageView) findViewById(R.id.img_address);
 
         img_address.setOnClickListener(new View.OnClickListener() {
@@ -264,6 +275,8 @@ public class PersonalDetailsActivity extends CommonActivity {
             try {
                 JSONObject data=new JSONObject(common.getSession(ApiParams.USER_JSON_DATA));
 
+                Log.e("USERDATA",data.toString());
+
 
                 if(data.getString("user_bdate").contains("0000")){
                     dob.setText("");
@@ -275,13 +288,18 @@ public class PersonalDetailsActivity extends CommonActivity {
              //   height.setText(data.getString("height"));
 
 
-                if (data.isNull("height")){
+                if (data.getString("height").equals("")){
                     Log.e("###true","height");
                     mheight="-";
+                    layout_height.setVisibility(View.VISIBLE);
+                    txt_height.setVisibility(View.GONE);
                 }else
                 {
+
+
                     Log.e("###false","height");
                     mheight=data.getString("height");
+                    Log.e("height",mheight);
                     txt_height.setVisibility(View.VISIBLE);
                     txt_height.setText(mheight);
                     layout_height.setVisibility(View.GONE);

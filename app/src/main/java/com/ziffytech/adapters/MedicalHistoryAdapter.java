@@ -31,7 +31,7 @@ public class MedicalHistoryAdapter extends RecyclerView.Adapter<MedicalHistoryAd
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.self_test_itemname_list, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_medicine, parent, false);
         return new ViewHolder(v);
     }
 

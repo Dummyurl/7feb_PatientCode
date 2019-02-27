@@ -207,23 +207,19 @@ public class Otppage extends CommonActivity implements View.OnClickListener {
                             if (userdata.getInt("responce") == 1) {
                                 JSONObject data = userdata.getJSONObject("data");
                                 common.setSession(ApiParams.COMMON_KEY, data.getString("user_id"));
-                                // common.setSession(ApiParams.USER_EMAIL, data.getString("user_email"));
+
                                 common.setSession(ApiParams.USER_FULLNAME, data.getString("user_fullname"));
                                 common.setSession(ApiParams.USER_PHONE, data.getString("user_phone"));
                                 common.setSession(ApiParams.USER_JSON_DATA, data.toString());
 
-                                finish();
 
-                                if (getIntent().hasExtra("phone")){
+
+
 
                                     Intent intent = new Intent(Otppage.this, ehrdump2.class);
                                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent);
-                                }else {
-                                    Intent intent = new Intent(Otppage.this, ehrdump2.class);
-                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                    startActivity(intent);
-                                }
+
 
                                 //intent.putExtra("new","new");
 
@@ -274,11 +270,11 @@ public class Otppage extends CommonActivity implements View.OnClickListener {
 
 
             userRegister(params);
-            Intent intent = new Intent(Otppage.this, ehrdump2.class);
+          /*  Intent intent = new Intent(Otppage.this, ehrdump2.class);
             //intent.putExtra("new","new");
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
-
+*/
         }
         else
         {

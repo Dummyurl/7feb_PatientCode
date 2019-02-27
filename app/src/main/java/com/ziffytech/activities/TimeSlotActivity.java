@@ -425,11 +425,12 @@ public class TimeSlotActivity extends CommonActivity implements DatePickerDialog
                                 hideProgressBar();
 
                             } else {
+                                hideProgressBar();
                                 Toast.makeText(getApplicationContext(), getString(R.string.not_timetable_set), Toast.LENGTH_SHORT).show();
                             }
 
                         } catch (JSONException e) {
-                            //  hideProgressBar();
+                            hideProgressBar();
                             e.printStackTrace();
                             MyUtility.showAlertMessage(TimeSlotActivity.this, "Time slot not available.");
 

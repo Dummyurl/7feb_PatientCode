@@ -96,9 +96,17 @@ public class RegisterActivity extends CommonActivity {
             }
         }
 
+        if (getIntent().hasExtra("phone")){
+
+            phone.setText(getIntent().getStringExtra("phone"));
+            phone.setClickable(false);
+
+        }
+
 
         terms = (LinearLayout) findViewById(R.id.terms);
-        terms.setOnClickListener(new View.OnClickListener() {
+        terms.setOnClickListener(
+                new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -275,6 +283,31 @@ public class RegisterActivity extends CommonActivity {
 
 
 
+
+
+        if (getIntent().hasExtra("phone")){
+
+      HashMap<String, String> params = new HashMap<>();
+        params.put("user_fullname", fullname);
+        params.put("user_phone", myphone);
+        params.put("user_email", email);
+
+
+        if (!SaveSharedPreference.getPrefRefCode(RegisterActivity.this).equals("")){
+
+            params.put("referral_code", SaveSharedPreference.getPrefRefCode(RegisterActivity.this));
+        }else {
+            params.put("referral_code","");
+        }
+
+        Log.e("PARAMS",params.toString());
+            userRegister(params);
+            showPrgressBar();
+
+        }else {
+
+        }
+
         Intent intent=new Intent(RegisterActivity.this,Otppage.class);
         intent.putExtra("user_fullname",fullname);
         intent.putExtra("user_phone",myphone);
@@ -348,20 +381,23 @@ public class RegisterActivity extends CommonActivity {
                                 common.setSession(ApiParams.USER_PHONE, data.getString("user_phone"));
                                 common.setSession(ApiParams.USER_JSON_DATA, data.toString());
 
-                                finish();
 
                                 if (getIntent().hasExtra("phone")){
+
+                                    Log.e("OTP","FALSE");
 
                                     Intent intent = new Intent(RegisterActivity.this, ehrdump2.class);
                                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent);
                                 }else {
+                                    Log.e("OTP","TRUE");
                                     Intent intent = new Intent(RegisterActivity.this, Otppage.class);
+                                    intent.putExtra("phone",phone.getText().toString());
                                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent);
                                 }
 
-                                //intent.putExtra("new","new");
+                                finish();
 
 
                             } else {
