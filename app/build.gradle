@@ -35,8 +35,8 @@ android {
         applicationId "com.ziffytech"
         minSdkVersion 20
         targetSdkVersion 28
-        versionCode 58
-        versionName "1.58"
+        versionCode 59
+        versionName "1.59"
         multiDexEnabled true
 //      signingConfig signingConfigs.keypath
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"

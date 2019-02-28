@@ -526,9 +526,9 @@ public class LabViewDetailActivity extends CommonActivity implements View.OnClic
                                         intent.putExtra("total_price",ConstValue.CURRENCY+price);
                                         intent.putExtra("final_total", final_amt);
                                         intent.putExtra("appointment_id", "965");
-                                        Log.e("APP_ID_Intent", "SELT TEST");
+                                       //Log.e("APP_ID_Intent", "SELT TEST");
                                         intent.putExtra("status", "0");
-                                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
                                         startActivity(intent);
 
 
