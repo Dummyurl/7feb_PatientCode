@@ -1,5 +1,6 @@
 package com.ziffytech.activities;
 
+import android.accounts.Account;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,6 +16,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import com.facebook.accountkit.AccountKit;
 import com.ziffytech.Config.ApiParams;
 import com.ziffytech.Config.ConstValue;
 import com.ziffytech.R;
@@ -40,6 +42,7 @@ public class RegisterActivity extends CommonActivity
     Button btnCountry;
     LinearLayout terms;
     CheckBox checkReferral;
+
 
     public final static boolean isValidEmail(CharSequence target)
     {
@@ -80,6 +83,10 @@ public class RegisterActivity extends CommonActivity
             }
         });*/
 
+
+       if (AccountKit.isInitialized()){
+           AccountKit.logOut();
+       }
 
         if (getIntent().hasExtra("Activity")) {
 
@@ -283,7 +290,7 @@ public class RegisterActivity extends CommonActivity
         }
 
 
-        if (getIntent().hasExtra("phone"))
+      /*  if (getIntent().hasExtra("phone"))
         {
 
         HashMap<String, String> params = new HashMap<>();
@@ -300,33 +307,58 @@ public class RegisterActivity extends CommonActivity
         }
 
         Log.e("PARAMS",params.toString());
-            userRegister(params);
-            showPrgressBar();
+           // userRegister(params);
+           // showPrgressBar();
 
         }else
        {
 
-        }
+        }*/
 
-        Intent intent=new Intent(RegisterActivity.this,Otppage.class);
-        intent.putExtra("user_fullname",fullname);
-        intent.putExtra("user_phone",myphone);
+      if (getIntent().hasExtra("phone")){
+          Intent intent=new Intent(RegisterActivity.this,ehrdump2.class);
+          intent.putExtra("user_fullname",fullname);
+          intent.putExtra("user_phone",myphone);
+          intent.putExtra("status","1");
 
-        if (!email.equals("")){
-            intent.putExtra("user_email",email);
-        }else
-        {
-            intent.putExtra("user_email","");
-        }
-        if (!SaveSharedPreference.getPrefRefCode(RegisterActivity.this).equals(""))
-        {
-        intent.putExtra("referral_code", SaveSharedPreference.getPrefRefCode(RegisterActivity.this));
-        }else
-        {
-            intent.putExtra("referral_code","");
-        }
+          if (!email.equals("")){
+              intent.putExtra("user_email",email);
+          }else
+          {
+              intent.putExtra("user_email","");
+          }
+          if (!SaveSharedPreference.getPrefRefCode(RegisterActivity.this).equals(""))
+          {
+              intent.putExtra("referral_code", SaveSharedPreference.getPrefRefCode(RegisterActivity.this));
+          }else
+          {
+              intent.putExtra("referral_code","");
+          }
 
-        startActivity(intent);
+          startActivity(intent);
+      }else {
+          Intent intent=new Intent(RegisterActivity.this,Otppage.class);
+          intent.putExtra("user_fullname",fullname);
+          intent.putExtra("user_phone",myphone);
+
+          if (!email.equals("")){
+              intent.putExtra("user_email",email);
+          }else
+          {
+              intent.putExtra("user_email","");
+          }
+          if (!SaveSharedPreference.getPrefRefCode(RegisterActivity.this).equals(""))
+          {
+              intent.putExtra("referral_code", SaveSharedPreference.getPrefRefCode(RegisterActivity.this));
+          }else
+          {
+              intent.putExtra("referral_code","");
+          }
+
+          startActivity(intent);
+      }
+
+
 
 
       /*  HashMap<String, String> params = new HashMap<>();

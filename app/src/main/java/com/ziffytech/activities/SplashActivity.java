@@ -225,8 +225,11 @@ public class SplashActivity extends CommonActivity implements BaseSliderView.OnS
     {
         Intent intent = null;
         if(super.common.is_user_login()){
+
+            Log.e("is_user_login","true");
             intent = new Intent(SplashActivity.this,MainActivity.class);
         }else {
+            Log.e("is_user_login","false");
             intent = new Intent(SplashActivity.this, LoginActivity.class);
         }
         if (intent!=null){

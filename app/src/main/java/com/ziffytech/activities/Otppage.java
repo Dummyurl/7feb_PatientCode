@@ -34,7 +34,7 @@ public class Otppage extends CommonActivity implements View.OnClickListener {
 
     EditText edt_mobilenumber, edt_otp;
     TextView txtv_getotp, txtv_verifyotp, txtv_resend;
-    String otpmsg , usermobile;
+    String otpmsg, usermobile;
     String ServerOtp;
 
     @Override
@@ -73,14 +73,16 @@ public class Otppage extends CommonActivity implements View.OnClickListener {
 
     private void SendOtp() throws JSONException {
 
-        Log.e("SEND OTP","TRUE");
+        Log.e("SEND OTP", "TRUE");
 
         int randomPIN = (int) (Math.random() * 9000) + 1000;
-      //  JSONObject data = new JSONObject(common.getSession(ApiParams.USER_JSON_DATA));
+        //  JSONObject data = new JSONObject(common.getSession(ApiParams.USER_JSON_DATA));
         otpmsg = ("") + String.valueOf(randomPIN).toString();
         usermobile = getIntent().getStringExtra("user_phone");
 
-      //  Toast.makeText(this, usermobile, Toast.LENGTH_SHORT).show();
+        Log.e("usermobile", getIntent().getStringExtra("user_phone"));
+
+        //  Toast.makeText(this, usermobile, Toast.LENGTH_SHORT).show();
 
 
        /* String base="http://login.wishbysms.com/api/sendhttp.php?authkey=223369ArknFeJ7GNB5b372f1a&mobiles="+usermobile+"&message="+otpmsg+"%20is%20Your%20OTP.%20Welcome%20To%20Ziffytech%20Digital%20Healthacare%20Pvt.%20Ltd.&sender=ZIFFYT&route=4&country=91";
@@ -99,25 +101,23 @@ public class Otppage extends CommonActivity implements View.OnClickListener {
         }); */
 
         HashMap<String, String> params = new HashMap<>();
-        params.put("otpmsg",otpmsg);
-        params.put("usermobile",usermobile);
-        Log.e("PARAMS",params.toString());
+        params.put("otpmsg", otpmsg);
+        params.put("usermobile", usermobile);
+        Log.e("PARAMS", params.toString());
         String url = ApiParams.GET_OTP_SMS;
-       showPrgressBar();
+        showPrgressBar();
         VJsonRequest vJsonRequest = new VJsonRequest(this, url, params,
-                new VJsonRequest.VJsonResponce()
-                {
+                new VJsonRequest.VJsonResponce() {
                     @Override
                     public void VResponce(String responce) throws JSONException {
                         Log.e("GET_OTP_RES", responce);
                         hideProgressBar();
                         JSONObject jsonObject = new JSONObject(responce);
-                        ServerOtp =  jsonObject.getString("OTP");
+                        ServerOtp = jsonObject.getString("OTP");
                     }
 
                     @Override
-                    public void VError(String responce)
-                    {
+                    public void VError(String responce) {
                         hideProgressBar();
                     }
                 });
@@ -127,8 +127,7 @@ public class Otppage extends CommonActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.txtv_verifyotp)
-        {
+        if (v.getId() == R.id.txtv_verifyotp) {
             ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
@@ -138,8 +137,7 @@ public class Otppage extends CommonActivity implements View.OnClickListener {
             } else if (edt_otp.getText().toString().length() < 4) {
                 Toast.makeText(this, "Enter valid OTP", Toast.LENGTH_SHORT).show();
             } else {
-                if (networkInfo != null && networkInfo.isConnected())
-                {
+                if (networkInfo != null && networkInfo.isConnected()) {
                     String otp = edt_otp.getText().toString();
                     verifyOtp(otp);
 
@@ -159,10 +157,8 @@ public class Otppage extends CommonActivity implements View.OnClickListener {
 
         }
 
-        if(v.getId()== R.id.txtv_resend)
-        {
-            try
-            {
+        if (v.getId() == R.id.txtv_resend) {
+            try {
                 SendOtp();
 
             } catch (JSONException e) {
@@ -185,8 +181,6 @@ public class Otppage extends CommonActivity implements View.OnClickListener {
             }
         });
     }*/
-
-
 
 
     private void userRegister(HashMap<String, String> params) {
@@ -212,9 +206,9 @@ public class Otppage extends CommonActivity implements View.OnClickListener {
                                 common.setSession(ApiParams.USER_PHONE, data.getString("user_phone"));
                                 common.setSession(ApiParams.USER_JSON_DATA, data.toString());
 
-                                    Intent intent = new Intent(Otppage.this, ehrdump2.class);
-                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                    startActivity(intent);
+                                Intent intent = new Intent(Otppage.this, ehrdump2.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
 
 
                                 //intent.putExtra("new","new");
@@ -241,39 +235,28 @@ public class Otppage extends CommonActivity implements View.OnClickListener {
     }
 
 
-    private void verifyOtp(String otp)
-    {
-        if (otp.equals(ServerOtp))
-        {
-
+    private void verifyOtp(String otp) {
+        if (otp.equals(ServerOtp)) {
+            Log.e("verifyOtp", "true");
 
             HashMap<String, String> params = new HashMap<>();
-        params.put("user_fullname", getIntent().getStringExtra("user_fullname"));
-        params.put("user_phone", getIntent().getStringExtra("user_phone"));
-        if (getIntent().hasExtra("user_email")){
-            params.put("user_email", getIntent().getStringExtra("user_email"));
-        }
+            params.put("user_fullname", getIntent().getStringExtra("user_fullname"));
+            params.put("user_phone", getIntent().getStringExtra("user_phone"));
+            if (getIntent().hasExtra("user_email")) {
+                params.put("user_email", getIntent().getStringExtra("user_email"));
+            }
 
-        if (!SaveSharedPreference.getPrefRefCode(Otppage.this).equals("")){
+            if (!SaveSharedPreference.getPrefRefCode(Otppage.this).equals("")) {
 
-            params.put("referral_code", SaveSharedPreference.getPrefRefCode(Otppage.this));
-        }else {
-            params.put("referral_code","");
-        }
+                params.put("referral_code", SaveSharedPreference.getPrefRefCode(Otppage.this));
+            } else {
+                params.put("referral_code", "");
+            }
 
-        Log.e("PARAMS",params.toString());
-
-
-
+            Log.e("PARAMS", params.toString());
             userRegister(params);
-          /*  Intent intent = new Intent(Otppage.this, ehrdump2.class);
-            //intent.putExtra("new","new");
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
-*/
-        }
-        else
-        {
+
+        } else {
             Toast.makeText(this, "Your number is not verified", Toast.LENGTH_SHORT).show();
         }
     }
