@@ -316,7 +316,7 @@ public class RegisterActivity extends CommonActivity
         }*/
 
       if (getIntent().hasExtra("phone")){
-          Intent intent=new Intent(RegisterActivity.this,ehrdump2.class);
+        /*  Intent intent=new Intent(RegisterActivity.this,ehrdump2.class);
           intent.putExtra("user_fullname",fullname);
           intent.putExtra("user_phone",myphone);
           intent.putExtra("status","1");
@@ -335,7 +335,29 @@ public class RegisterActivity extends CommonActivity
               intent.putExtra("referral_code","");
           }
 
-          startActivity(intent);
+          startActivity(intent);*/
+
+
+
+              HashMap<String, String> params = new HashMap<>();
+        params.put("user_fullname", fullname);
+        params.put("user_phone", myphone);
+        params.put("user_email", email);
+
+        if (!SaveSharedPreference.getPrefRefCode(RegisterActivity.this).equals("")){
+
+            params.put("referral_code", SaveSharedPreference.getPrefRefCode(RegisterActivity.this));
+        }else {
+            params.put("referral_code","");
+        }
+
+        Log.e("PARAMS",params.toString());
+
+          userRegister(params);
+          showPrgressBar();
+
+
+
       }else {
           Intent intent=new Intent(RegisterActivity.this,Otppage.class);
           intent.putExtra("user_fullname",fullname);

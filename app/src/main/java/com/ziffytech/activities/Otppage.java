@@ -41,6 +41,7 @@ public class Otppage extends CommonActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otppage);
+        getSupportActionBar().hide();
 
         edt_otp = (EditText) findViewById(R.id.edt_otp);
         txtv_verifyotp = (TextView) findViewById(R.id.txtv_verifyotp);

@@ -8,32 +8,19 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="OTP" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de3cea42-90e7-47df-9b9f-d14d2c12289c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ziffytech/Config/ConstValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ziffytech/Config/ConstValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ziffytech/activities/Otppage.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ziffytech/activities/Otppage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ziffytech/activities/RegisterActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ziffytech/activities/RegisterActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ziffytech/activities/SplashActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ziffytech/activities/SplashActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ziffytech/activities/ehrdump2.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/ziffytech/activities/ehrdump2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emoji/build/intermediates/compile_only_not_namespaced_r_class_jar/debug/generateDebugRFile/R.jar" beforeDir="false" afterPath="$PROJECT_DIR$/emoji/build/intermediates/compile_only_not_namespaced_r_class_jar/debug/generateDebugRFile/R.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emoji/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/emoji/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -134,16 +121,16 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="4" />
-          <entry key="java" value="1438" />
-          <entry key="txt" value="170" />
+          <entry key="java" value="1499" />
+          <entry key="txt" value="173" />
           <entry key="xml" value="108" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="4" />
-          <entry key="JAVA" value="1438" />
-          <entry key="PLAIN_TEXT" value="170" />
+          <entry key="JAVA" value="1499" />
+          <entry key="PLAIN_TEXT" value="173" />
           <entry key="XML" value="108" />
         </counts>
       </usages-collector>
@@ -157,8 +144,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ziffytech/activities/RegisterActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="339" column="58" selection-start-line="339" selection-start-column="58" selection-end-line="339" selection-end-column="58" />
+            <state relative-caret-position="-122">
+              <caret line="347" selection-start-line="347" selection-end-line="347" />
               <folding>
                 <element signature="e#15171#15172#0" expanded="true" />
                 <element signature="e#15208#15209#0" expanded="true" />
@@ -167,7 +154,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ziffytech/Config/ConstValue.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
@@ -225,15 +212,17 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ziffytech/activities/Otppage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1191">
-              <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+            <state relative-caret-position="223">
+              <caret line="106" column="42" selection-start-line="106" selection-start-column="31" selection-end-line="106" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4366#4367#0" expanded="true" />
                 <element signature="e#4431#4432#0" expanded="true" />
+                <element signature="e#5548#5788#0" expanded="true" />
+                <element signature="e#5787#5788#0" expanded="true" />
                 <element signature="e#8390#8391#0" expanded="true" />
                 <element signature="e#8455#8456#0" expanded="true" />
               </folding>
@@ -297,8 +286,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/ziffytech/activities/ehrdump2.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ziffytech/activities/SplashActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ziffytech/activities/Otppage.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/ziffytech/activities/RegisterActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ziffytech/Config/ConstValue.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/ziffytech/activities/RegisterActivity.java" />
       </list>
     </option>
   </component>
@@ -560,22 +549,28 @@
       <option name="project" value="LOCAL" />
       <updated>1551417862901</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Lochan 01.03.2019 bug fixes.">
+      <created>1551432332831</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1551432332831</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" sideWeight="0.507365" side_tool="true" weight="0.22314675" />
       <window_info id="Capture Tool" order="1" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.492635" visible="true" weight="0.22314675" />
+      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.492635" visible="true" weight="0.22314675" />
       <window_info id="Structure" order="3" sideWeight="0.507365" side_tool="true" weight="0.22314675" />
       <window_info id="Build Variants" order="4" sideWeight="0.507365" side_tool="true" weight="0.22314675" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Designer" order="6" />
       <window_info id="Favorites" order="7" sideWeight="0.502455" side_tool="true" weight="0.23071104" />
-      <window_info anchor="bottom" id="Logcat" order="0" sideWeight="0.49924356" weight="0.5139116" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="0" sideWeight="0.49924356" visible="true" weight="0.5139116" />
       <window_info anchor="bottom" id="TODO" order="1" />
       <window_info anchor="bottom" id="Android Profiler" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" />
@@ -654,7 +649,8 @@
     <MESSAGE value="Lochan 22.02.2019 book by call changes" />
     <MESSAGE value="Lochan 27.02.2019 register activity bug fixes." />
     <MESSAGE value="Lochan 28.02.2019 bug fixes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Lochan 28.02.2019 bug fixes." />
+    <MESSAGE value="Lochan 01.03.2019 bug fixes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Lochan 01.03.2019 bug fixes." />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1015,24 +1011,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ziffytech/activities/Otppage.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ziffytech/Config/ConstValue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1191">
-          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4366#4367#0" expanded="true" />
-            <element signature="e#4431#4432#0" expanded="true" />
-            <element signature="e#8390#8391#0" expanded="true" />
-            <element signature="e#8455#8456#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="102">
+          <caret line="6" column="69" selection-start-line="6" selection-start-column="69" selection-end-line="6" selection-end-column="69" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ziffytech/activities/RegisterActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="339" column="58" selection-start-line="339" selection-start-column="58" selection-end-line="339" selection-end-column="58" />
+        <state relative-caret-position="-122">
+          <caret line="347" selection-start-line="347" selection-end-line="347" />
           <folding>
             <element signature="e#15171#15172#0" expanded="true" />
             <element signature="e#15208#15209#0" expanded="true" />
@@ -1040,10 +1029,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ziffytech/Config/ConstValue.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/ziffytech/activities/Otppage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="69" selection-start-line="6" selection-start-column="69" selection-end-line="6" selection-end-column="69" />
+        <state relative-caret-position="223">
+          <caret line="106" column="42" selection-start-line="106" selection-start-column="31" selection-end-line="106" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4366#4367#0" expanded="true" />
+            <element signature="e#4431#4432#0" expanded="true" />
+            <element signature="e#5548#5788#0" expanded="true" />
+            <element signature="e#5787#5788#0" expanded="true" />
+            <element signature="e#8390#8391#0" expanded="true" />
+            <element signature="e#8455#8456#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
