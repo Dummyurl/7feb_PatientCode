@@ -22,7 +22,7 @@ import com.android.volley.toolbox.Volley;
 import com.ziffytech.Config.ApiParams;
 import com.ziffytech.R;
 import com.ziffytech.util.MyUtility;
-import com.ziffytech.util.VJsonRequest;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,7 +33,7 @@ import static android.widget.Toast.LENGTH_SHORT;
 
 public class ehrdump2 extends CommonActivity implements View.OnClickListener {
 
-    ImageView gif;
+
     CheckBox chkehr;
     TextView txtv_restore, txtv_skipp;
     AlertDialog.Builder builder;
@@ -71,7 +71,7 @@ public class ehrdump2 extends CommonActivity implements View.OnClickListener {
             //Setting message manually and performing action on button click
             builder.setMessage("Do you want to skip EHR backup?")
                     .setCancelable(false)
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    .setPositiveButton("Yes",new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             finish();
                             Intent intent = new Intent(ehrdump2.this, MainActivity.class);

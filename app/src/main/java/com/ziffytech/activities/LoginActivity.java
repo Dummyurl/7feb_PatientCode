@@ -945,10 +945,7 @@ public class LoginActivity extends CommonActivity implements View.OnClickListene
             rel_bottom_login.setVisibility(View.VISIBLE);
             lin_email_login.setVisibility(View.GONE);
             lin_slider.setVisibility(View.VISIBLE);
-
         }
-
-
 
     }
 

@@ -212,10 +212,6 @@ public class Otppage extends CommonActivity implements View.OnClickListener {
                                 common.setSession(ApiParams.USER_PHONE, data.getString("user_phone"));
                                 common.setSession(ApiParams.USER_JSON_DATA, data.toString());
 
-
-
-
-
                                     Intent intent = new Intent(Otppage.this, ehrdump2.class);
                                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent);

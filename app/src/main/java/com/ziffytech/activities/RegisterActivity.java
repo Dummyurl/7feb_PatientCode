@@ -31,7 +31,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class RegisterActivity extends CommonActivity {
+public class RegisterActivity extends CommonActivity
+{
     EditText editEmail, editPassword, editFullname, passwrd, confirm_pass, phone, edit_referral;
     int user_id;
     SharedPreferences sharedPreferences;
@@ -40,8 +41,10 @@ public class RegisterActivity extends CommonActivity {
     LinearLayout terms;
     CheckBox checkReferral;
 
-    public final static boolean isValidEmail(CharSequence target) {
-        if (target == null) {
+    public final static boolean isValidEmail(CharSequence target)
+    {
+        if (target == null)
+        {
             return false;
         } else {
             return android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
@@ -49,7 +52,8 @@ public class RegisterActivity extends CommonActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         allowBack();
@@ -100,16 +104,13 @@ public class RegisterActivity extends CommonActivity {
 
             phone.setText(getIntent().getStringExtra("phone"));
             phone.setClickable(false);
-
         }
-
 
         terms = (LinearLayout) findViewById(R.id.terms);
         terms.setOnClickListener(
                 new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(ConstValue.BASE_URL + "index.php/admin/policy"));
                 startActivity(i);
@@ -164,7 +165,8 @@ public class RegisterActivity extends CommonActivity {
         */
     }
 
-    public void register() {
+    public void register()
+    {
 
         String email = editEmail.getText().toString();
         //String password = editPassword.getText().toString();
@@ -184,8 +186,10 @@ public class RegisterActivity extends CommonActivity {
             return;
         }
 
-        if (!TextUtils.isEmpty(email)){
-            if (!isEmailValid(email)) {
+        if (!TextUtils.isEmpty(email))
+        {
+            if (!isEmailValid(email))
+            {
                 editEmail.setError(getString(R.string.valid_email));
                 focusView = editEmail;
                 focusView.requestFocus();
@@ -257,8 +261,6 @@ public class RegisterActivity extends CommonActivity {
 
 
 
-
-
 /*
 
         if (!c_pass.equalsIgnoreCase(c_pass)) {
@@ -281,20 +283,17 @@ public class RegisterActivity extends CommonActivity {
         }
 
 
+        if (getIntent().hasExtra("phone"))
+        {
 
-
-
-
-        if (getIntent().hasExtra("phone")){
-
-      HashMap<String, String> params = new HashMap<>();
+        HashMap<String, String> params = new HashMap<>();
         params.put("user_fullname", fullname);
         params.put("user_phone", myphone);
         params.put("user_email", email);
 
 
-        if (!SaveSharedPreference.getPrefRefCode(RegisterActivity.this).equals("")){
-
+        if (!SaveSharedPreference.getPrefRefCode(RegisterActivity.this).equals(""))
+        {
             params.put("referral_code", SaveSharedPreference.getPrefRefCode(RegisterActivity.this));
         }else {
             params.put("referral_code","");
@@ -304,23 +303,26 @@ public class RegisterActivity extends CommonActivity {
             userRegister(params);
             showPrgressBar();
 
-        }else {
+        }else
+       {
 
         }
 
         Intent intent=new Intent(RegisterActivity.this,Otppage.class);
         intent.putExtra("user_fullname",fullname);
         intent.putExtra("user_phone",myphone);
+
         if (!email.equals("")){
             intent.putExtra("user_email",email);
-        }else {
+        }else
+        {
             intent.putExtra("user_email","");
         }
-
-        if (!SaveSharedPreference.getPrefRefCode(RegisterActivity.this).equals("")){
-
+        if (!SaveSharedPreference.getPrefRefCode(RegisterActivity.this).equals(""))
+        {
         intent.putExtra("referral_code", SaveSharedPreference.getPrefRefCode(RegisterActivity.this));
-        }else {
+        }else
+        {
             intent.putExtra("referral_code","");
         }
 
@@ -350,17 +352,16 @@ public class RegisterActivity extends CommonActivity {
 
 
 
-//
-//        userRegister(params);
-       // showPrgressBar();
+           //
+          //        userRegister(params);
+         // showPrgressBar();
         // params.put("country_code",btnCountry.getText().toString());
 
 
     }
 
-    private void userRegister(HashMap<String, String> params) {
-
-
+    private void userRegister(HashMap<String, String> params)
+    {
         VJsonRequest vJsonRequest = new VJsonRequest(this, ApiParams.REGISTER_URL, params,
                 new VJsonRequest.VJsonResponce() {
                     @Override
@@ -372,8 +373,8 @@ public class RegisterActivity extends CommonActivity {
                         try {
                             userdata = new JSONObject(responce);
 
-
-                            if (userdata.getInt("responce") == 1) {
+                            if (userdata.getInt("responce") == 1)
+                            {
                                 JSONObject data = userdata.getJSONObject("data");
                                 common.setSession(ApiParams.COMMON_KEY, data.getString("user_id"));
                                // common.setSession(ApiParams.USER_EMAIL, data.getString("user_email"));
@@ -381,9 +382,8 @@ public class RegisterActivity extends CommonActivity {
                                 common.setSession(ApiParams.USER_PHONE, data.getString("user_phone"));
                                 common.setSession(ApiParams.USER_JSON_DATA, data.toString());
 
-
-                                if (getIntent().hasExtra("phone")){
-
+                                if (getIntent().hasExtra("phone"))
+                                {
                                     Log.e("OTP","FALSE");
 
                                     Intent intent = new Intent(RegisterActivity.this, ehrdump2.class);
@@ -420,7 +420,8 @@ public class RegisterActivity extends CommonActivity {
 
     }
 
-    public boolean isEmailValid(String email) {
+    public boolean isEmailValid(String email)
+    {
         String regExpn =
                 "^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
                         + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
@@ -430,7 +431,6 @@ public class RegisterActivity extends CommonActivity {
                         + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$";
 
         CharSequence inputStr = email;
-
         Pattern pattern = Pattern.compile(regExpn, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(inputStr);
 
@@ -441,7 +441,8 @@ public class RegisterActivity extends CommonActivity {
     }
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed()
+    {
         super.onBackPressed();
     }
 }
