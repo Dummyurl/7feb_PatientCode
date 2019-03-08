@@ -40,16 +40,13 @@ import static com.ziffytech.util.Preferences.MyPREFERENCES;
 
 public class Allthyropackageslisting extends CommonActivity implements View.OnClickListener
 {
-
     Button txtv_test_available;
     EditText editSearchpak;
     //ProgressDialog pd;
     ArrayList<String> al_lab_id, al_lab_category, al_lab_test_name;
     Adaptertestlist testlistadapter;
-
     ArrayList<TopfivepickModel> tyro5modelArrayList;
     ArrayList<CartDetailModel> cartmodelArraylist;
-
     RecyclerView recyclerViewPackage,recyclerViewPackage2;
     LinearLayoutManager layoutManager,layoutManager2;
     ArrayList<TopfivepickModel> arrayPAckage = new ArrayList<>();
@@ -57,7 +54,6 @@ public class Allthyropackageslisting extends CommonActivity implements View.OnCl
     PackageAdapterThyroAll packageAdapter2;
     PackageAdapterThyroAll packageAdapter;
     TextView cartcount,txtv_schedule;
-
     CartDetailModel model;
     String key = "Key";
     ArrayList<CartDetailModel> ModelArrayList=new ArrayList();
@@ -75,21 +71,17 @@ public class Allthyropackageslisting extends CommonActivity implements View.OnCl
 
         shref = Allthyropackageslisting.this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         //editor = shref.edit();
-
         common.GetCartDetails(Allthyropackageslisting.this);
 
         model = new CartDetailModel();
-
         txtv_test_available = (Button) findViewById(R.id.txtv_test_available);
         recyclerViewPackage = (RecyclerView) findViewById(R.id.recyclerview_package);
         txtv_schedule = (TextView)findViewById(R.id.txtv_schedule);
         txtv_schedule.setOnClickListener(this);
-
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerViewPackage.setHasFixedSize(true);
         recyclerViewPackage.setLayoutManager(layoutManager);
-
         HashMap<String, String> params1 = new HashMap<String, String>();
         CustomRequestForString customRequestForString1 = new CustomRequestForString(Request.Method.POST, ApiParams.GETALLTHYROPACK, params1, this.createRequestSuccessListenerPackage(), this.createRequestErrorListenerPackage());
         RequestQueue requestQueue1 = Volley.newRequestQueue(this);

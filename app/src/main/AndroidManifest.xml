@@ -45,6 +45,9 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths"/>
         </provider>
+
+
+
         <!--
         <meta-data
             android:name="com.payumoney.sdkui:plug-n-play:1.4.4"

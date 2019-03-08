@@ -504,7 +504,6 @@ public class CommonClass {
                     JSONArray jsonArray = jsonObject.getJSONArray("card_total");
                     JSONArray jsonArray2 = jsonObject.getJSONArray("info");
                     cartelementcart = String.valueOf(jsonArray2.length());
-
                     Log.e("CartCount",cartelementcart);
                     model.setElementsincart(cartelementcart);
 

@@ -149,11 +149,10 @@ public class LocationActivity extends CommonActivity
 
 
                         } catch (JSONException e) {
-                      //      hideProgressBar();
+
+                         //      hideProgressBar();
                             e.printStackTrace();
                         }
-
-
 
                     }
                     @Override

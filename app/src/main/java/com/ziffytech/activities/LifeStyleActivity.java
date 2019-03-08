@@ -22,7 +22,6 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-
 /**
  * Created by admn on 13/11/2017.
  */
@@ -37,8 +36,6 @@ public class LifeStyleActivity extends CommonActivity {
         setContentView(R.layout.life_style);
         setHeaderTitle("Life Style Details");
         allowBack();
-
-
 
         occupation = (EditText) findViewById(R.id.occupation);
         occupation.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +74,6 @@ public class LifeStyleActivity extends CommonActivity {
         });
 
         smoking = (EditText) findViewById(R.id.Smoking);
-
         smoking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,8 +87,6 @@ public class LifeStyleActivity extends CommonActivity {
                 arrayAdapter.add("4");
                 arrayAdapter.add("None");
                 arrayAdapter.add("more than 4");
-
-
                 builderSingle.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -127,8 +121,6 @@ public class LifeStyleActivity extends CommonActivity {
                 arrayAdapter.add("Weakly");
                 arrayAdapter.add("Social");
                 arrayAdapter.add("None");
-
-
                 builderSingle.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -164,8 +156,6 @@ public class LifeStyleActivity extends CommonActivity {
                 arrayAdapter.add("Mildly");
                 arrayAdapter.add("Active");
                 arrayAdapter.add("Super Active");
-
-
                 builderSingle.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -235,8 +225,6 @@ public class LifeStyleActivity extends CommonActivity {
 
         if(getIntent().hasExtra("new")){
 
-
-
         }else{
 
             try {
@@ -289,7 +277,6 @@ public class LifeStyleActivity extends CommonActivity {
         String myactivity = activity_level.getText().toString();
         String Myfood = food.getText().toString();
 
-
         if (MyOccupation.length() <= 0 &&
                 Mysmoke.length() <= 0  &&
                 Myalchohol.length() <= 0 &&
@@ -303,8 +290,6 @@ public class LifeStyleActivity extends CommonActivity {
         }else{
 
             showPrgressBar();
-
-
             HashMap<String, String> params = new HashMap<>();
             params.put("user_id", common.get_user_id());
             params.put("occupation", MyOccupation);
@@ -312,10 +297,7 @@ public class LifeStyleActivity extends CommonActivity {
             params.put("alcohol", Myalchohol);
             params.put("activity_level", myactivity);
             params.put("food", Myfood);
-
             Log.e("params",new Gson().toJson(params));
-
-
             VJsonRequest vJsonRequest = new VJsonRequest(this, ApiParams.LIFESTYLE_DETAIL_URL, params,
                     new VJsonRequest.VJsonResponce() {
                         @Override
@@ -357,13 +339,7 @@ public class LifeStyleActivity extends CommonActivity {
                             MyUtility.showAlertMessage(LifeStyleActivity.this,"Failed to Update");
                         }
                     });
-
         }
-
-
     }
-
-
-
 }
 

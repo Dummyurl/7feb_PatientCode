@@ -7,9 +7,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.content.FileProvider;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -37,7 +39,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 
@@ -45,10 +50,10 @@ import java.util.Map;
  * Created by Mahesh on 17/10/17.
  */
 
-public class MedicineOrderActivity extends CommonActivity {
+public class MedicineOrderActivity extends CommonActivity
+{
 
-
-      ImageView imageView;
+    ImageView imageView;
     TextView textView;
     Button proceed;
     private String userChoosenTask;
@@ -58,45 +63,42 @@ public class MedicineOrderActivity extends CommonActivity {
     Bitmap bitmap;
     LinearLayout llbtn;
 
+    public static final int REQUEST_IMAGE = 0;
+    public static final int REQUEST_PERMISSION = 200;
+    private String imageFilePath = "";
+    Uri photoUri;
 
-
-
-    private int REQUEST_CAMERA = 0, SELECT_FILE = 1;
+    private int REQUEST_CAMERA = 100, SELECT_FILE = 1;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicine_list);
-
         allowBack();
-        Intent intent = getIntent();
 
+        Intent intent = getIntent();
         pincode = intent.getStringExtra(ApiParams.PINCODE);
         city = intent.getStringExtra(ApiParams.CITY);
         address = intent.getStringExtra(ApiParams.ADDRESS);
         time = intent.getStringExtra(ApiParams.Time);
         llbtn=findViewById(R.id.llbtn);
-
-
         setHeaderTitle("Order Medicine");
         sharedPreferences = getSharedPreferences(Preferences.MyPREFERENCES, Context.MODE_PRIVATE);
-
-
         bindView();
 
     }
 
-    public void bindView() {
+    public void bindView()
+    {
         imageView = (ImageView) findViewById(R.id.imageview);
         textView = (TextView) findViewById(R.id.text);
 
-
         llbtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View v)
+            {
                 selectImage();
-
             }
         });
 
@@ -113,15 +115,14 @@ public class MedicineOrderActivity extends CommonActivity {
 
         });
 
-
     }
 
 
 
-    private void selectImage() {
+    private void selectImage()
+    {
 
-        final CharSequence[] items = {"Take Photo", "Choose from Library",
-                "Cancel"};
+        final CharSequence[] items = {"Take Photo", "Choose from Library", "Cancel"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(MedicineOrderActivity.this);
         builder.setTitle("Add Photo!");
@@ -150,68 +151,142 @@ public class MedicineOrderActivity extends CommonActivity {
     }
 
 
-    private void galleryIntent() {
+    private void galleryIntent()
+    {
         Intent intent = new Intent();
-
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);//
         startActivityForResult(Intent.createChooser(intent, "Select File"), SELECT_FILE);
     }
 
-    private void cameraIntent() {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent, REQUEST_CAMERA);
+    private void cameraIntent()
+    {
+
+        Intent pictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (pictureIntent.resolveActivity(getPackageManager()) != null)
+        {
+
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                return;
+            }
+            photoUri = FileProvider.getUriForFile(this, "com.ziffytech.util.GenericFileProvider", photoFile);
+            pictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
+            startActivityForResult(pictureIntent, REQUEST_CAMERA);
+        }
+    }
+
+
+    private File createImageFile() throws IOException
+    {
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
+        String imageFileName = "IMG_" + timeStamp + "_";
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(imageFileName, ".jpg", storageDir);
+        imageFilePath = image.getAbsolutePath();
+
+        return image;
     }
 
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == Activity.RESULT_OK) {
+        if (resultCode == Activity.RESULT_OK)
+        {
             if (requestCode == SELECT_FILE)
                 onSelectFromGalleryResult(data);
-            else if (requestCode == REQUEST_CAMERA)
-                onCaptureImageResult(data);
+            else if (requestCode == REQUEST_CAMERA){
+
+                //onCaptureImageResult(data);
+                try {
+
+
+
+                    Bitmap bitmap1 = MediaStore.Images.Media.getBitmap(this.getContentResolver(), photoUri);
+                    Toast.makeText(this, ""+bitmap1, Toast.LENGTH_SHORT).show();
+
+
+                    final int maxSize = 960;
+                    int outWidth;
+                    int outHeight;
+                    int inWidth = bitmap1.getWidth();
+                    int inHeight = bitmap1.getHeight();
+                    if(inWidth > inHeight){
+                        outWidth = maxSize;
+                        outHeight = (inHeight * maxSize) / inWidth;
+                    } else {
+                        outHeight = maxSize;
+                        outWidth = (inWidth * maxSize) / inHeight;
+                    }
+
+                    Bitmap resizedBitmap = Bitmap.createScaledBitmap(bitmap1, outWidth, outHeight, false);
+
+                    imageView.setImageBitmap(bitmap1);
+                    textView.setVisibility(View.GONE);
+                    textView.isClickable();
+                    bitmap  = resizedBitmap;
+                    //getFileDataFromDrawable(bitmap1);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
         }
+
     }
 
-    private void onCaptureImageResult(Intent data) {
+    private void onCaptureImageResult(Intent data)
+    {
         Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
-        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
+        getFileDataFromDrawable(thumbnail);
 
-        destination = new File(Environment.getExternalStorageDirectory(),
-                System.currentTimeMillis() + ".jpg");
+        /* ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+
+        destination = new File(Environment.getExternalStorageDirectory(), System.currentTimeMillis() + ".jpg");
 
         FileOutputStream fo;
-        try {
+        try
+        {
             destination.createNewFile();
             fo = new FileOutputStream(destination);
             fo.write(bytes.toByteArray());
             fo.close();
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e)
+        {
             e.printStackTrace();
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             e.printStackTrace();
-        }
+        }*/
 
         bitmap=thumbnail;
-
         imageView.setImageBitmap(thumbnail);
-
         textView.setVisibility(View.GONE);
         textView.isClickable();
     }
 
     @SuppressWarnings("deprecation")
-    private void onSelectFromGalleryResult(Intent data) {
-
+    private void onSelectFromGalleryResult(Intent data)
+    {
         Bitmap bm = null;
-        if (data != null) {
-            try {
+        if (data != null)
+        {
+            try
+            {
                 bm = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), data.getData());
-            } catch (IOException e) {
+                Toast.makeText(this, ""+bm, Toast.LENGTH_SHORT).show();
+            } catch (IOException e)
+            {
                 e.printStackTrace();
             }
         }
@@ -219,7 +294,6 @@ public class MedicineOrderActivity extends CommonActivity {
         bitmap=bm;
         imageView.setImageBitmap(bm);
         textView.setVisibility(View.GONE);
-
     }
 
 
@@ -229,9 +303,7 @@ public class MedicineOrderActivity extends CommonActivity {
 
         int pid = android.os.Process.myPid();
         android.os.Process.killProcess(pid);
-
         Intent myIntent = new Intent(MedicineOrderActivity.this, MainActivity.class);
-
         myIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(myIntent);
         finish();
@@ -241,7 +313,7 @@ public class MedicineOrderActivity extends CommonActivity {
     public byte[] getFileDataFromDrawable(Bitmap bitmap)
     {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 80, byteArrayOutputStream);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
         return byteArrayOutputStream.toByteArray();
 
     }
@@ -256,9 +328,11 @@ public class MedicineOrderActivity extends CommonActivity {
     }
 
 
-    private void uploadBitmap(final Bitmap bitmap) {
+    private void uploadBitmap(final Bitmap bitmap)
+    {
 
-        if(bitmap==null){
+        if(bitmap==null)
+        {
             MyUtility.showToast("Select image to upload",this);
             return;
         }
@@ -267,9 +341,11 @@ public class MedicineOrderActivity extends CommonActivity {
         showPrgressBar();
         //our custom volley request
         VolleyMultipartRequest volleyMultipartRequest = new VolleyMultipartRequest(Request.Method.POST, ApiParams.ORDER_MEDICINE,
-                new Response.Listener<NetworkResponse>() {
+                new Response.Listener<NetworkResponse>()
+                {
                     @Override
-                    public void onResponse(NetworkResponse response) {
+                    public void onResponse(NetworkResponse response)
+                    {
                         Log.e("RESPONSE_MEDICINE_ORDER", String.valueOf(response));
                         hideProgressBar();
 
@@ -288,9 +364,11 @@ public class MedicineOrderActivity extends CommonActivity {
                         }*/
                     }
                 },
-                new Response.ErrorListener() {
+                new Response.ErrorListener()
+                {
                     @Override
-                    public void onErrorResponse(VolleyError error) {
+                    public void onErrorResponse(VolleyError error)
+                    {
                         hideProgressBar();
                         Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
@@ -303,7 +381,8 @@ public class MedicineOrderActivity extends CommonActivity {
              * which is tags
              * */
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
+            protected Map<String, String> getParams() throws AuthFailureError
+            {
                 Map<String, String> params = new HashMap<>();
                 params.put("user_id", common.get_user_id());
                 params.put("pincode", pincode);
@@ -313,10 +392,7 @@ public class MedicineOrderActivity extends CommonActivity {
                 Log.e("PARAMS",params.toString());
                 //params.put("user_image",getFileDataFromDrawable(bitmap));
                 return params;
-
             }
-
-
             //Here we are passing image by renaming it with a unique name
             //
             @Override
@@ -337,7 +413,6 @@ public class MedicineOrderActivity extends CommonActivity {
     }
 
 
-
     private void showSuccessDialog()
     {
         AlertDialog.Builder ad=new AlertDialog.Builder(this);
@@ -355,7 +430,16 @@ public class MedicineOrderActivity extends CommonActivity {
         });
         ad.create().show();
 
-
     }
+
+
+
+
+    /****************************************** Compression *********************************************/
+
+
+
+
+
 
 }

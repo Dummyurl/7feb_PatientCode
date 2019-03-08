@@ -48,8 +48,6 @@ import java.util.Locale;
 
 public class BookActivity extends CommonActivity implements View.OnClickListener
 {
-
-
     public static ArrayList<DoctorModel> mDoctorArray;
     BusinessModel selected_business;
     DoctorAdapter doctorAdapter;
@@ -88,7 +86,6 @@ public class BookActivity extends CommonActivity implements View.OnClickListener
             txtv_filter.setVisibility(View.VISIBLE);
         }
 
-
         selected_business = ActiveModels.BUSINESS_MODEL;
         mDoctorArray = new ArrayList<>();
         recyclerView = (RecyclerView) findViewById(R.id.rv_list);
@@ -99,54 +96,61 @@ public class BookActivity extends CommonActivity implements View.OnClickListener
         doctorAdapter = new DoctorAdapter(this, mDoctorArray);
         recyclerView.setAdapter(doctorAdapter);
 
-
-        if (getIntent().hasExtra("search")) {
+        if (getIntent().hasExtra("search"))
+        {
             Log.e("INTENT", "SEARCH");
             Log.e("intent Data", getIntent().toUri(0));
             ActiveModels.RESCHEDULE_APP_ID = "";
             if (getIntent().getStringExtra("Activity").equals("2"))
                 loadDataSearch();
 
-        } else if (getIntent().hasExtra("cat_id")) {
+        } else if (getIntent().hasExtra("cat_id"))
+        {
             text_category.setVisibility(View.VISIBLE);
             text_category.setText(getIntent().getStringExtra("cat_name"));
             Log.e("INTENT", "CATEGORY");
             ActiveModels.RESCHEDULE_APP_ID = "";
             loadData();
 
-        } else if (getIntent().hasExtra("name")) {
+        } else if (getIntent().hasExtra("name"))
+        {
             Log.e("INTENT", "NAME");
             ActiveModels.RESCHEDULE_APP_ID = "";
             loadDataName();
 
         }
 
-
-        if (getIntent().hasExtra("name")) {
+        if (getIntent().hasExtra("name"))
+        {
             Log.e("INTENT", "NAME");
             ActiveModels.RESCHEDULE_APP_ID = "";
             loadDataName();
 
         }
-        if (getIntent().hasExtra("search")) {
+        if (getIntent().hasExtra("search"))
+        {
             Log.e("INTENT", "SEARCH");
             Log.e("intent Data", getIntent().toUri(0));
             ActiveModels.RESCHEDULE_APP_ID = "";
             loadDataSearch();
 
 
-        } else if (getIntent().hasExtra("cat_id")) {
+        } else if (getIntent().hasExtra("cat_id"))
+        {
             Log.e("INTENT", "CAT_ID");
 
             ActiveModels.RESCHEDULE_APP_ID = "";
             loadData();
 
-        } else if (getIntent().hasExtra("appointment_id")) {
+        } else if (getIntent().hasExtra("appointment_id"))
+        {
 
             ActiveModels.RESCHEDULE_APP_ID = getIntent().getStringExtra("appointment_id");
             loadDataName();
-        } else if (getIntent().hasExtra("search")) {
-            if (getIntent().hasExtra("cat_id")) {
+        } else if (getIntent().hasExtra("search"))
+        {
+            if (getIntent().hasExtra("cat_id"))
+            {
                 loadDataSearch();
 
             }
@@ -283,7 +287,6 @@ public class BookActivity extends CommonActivity implements View.OnClickListener
 
     public void loadData() {
 
-
         HashMap<String, String> params = new HashMap<>();
         params.put("cat_id", getIntent().getStringExtra("cat_id"));
         params.put("city", common.getSession(ApiParams.CURRENT_CITY));
@@ -299,8 +302,6 @@ public class BookActivity extends CommonActivity implements View.OnClickListener
         params.put("lat", latitude);
         params.put("long",longitude);
         Log.e("CATEGORY_PARAMS", String.valueOf(params));
-
-
 
         // Log.e("IDDD",selected_business.getBus_id());
 
@@ -337,28 +338,19 @@ public class BookActivity extends CommonActivity implements View.OnClickListener
                                     //finish();
                                     MyUtility.showAlertMessage(BookActivity.this, "Data Not Available");
                                 }
-
                             } else {
                                 //finish();
                                 MyUtility.showAlertMessage(BookActivity.this, "Data Not Available");
                             }
 
-
                         } catch (JSONException e) {
-
                             e.printStackTrace();
                             MyUtility.showAlertMessage(BookActivity.this, "Data Not Available");
-
                         }
-
                     }
-
                     @Override
-                    public void VError(String responce) {
-
-                    }
+                    public void VError(String responce) { }
                 });
-
 
     }
 

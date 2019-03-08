@@ -34,7 +34,7 @@ public class ApiParams
 
 
  // https://www.ziffytech.com/ZiffyDummy/admin//index.php/Api/my_appointments
-//https://www.ziffytech.com/ZiffyDummy/admin/index.php/Api/login
+ //https://www.ziffytech.com/ZiffyDummy/admin/index.php/Api/login
 
  public static String PARM_RESPONCE = "responce";
  public static String PARM_DATA = "data";
@@ -187,7 +187,6 @@ public class ApiParams
 
  public static String USER_JSON_DATA = "user_data";
 
-
  public static String ZIFFY_WALLET_AMT="ziffy_wallet_amt";
 
  public static String CHAT_WITH = "chat_with";
@@ -196,15 +195,9 @@ public class ApiParams
  public static String PHARMA_NOTIFICATION = "";
  public static String LAB_NOTIFICATION = "";
 
-
-
-
-
  public static String GET_CONTACTS = ConstValue.BASE_URL+API_V+"/get_emergency_number";
  public  static String GET_CITY = ConstValue.BASE_URL+API_V+"/get_city";
  public  static String GET_REMAINDERS = ConstValue.BASE_URL+API_V+"/get_remainder_prescription";
-
-
 
 
  /*https://www.ziffytech.com/admin/Api/get_emergency_number";*/

@@ -77,7 +77,9 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 
-public class MainActivity extends CommonActivity implements NavigationView.OnNavigationItemSelectedListener, BaseSliderView.OnSliderClickListener, BottomNavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends CommonActivity implements NavigationView.OnNavigationItemSelectedListener,
+             BaseSliderView.OnSliderClickListener, BottomNavigationView.OnNavigationItemSelectedListener
+{
 
     ArrayList<CategoryModel> categoryArray;
     RecyclerView categoryRecyclerView;
@@ -100,8 +102,6 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
     ArrayList<TopfivepickModel> tyro5modelArrayList;
     RecyclerView recyclerViewPackage,recyclerViewPackage2;
     LinearLayoutManager layoutManager,layoutManager2;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -151,7 +151,7 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
         allowBack();
 
 
-     /*   String token= FirebaseInstanceId.getInstance().getToken();
+       /*   String token= FirebaseInstanceId.getInstance().getToken();
         Log.e("TOKEN",token);*/
 
 
@@ -184,7 +184,6 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
         Log.e("LoggedUserData",common.getSession(ApiParams.USER_JSON_DATA));
 
         try{
-
 
             JSONObject data=new JSONObject(common.getSession(ApiParams.USER_JSON_DATA));
 
@@ -237,15 +236,14 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
         mDemoSlider.setCustomAnimation(new ChildAnimationExample());
         mDemoSlider.setDuration(4000);
         mDemoSlider.addOnPageChangeListener(this);
-
         bottom_navigation.setOnNavigationItemSelectedListener(this);
         bottom_navigation.setSelected(true);
+
     }
 
 
     public void bindView()
     {
-
         //Will see it later
         categoryRecyclerView = (RecyclerView) findViewById(R.id.rv_artist);
         GridLayoutManager layoutManager = new GridLayoutManager(this, 3);
@@ -310,7 +308,6 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
 
             }
         });
-
 
         CardView cv_book=(CardView)findViewById(R.id.cv_book);
         cv_book.setOnClickListener(new View.OnClickListener()
@@ -394,8 +391,8 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
         View navHeader = navigationView.getHeaderView(0);
         navigationView.setNavigationItemSelectedListener(this);
         Menu nav_Menu = navigationView.getMenu();
-        if (!common.is_user_login()){
-
+        if (!common.is_user_login())
+        {
             nav_Menu.findItem(R.id.nav_appointment).setVisible(false);
             nav_Menu.findItem(R.id.nav_logout).setVisible(false);
             nav_Menu.findItem(R.id.nav_password).setVisible(false);
@@ -404,9 +401,9 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
             nav_Menu.findItem(R.id.nav_wallet).setVisible(true);
             nav_Menu.findItem(R.id.nav_vaccination).setVisible(false);
             nav_Menu.findItem(R.id.nav_history).setVisible(false);
-           // nav_Menu.findItem(R.id.nav_refer).setVisible(false);
+            // nav_Menu.findItem(R.id.nav_refer).setVisible(false);
             // navHeader.findViewById(R.id.txtFullName).setVisibility(View.GONE);
-            //navHeader.findViewById(R.id.textEmailId).setVisibility(View.GONE);
+            // navHeader.findViewById(R.id.textEmailId).setVisibility(View.GONE);
 
         }else{
             nav_Menu.findItem(R.id.nav_appointment).setVisible(true);
@@ -417,7 +414,7 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
             nav_Menu.findItem(R.id.nav_history).setVisible(false);
             nav_Menu.findItem(R.id.nav_login).setVisible(false);
             nav_Menu.findItem(R.id.nav_wallet).setVisible(true);
-          //  nav_Menu.findItem(R.id.nav_refer).setVisible(true);
+            //nav_Menu.findItem(R.id.nav_refer).setVisible(true);
             //navHeader.findViewById(R.id.txtFullName).setVisibility(View.VISIBLE);
             //navHeader.findViewById(R.id.textEmailId).setVisibility(View.VISIBLE);
             //((TextView)navHeader.findViewById(R.id.txtFullName)).setText(common.getSession(ApiParams.USER_FULLNAME));
@@ -435,9 +432,7 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
                     {
 
                         Gson gson = new Gson();
-                        Type listType = new TypeToken<List<CategoryModel>>()
-                        {
-                        }.getType();
+                        Type listType = new TypeToken<List<CategoryModel>>() {}.getType();
                         categoryArray.clear();
                         categoryArray.addAll((Collection<? extends CategoryModel>) gson.fromJson(responce, listType));
                         categoryAdapter.notifyDataSetChanged();
@@ -449,13 +444,12 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
                         progressBar1.setVisibility(View.GONE);
                     }
                 });
-
-
     }
 
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed()
+    {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
@@ -465,7 +459,8 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
     }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(MenuItem item)
+    {
         // Handle navigation view item clicks here.
 
         int id = item.getItemId();
@@ -511,9 +506,9 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
         drawer.closeDrawer(GravityCompat.START);
 
 
-
         Menu menu = bottom_navigation.getMenu();
-        for (int i = 0, size = menu.size(); i < size; i++) {
+        for (int i = 0, size = menu.size(); i < size; i++)
+        {
             MenuItem item1 = menu.getItem(i);
             boolean shouldBeChecked = item1.getItemId() == item.getItemId();
             if (shouldBeChecked) {
@@ -524,7 +519,7 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
             }
         }
 
-      /*  for (int i = 0; i < bottom_navigation.getMenu().size(); i++)
+        /*  for (int i = 0; i < bottom_navigation.getMenu().size(); i++)
         {
             MenuItem menuItem = bottom_navigation.getMenu().getItem(i);
             isChecked = menuItem.getItemId() == item.getItemId();
@@ -561,28 +556,22 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
         }
         return true;
 
-
     }
 
-
-
-
-
-    private void shareLongDynamicLink() {
-
-
-        Intent intent = new Intent();
+    private void shareLongDynamicLink()
+    {
+            Intent intent = new Intent();
             String msg = "Checkout Ziffytech App: " + buildDynamicLink();
             intent.setAction(Intent.ACTION_SEND);
             intent.putExtra(Intent.EXTRA_TEXT, msg);
             intent.setType("text/plain");
             startActivity(intent);
-
     }
 
 
 
-    private String buildDynamicLink(/*String link, String description, String titleSocial, String source*/) {
+    private String buildDynamicLink(/*String link, String description, String titleSocial, String source*/)
+    {
         //more info at https://firebase.google.com/docs/dynamic-links/create-manually
 
         String path = FirebaseDynamicLinks.getInstance().createDynamicLink()
@@ -592,8 +581,6 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
                 .setSocialMetaTagParameters(new DynamicLink.SocialMetaTagParameters.Builder().setTitle("Refer and Earn").setDescription("Get Rs.50 for first transaction").build())
                 .setGoogleAnalyticsParameters(new DynamicLink.GoogleAnalyticsParameters.Builder().setSource("AndroidApp").build())
                 .buildDynamicLink().getUri().toString();
-
-
         return path;
     }
 
@@ -632,7 +619,8 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
     }
 
     @Override
-    protected void onStart() {
+    protected void onStart()
+    {
         super.onStart();
         login();
         try{
@@ -654,9 +642,8 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
         }
     }
 
-    public  void getHash(){
-
-
+    public  void getHash()
+    {
         try {
             PackageInfo info = getPackageManager().getPackageInfo("com.ziffytech", PackageManager.GET_SIGNATURES);
             for (Signature signature : info.signatures) {
@@ -672,12 +659,11 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
     }
 
 
-    public void login() {
-
+    public void login()
+    {
 
         HashMap<String, String> params = new HashMap<>();
         params.put("user_id", common.get_user_id());
-
         VJsonRequest vJsonRequest = new VJsonRequest(this, ApiParams.GET_CONTACTS, params,
                 new VJsonRequest.VJsonResponce() {
                     @Override
@@ -688,87 +674,68 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
                         JSONObject userdata = null;
                         try {
                             userdata = new JSONObject(responce);
-//                            Log.e("WALLET AMOUNT", String.valueOf(ApiParams.ZIFFY_WALLET_AMT));
-
+                             // Log.e("WALLET AMOUNT", String.valueOf(ApiParams.ZIFFY_WALLET_AMT));
                             common.setSession(ApiParams.ZIFFY_WALLET_AMT,userdata.getString("wallet_amt"));
-
                             Log.e("WALLET AMOUNT",common.getSession(ApiParams.ZIFFY_WALLET_AMT));
                             Log.e("WALLET AMOUNT###",userdata.getString("wallet_amt"));
-
                             if(userdata.getInt("responce")==1){
-
                             //    Log.e("WALLET AMOUNT", String.valueOf(ApiParams.ZIFFY_WALLET_AMT));
-
                                 JSONArray arr=userdata.getJSONArray("data");
-
                                 for(int i=0;i<arr.length();i++)
                                 {
-
                                     JSONObject obj=arr.getJSONObject(i);
                                     bookingNumber=obj.getString("book_no");
                                     emergencyNumber=obj.getString("emergency_no");
-
                                 }
                                 //pharma_notification
                                 //lab_notification
+                                if(userdata.has("user")) {
 
-                                if(userdata.has("user")){
+                                    JSONObject data = userdata.getJSONObject("user");
 
-                                    JSONObject data=userdata.getJSONObject("user");
-
-                                    if(!data.getString("pharma_notification").equalsIgnoreCase("0")){
+                                    if (!data.getString("pharma_notification").equalsIgnoreCase("0")) {
                                         phrmaNotify.setText("1");
                                         phrmaNotify.setVisibility(View.VISIBLE);
 
-                                    }else{
+                                    } else {
                                         phrmaNotify.setVisibility(View.GONE);
                                     }
 
-                                    if(!data.getString("lab_notification").equalsIgnoreCase("0")){
+                                    if (!data.getString("lab_notification").equalsIgnoreCase("0")) {
 
                                         labNotify.setText("1");
                                         labNotify.setVisibility(View.VISIBLE);
                                         status = "1";
 
-                                    }else{
+                                    } else {
                                         labNotify.setVisibility(View.GONE);
-
                                     }
-
                                     common.setSession(ApiParams.COMMON_KEY, data.getString("user_id"));
                                     common.setSession(ApiParams.USER_EMAIL, data.getString("user_email"));
                                     common.setSession(ApiParams.USER_FULLNAME, data.getString("user_fullname"));
                                     common.setSession(ApiParams.USER_PHONE, data.getString("user_phone"));
                                     common.setSession(ApiParams.USER_JSON_DATA, data.toString());
-
                                 }
-
-
 
                             }else{
                                // common.logOut();
                             }
 
                         } catch (JSONException e) {
-
                             e.printStackTrace();
                         }
-
                     }
-
                     @Override
                     public void VError(String responce) {
 
                     }
                 });
 
-
     }
 
 
-
 /*
-    private void GiveAlertDialog()
+   private void GiveAlertDialog()
     {
         final AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
@@ -785,47 +752,45 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
                 RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
                 requestQueue.add(customRequestForString);
 
-
-
             }
 
-            private Response.Listener<String> createRequestSuccessListenerEvent() {
-                return new Response.Listener<String>() {
+            private Response.Listener<String> createRequestSuccessListenerEvent()
+            {
+                return new Response.Listener<String>()
+                 {
                     @Override
-                    public void onResponse(String response) {
+                    public void onResponse(String response)
+                     {
 
                         try {
                             JSONObject jsonObject=new JSONObject(response);
-
-
                             String result=jsonObject.getString("response");
-
-                            if (result.equals("1")){
-
+                            if (result.equals("1"))
+                            {
                                 final AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
                                 LayoutInflater inflater = getLayoutInflater();
                                 View dialogLayout = inflater.inflate(R.layout.dilog_order_success, null);
-
                                 TextView textView=dialogLayout.findViewById(R.id.txt_info);
                                 textView.setText("Thanks for the confirmation!!!!!!!");
                             }
 
-                        } catch (JSONException e) {
+                        } catch (JSONException e)
+                        {
                             e.printStackTrace();
                         }
-
-
                     }
                 };
             }
 
-
-            private Response.ErrorListener createRequestErrorListenerEvent() {
-                return new Response.ErrorListener() {
+            private Response.ErrorListener createRequestErrorListenerEvent()
+            {
+                return new Response.ErrorListener()
+                {
                     @Override
-                    public void onErrorResponse(VolleyError error) {
+                    public void onErrorResponse(VolleyError error)
+                    {
                         Log.e("##", "##" + error.toString());
-                        }
+                    }
                 };
             }
 
@@ -834,7 +799,7 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
         alert.setView(dialogLayout);
         alert.show();
 
-// Hide after some seconds
+        // Hide after some seconds
         final Handler handler  = new Handler();
         final Runnable runnable = new Runnable() {
             @Override
@@ -855,9 +820,6 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
         handler.postDelayed(runnable, 10000);
     }
 */
-
-
-
 
     private Response.Listener<String> createRequestSuccessListenerThyropack()
     {
@@ -909,8 +871,6 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
 
                     final ThyroPackageAdapter packageAdapter = new ThyroPackageAdapter(MainActivity.this, tyro5modelArrayList);
                     recyclerViewPackage.setAdapter(packageAdapter);
-
-
                     final int scrollSpeed = 150;   // Scroll Speed in Milliseconds
                     final Handler handler = new Handler();
                     final Runnable runnable = new Runnable() {
@@ -939,15 +899,12 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
                                 }
                                 // Know The Last Visible Item
                                 scrollPosition = layoutManager.findLastCompletelyVisibleItemPosition();
-
-
                                 recyclerViewPackage.smoothScrollBy(x, 1);
                                 handler.postDelayed(this, scrollSpeed);
                             }
                         }
                     };
                     handler.postDelayed(runnable, scrollSpeed);
-
 
                 } catch (JSONException e)
                 {
@@ -972,23 +929,12 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
         };
     }
 
-
-
-
-
-
+    @Override
+    public void onSliderClick(BaseSliderView slider) { }
 
 
     @Override
-    public void onSliderClick(BaseSliderView slider) {
-
-    }
-
-
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-
-    }
+    public void onPointerCaptureChanged(boolean hasCapture) { }
 
     public void loadversioncode()
     {
@@ -1008,25 +954,18 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
 
                                 if (jsonObject.getInt("response")==1)
                                 {
-
                                     JSONObject obj = jsonArray.getJSONObject(i);
                                     VersionModel ver = new VersionModel();
                                     ver.setPatient_ver_code(obj.getString("patient_ver_code"));
                                     String app_ver = ver.getPatient_ver_code();
                                     common.setSession(ApiParams.VERSION, app_ver);
                                     CheckUPdate();
-
                                 }
-
-
-
                             }
 
                         } catch (JSONException e) {
 
                         }
-
-
                     }
                     @Override
                     public void VError(String responce)
@@ -1034,8 +973,6 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
                         Toast.makeText(MainActivity.this, "Error to get version code", Toast.LENGTH_SHORT).show();
                     }
                 });
-
-
     }
 
 
@@ -1046,13 +983,9 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
         VersionModel ver = new VersionModel();
         String appVersionName = BuildConfig.VERSION_NAME;
         String version = ver.getPatient_ver_code();
-
-
         Log.e("appVersionName",appVersionName);
         Log.e("VERSION",ApiParams.VERSION);
-
         //Toast.makeText(this, ""+appVersionName+"Mangesh ver : "+version, Toast.LENGTH_SHORT).show();
-
         if(!appVersionName.equals(common.getSession(ApiParams.VERSION)))
         {
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
@@ -1085,7 +1018,7 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
             a.startActivity(intent);
             a.overridePendingTransition(0, 0);
         }
-    }
+}
 
 
 

@@ -45,30 +45,25 @@ public class Bookbycall extends CommonActivity {
     private TextView tvNotFound;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bookbycall);
         setHeaderTitle("Book By Call");
         allowBack();
         mDoctorArray = new ArrayList<>();
-
         setResult(Activity.RESULT_CANCELED);
-
         tvNotFound = (TextView) findViewById(R.id.tvnotfound);
         tvNotFound.setVisibility(View.GONE);
-
-
         recyclerView = (RecyclerView) findViewById(R.id.rv_list);
-        final LinearLayoutManager layoutManager
-                = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-
         loadData();
-
     }
 
-    public void loadData() {
+    public void loadData()
+    {
         HashMap<String, String> params = new HashMap<>();
         String city1 = common.getSession(ApiParams.CURRENT_CITY).toString();
         params.put("city", city1);
@@ -83,83 +78,49 @@ public class Bookbycall extends CommonActivity {
                         hideProgressBar();
                         try {
                             JSONObject jsonObject = new JSONObject(responce);
-                            if (jsonObject.getInt("responce")==1){
-
-
-
+                            if (jsonObject.getInt("responce")==1)
+                            {
                                 JSONArray data=jsonObject.optJSONArray("data");
-
-                                for (int i = 0; i <data.length() ; i++) {
-
-
+                                for (int i = 0; i <data.length() ; i++)
+                                {
                                     JSONObject object=data.getJSONObject(i);
-
-
                                     DoctorModel model = new DoctorModel();
-
                                     model.setDoct_id(object.getString("doct_id"));
                                     Log.e("doct_id", object.getString("doct_id"));
-
                                     model.setDoct_photo(object.getString("doct_photo"));
                                     Log.e("doct_photo", object.getString("doct_photo"));
-
-
                                     model.setDoct_name(object.getString("doct_name"));
                                     Log.e("doct_name", object.getString("doct_name"));
-
                                     model.setBus_title(object.getString("bus_title"));
                                     Log.e("bus_title", object.getString("bus_title"));
-
                                     model.setDoct_speciality(object.getString("doct_speciality"));
                                     Log.e("doct_speciality", object.getString("doct_speciality"));
-
                                     model.setDoct_degree(object.getString("doct_degree"));
                                     Log.e("doct_degree", object.getString("doct_degree"));
-
                                     model.setDoct_experience(object.getString("doct_experience"));
                                     Log.e("doct_experience", object.getString("doct_experience"));
-
                                     model.setIs_ziffydoc(object.getString("is_ziffydoc"));
                                     Log.e("is_ziffydoc", object.getString("is_ziffydoc"));
+                                    model.setDoct_phone(object.getString("doct_phone"));
+                                    Log.e("doct_phone", object.getString("doct_phone"));
 
-                                     model.setDoct_phone(object.getString("doct_phone"));
-                                     Log.e("doct_phone", object.getString("doct_phone"));
-
-
-                                  //  model.setDoct_phone(object.getString("doct_phone_help"));
-                                  //  Log.e("doct_phone", object.getString("doct_phone_help"));
+                                    //  model.setDoct_phone(object.getString("doct_phone_help"));
+                                    //  Log.e("doct_phone", object.getString("doct_phone_help"));
 
                                     model.setBus_google_street(object.getString("city"));
                                     Log.e("city", object.getString("city"));
-
                                     mDoctorArray.add(model);
 
-
                                 }
-
                                 doctorAdapter = new MyDoctorAdaptercall(Bookbycall.this, mDoctorArray);
                                 recyclerView.setAdapter(doctorAdapter);
 
-
-
-                            }else {
+                            }else
+                            {
                                 recyclerView.setVisibility(View.GONE);
                                 tvNotFound.setVisibility(View.VISIBLE);
                                 tvNotFound.setText("No Data Found");
-
                             }
-
-
-
-
-
-
-
-
-
-
-
-
 
                         } catch (JSONException e) {
                             tvNotFound.setVisibility(View.VISIBLE);
@@ -173,7 +134,6 @@ public class Bookbycall extends CommonActivity {
                         hideProgressBar();
                     }
                 });
-
 
     }
 
@@ -206,9 +166,7 @@ public class Bookbycall extends CommonActivity {
 
                 } else {
 
-
                 }
-
 
                 return false;
             }

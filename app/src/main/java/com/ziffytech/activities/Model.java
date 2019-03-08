@@ -9,8 +9,6 @@ public class Model{
     String status;
     String created_date;
     String modified_date;
-
-
     String test_price;
 
     public String getId() {
@@ -68,8 +66,6 @@ public class Model{
     public void setModified_date(String modified_date) {
         this.modified_date = modified_date;
     }
-
-
 
     private  boolean isClickable; //<- add one more extra field
 
