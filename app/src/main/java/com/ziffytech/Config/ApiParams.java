@@ -55,7 +55,7 @@ public class ApiParams
  // public  static String GET_DOCTORS_BY_FILTER = ConstValue.BASE_URL+API_V+"/filter_doctor";
  public  static String GET_DOCTORS_BY_FILTER = ConstValue.BASE_URL+"api_n/filter_doctor";
 
- public static final String GET_PRESCRIBED_MEDICINE ="" ;
+ public static final String GET_PRESCRIBED_MEDICINE =ConstValue.BASE_PHARMACY+"Pharmacy_api/get_prescription_details" ;
 
  public  static String GET_OTP_SMS = ConstValue.BASE_URL+API_V+"/app_smsziffy";
 
@@ -118,8 +118,15 @@ public class ApiParams
  public  static String GET_ALL_REPORTS = ConstValue.BASE_URL+"Lab_api"+"/medication_detial_for_patient_api";
  public  static String GET_TEST_REPORTS = ConstValue.BASE_URL+"Lab_api"+"/blood_report_list_for_apinew";
  // http://13.127.253.100:90/admin/Lab_api/blood_report_list_for_apinew
+
+
+ /****************************************ONLINE PHARMACY*********************************************/
  public  static String TEST_APP_CANCEL= ConstValue.BASE_URL+"/api_n/cancel_lab_test_appointment";
- public static String GET_MEDICAL_HISTORY=ConstValue.BASE_URL;
+ public static String GET_MEDICAL_HISTORY=ConstValue.BASE_PHARMACY+"Pharmacy_api/list_of_prescription";
+ public static String GET_PRESCRIPTION_WEBVIEW=ConstValue.BASE_PHARMACY+"onlineprescription/updateView_for_api/";
+ public static String MEDICINE_ORDER = ConstValue.BASE_PHARMACY+"Pharmacy_api/order_medicine_api";
+ public static String MEDICINE_HISTORY = ConstValue.BASE_PHARMACY+"Pharmacy_api/order_medicine_history";
+
 
  /**PATIENT CONSULT API****/
 
@@ -198,6 +205,8 @@ public class ApiParams
  public static String GET_CONTACTS = ConstValue.BASE_URL+API_V+"/get_emergency_number";
  public  static String GET_CITY = ConstValue.BASE_URL+API_V+"/get_city";
  public  static String GET_REMAINDERS = ConstValue.BASE_URL+API_V+"/get_remainder_prescription";
+
+
 
 
  /*https://www.ziffytech.com/admin/Api/get_emergency_number";*/

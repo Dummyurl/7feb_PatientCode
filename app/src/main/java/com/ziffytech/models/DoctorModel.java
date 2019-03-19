@@ -30,6 +30,7 @@ public class DoctorModel
     private String start_con_time;
     private String end_con_time;
     private String is_ziffydoc ;
+    private String doct_multi_speciality ;
 
     private String distance;
 
@@ -230,5 +231,13 @@ public class DoctorModel
 
     public void setIs_ziffydoc(String is_ziffydoc) {
         this.is_ziffydoc = is_ziffydoc;
+    }
+
+    public String getDoct_multi_speciality() {
+        return doct_multi_speciality;
+    }
+
+    public void setDoct_multi_speciality(String doct_multi_speciality) {
+        this.doct_multi_speciality = doct_multi_speciality;
     }
 }

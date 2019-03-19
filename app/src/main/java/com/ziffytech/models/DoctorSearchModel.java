@@ -1,5 +1,7 @@
 package com.ziffytech.models;
 
+import android.util.Log;
+
 /**
  * Created by Mahesh on 29/11/17.
  */
@@ -57,6 +59,16 @@ public class DoctorSearchModel {
     }
 
     String doct_city;
+    String doct_multi_speciality;
+
+
+    public String getDoct_multi_speciality() {
+        return doct_multi_speciality;
+    }
+
+    public void setDoct_multi_speciality(String doct_multi_speciality) {
+        this.doct_multi_speciality = doct_multi_speciality;
+    }
 
     public String getDoct_city() {
         return doct_city;

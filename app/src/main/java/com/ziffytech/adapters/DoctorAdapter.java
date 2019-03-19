@@ -52,14 +52,15 @@ public class  DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ProductHo
         Picasso.with(activity).load(ConstValue.BASE_URL + "/uploads/profile/" + path).into(holder.icon_image);
 
         Log.e("Image", ConstValue.BASE_URL + "/uploads/profile/" + path);
+        Log.e("Doct_multi_speciality", categoryModel.getDoct_multi_speciality());
 
         holder.lbl_title.setText(categoryModel.getDoct_name());
-        holder.lbl_degree.setText(categoryModel.getDoct_degree()+","+categoryModel.getDoct_speciality());
+        holder.lbl_degree.setText(categoryModel.getDoct_degree()+","+categoryModel.getDoct_multi_speciality());
         holder.lbl_clinic_name.setText(categoryModel.getBus_title()+", "+categoryModel.getBus_google_street());
         //holder.lbl_speciality.setText(categoryModel.getDoct_speciality());
         holder.charges.setText(""+categoryModel.getConsult_fee());
         holder.txt_avail.setText(""+categoryModel.getStart_con_time()+" - "+categoryModel.getEnd_con_time());
-        holder.distance.setText("Distance : "+categoryModel.getDistance()+" KM");
+        holder.distance.setText("Distance :"+categoryModel.getDistance()+" KM");
 
 
 Log.e("ZIFFYDOC",categoryModel.getDoct_phone());

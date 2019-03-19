@@ -13,6 +13,7 @@ import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 import com.ziffytech.Config.ApiParams;
 import com.ziffytech.Config.ConstValue;
+import com.ziffytech.Pharmacy.MedicationHistory;
 import com.ziffytech.R;
 import com.ziffytech.util.VJsonRequest;
 
@@ -59,16 +60,6 @@ public class MedicineOrderAdressActivity extends CommonActivity implements DateP
         Pref_time = (EditText) findViewById(R.id.time);
 
         showll=(Button) findViewById(R.id.showll);
-       /* showll1=(Button) findViewById(R.id.showll1);
-
-        showll1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                startActivity(new Intent(MedicineOrderAdressActivity.this,OrderPrescribedMedicine.class));
-            }
-        });
-*/
 
 
         if (!common.getSession("location").equals("")){
@@ -81,6 +72,9 @@ public class MedicineOrderAdressActivity extends CommonActivity implements DateP
         showll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+               // startActivity(new Intent(MedicineOrderAdressActivity.this, MedicationHistory.class));
 
                 Intent i=new Intent(MedicineOrderAdressActivity.this, MasterWebView.class);
                 i.putExtra("title","Medication History");

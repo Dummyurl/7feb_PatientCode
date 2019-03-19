@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appbackground">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+
+
+
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:hint="Address"
+            android:inputType="text"
+            android:lines="4"
+            android:padding="@dimen/padding_10"
+            android:textSize="12sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textColorHint="@color/greyshade" />
+
+        <EditText
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:background="@drawable/bg_rect_border"
+            android:layout_marginBottom="10dp"
+            android:padding="@dimen/padding_5"
+            android:hint="enter delivery address"
+            android:inputType="text"
+            android:textSize="12dp"
+            android:textColorHint="@color/greyshade"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+
+            <TextView
+                android:id="@+id/buttonChooseDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:layout_weight="1"
+               android:background="@color/appbackground"
+                android:drawableLeft="@drawable/ic_labcalendar"
+                android:drawablePadding="10dp"
+                android:gravity="left|center"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:padding="@dimen/padding_10"
+                android:text="Select date"
+                android:textColor="@color/grey"
+                android:textSize="11dp" />
+
+            <TextView
+                android:id="@+id/buttonChooseTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:layout_weight="1"
+                android:background="@color/appbackground"
+                android:drawableLeft="@drawable/ic_labclock"
+                android:drawablePadding="10dp"
+                android:gravity="left|center"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:padding="@dimen/padding_10"
+                android:text="Select date"
+                android:textColor="@color/grey"
+                android:textSize="11dp" />
+        </LinearLayout>
+
+
+
+
+
+
+        <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"/>
+
+    </LinearLayout>
+
+
+
+
+    <Button
+        android:id="@+id/proceed"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:textColor="@color/white"
+        android:text="Proceed"
+        android:background="@drawable/my_gradient_back"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+        android:textStyle="bold"/>
+
+
+</RelativeLayout>

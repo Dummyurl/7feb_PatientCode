@@ -131,7 +131,7 @@ public class RecommmendedTest extends CommonActivity {
         APIInterface apiInterface = ApiClient.getClient().create(APIInterface.class);
         //   Call<TestApi> call3 = apiInterface.get_recommend_test("89","0");
 
-        Log.e("USEER_ID", common.get_user_id());
+        Log.e("USER_ID", common.get_user_id());
 
         Call<TestApi> call3 = apiInterface.get_recommend_test(common.get_user_id(), "0");
 

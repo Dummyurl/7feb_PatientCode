@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 public class AppointmentDetailsActivity extends CommonActivity {
     RecyclerView recyclerViewDetails;
-    String test_names, lab_name, date, time;
+    String test_names, lab_name, date, time,medicine;
     TextView labName, text_date, text_time, text_test;
     Button btnOk;
     TextView tax, total_price, final_total, clinic_name;
@@ -200,6 +200,77 @@ public class AppointmentDetailsActivity extends CommonActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+
+
+
+
+        } else if (getIntent().getStringExtra("status").equals("4")){
+
+
+            total_price.setText(getIntent().getStringExtra("final_total"));
+            final_total.setText(getIntent().getStringExtra("final_total"));
+
+
+
+            try {
+                medicine = getIntent().getStringExtra("medicine");
+
+                Log.e("#####", "TRY ADAPTER_medicine");
+                JSONArray jsonArray = new JSONArray(medicine);
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayoutCompat.LayoutParams.WRAP_CONTENT);
+                    params.setMargins(1, 5, 1, 5);
+                    params.weight = 1f;
+                    LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayoutCompat.LayoutParams.WRAP_CONTENT);
+                    params2.setMargins(10, 5, 1, 5);
+                    params2.weight = 0.6f;
+
+                    LinearLayout.LayoutParams params3 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayoutCompat.LayoutParams.WRAP_CONTENT);
+                    params3.setMargins(1, 5, 1, 5);
+                    params2.weight = 0.4f;
+
+                    params3.gravity = View.TEXT_ALIGNMENT_VIEW_END;
+
+                    LinearLayout linearLayout1 = new LinearLayout(AppointmentDetailsActivity.this);
+                    linearLayout1.setOrientation(LinearLayout.HORIZONTAL);
+                    linearLayout1.setLayoutParams(params);
+
+                    TextView name = new TextView(AppointmentDetailsActivity.this);
+                    TextView price = new TextView(AppointmentDetailsActivity.this);
+                    name.setLayoutParams(params2);
+                    price.setLayoutParams(params3);
+
+
+                    name.setTextColor(Color.DKGRAY);
+                    //name.setBackgroundResource(R.color.white);
+                    name.setFilters(new InputFilter[]{new InputFilter.LengthFilter(55)});
+                    name.setPadding(10, 5, 5, 5);
+
+                    name.setText(jsonObject.getString("drug_name"));
+                    name.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f);
+
+                    // price.setTextColor(Color.DKGRAY);
+                    //  price.setBackgroundResource(R.color.white);
+                    // price.setFilters(new InputFilter[]{new InputFilter.LengthFilter(55)});
+                    // price.setPadding(10, 5, 10, 5);
+                    // price.setGravity(View.TEXT_ALIGNMENT_VIEW_END);
+                    // price.setText(ConstValue.CURRENCY + jsonObject.getString("price"));
+                    // price.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12f);
+                    linearLayout1.addView(name);
+                    linearLayout1.addView(price);
+
+                    layout.addView(linearLayout1, params);
+
+
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
 
 
 

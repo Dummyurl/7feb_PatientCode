@@ -210,7 +210,7 @@ public class MedicineOrderActivity extends CommonActivity
 
 
                     Bitmap bitmap1 = MediaStore.Images.Media.getBitmap(this.getContentResolver(), photoUri);
-                    Toast.makeText(this, ""+bitmap1, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, ""+bitmap1, Toast.LENGTH_SHORT).show();
 
 
                     final int maxSize = 960;

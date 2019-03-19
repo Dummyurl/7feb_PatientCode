@@ -47,6 +47,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.ziffytech.BuildConfig;
 import com.ziffytech.Config.ApiParams;
+import com.ziffytech.Pharmacy.MedicineOrderHistory;
 import com.ziffytech.R;
 import com.ziffytech.Wallet.WalletActivity;
 import com.ziffytech.adapters.CategoryAdapter;
@@ -132,11 +133,6 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
 
         getHash();
 
-        //To stop sms reciver
-        /* PackageManager pm  = MainActivity.this.getPackageManager();
-        ComponentName componentName = new ComponentName(MainActivity.this, SmsReceiver.class);
-        pm.setComponentEnabledSetting(componentName,PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-                PackageManager.DONT_KILL_APP);*/
 
         if(common.getSession(ApiParams.CURRENT_CITY)!=null && !common.getSession(ApiParams.CURRENT_CITY).equalsIgnoreCase(""))
         {
@@ -401,6 +397,7 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
             nav_Menu.findItem(R.id.nav_wallet).setVisible(true);
             nav_Menu.findItem(R.id.nav_vaccination).setVisible(false);
             nav_Menu.findItem(R.id.nav_history).setVisible(false);
+            nav_Menu.findItem(R.id.nav_orders).setVisible(false);
             // nav_Menu.findItem(R.id.nav_refer).setVisible(false);
             // navHeader.findViewById(R.id.txtFullName).setVisibility(View.GONE);
             // navHeader.findViewById(R.id.textEmailId).setVisibility(View.GONE);
@@ -412,6 +409,7 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
             nav_Menu.findItem(R.id.nav_profile).setVisible(false);
             nav_Menu.findItem(R.id.nav_vaccination).setVisible(false);
             nav_Menu.findItem(R.id.nav_history).setVisible(false);
+            nav_Menu.findItem(R.id.nav_orders).setVisible(false);
             nav_Menu.findItem(R.id.nav_login).setVisible(false);
             nav_Menu.findItem(R.id.nav_wallet).setVisible(true);
             //nav_Menu.findItem(R.id.nav_refer).setVisible(true);
@@ -486,6 +484,7 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
             AccountKit.logOut();
             SaveSharedPreference.clearUserSession(MainActivity.this);
 
+
         }else if(id == R.id.nav_login){
             Intent intent = new Intent(MainActivity.this,LoginActivity.class);
             startActivity(intent);
@@ -501,6 +500,8 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
             startActivity(intent);
         }else if(id == R.id.nav_refer){
             shareLongDynamicLink();
+        }else if(id == R.id.nav_orders){
+          startActivity(new Intent(MainActivity.this, MedicineOrderHistory.class));
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -535,8 +536,9 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
             break;
             case R.id.navigation_aboutus:
             {
-                String url = "https://www.ziffytech.com/About_Us";
+                String url = "https://www.ziffytech.com/about-us";
                 Intent i = new Intent(Intent.ACTION_VIEW);
+
                 i.setData(Uri.parse(url));
                 startActivity(i);
             }
@@ -710,11 +712,46 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
                                     } else {
                                         labNotify.setVisibility(View.GONE);
                                     }
-                                    common.setSession(ApiParams.COMMON_KEY, data.getString("user_id"));
-                                    common.setSession(ApiParams.USER_EMAIL, data.getString("user_email"));
-                                    common.setSession(ApiParams.USER_FULLNAME, data.getString("user_fullname"));
-                                    common.setSession(ApiParams.USER_PHONE, data.getString("user_phone"));
-                                    common.setSession(ApiParams.USER_JSON_DATA, data.toString());
+
+
+/*
+                                    if (data.getString("user_email").equals(common.getSession(ApiParams.USER_EMAIL))){
+*/
+
+                                        common.setSession(ApiParams.COMMON_KEY, data.getString("user_id"));
+                                        common.setSession(ApiParams.USER_EMAIL, data.getString("user_email"));
+                                        common.setSession(ApiParams.USER_FULLNAME, data.getString("user_fullname"));
+                                        common.setSession(ApiParams.USER_PHONE, data.getString("user_phone"));
+                                        common.setSession(ApiParams.USER_JSON_DATA, data.toString());
+
+                                   /* }else {
+
+                                        Log.e("PROFILE UPDATE","TRUE");
+
+
+                                        AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
+                                        alertDialog.setTitle("Session Expired");
+                                        alertDialog.setMessage("Your session has been expired.Please Login again.");
+                                        alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which)
+                                            {
+
+                                                common.logOut();
+                                                AccountKit.logOut();
+                                                SaveSharedPreference.clearUserSession(MainActivity.this);
+
+                                            }
+                                        });
+                                        alertDialog.show();
+
+
+
+
+                                    }*/
+
+
+
+
                                 }
 
                             }else{

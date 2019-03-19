@@ -104,6 +104,9 @@ public class Bookbycall extends CommonActivity {
                                     model.setDoct_phone(object.getString("doct_phone"));
                                     Log.e("doct_phone", object.getString("doct_phone"));
 
+                                    model.setDoct_multi_speciality(object.getString("doct_multi_speciality"));
+                                    Log.e("doct_multi_speciality", object.getString("doct_multi_speciality"));
+
                                     //  model.setDoct_phone(object.getString("doct_phone_help"));
                                     //  Log.e("doct_phone", object.getString("doct_phone_help"));
 
@@ -245,8 +248,8 @@ public class Bookbycall extends CommonActivity {
             holder.lbl_clinic_name.setText("Clinic Name : " + categoryModel.getBus_title());
             Log.e("lbl_clinic_name", categoryModel.getBus_title());
 
-            holder.lbl_speciality.setText(categoryModel.getDoct_speciality());
-            Log.e("lbl_speciality", categoryModel.getDoct_speciality());
+            holder.lbl_speciality.setText(categoryModel.getDoct_multi_speciality());
+            Log.e("lbl_speciality", categoryModel.getDoct_multi_speciality());
 
             holder.lbl_degree.setText(categoryModel.getDoct_degree());
             Log.e("lbl_degree", categoryModel.getDoct_degree());

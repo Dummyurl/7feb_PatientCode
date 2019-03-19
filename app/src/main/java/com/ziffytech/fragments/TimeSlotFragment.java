@@ -136,7 +136,7 @@ public class TimeSlotFragment extends Fragment
                 holder.imgClock.setImageResource(R.drawable.greenclock);
             }
 
-            holder.timeslot.setText(parseTime(slotsModel.getSlot()));
+            holder.timeslot.setText((slotsModel.getSlot()));
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

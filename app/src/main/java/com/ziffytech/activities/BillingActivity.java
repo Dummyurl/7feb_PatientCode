@@ -108,6 +108,14 @@ public class BillingActivity extends CommonActivity
             }else if (getIntent().getStringExtra("status").equals("3")) {
                 fAmt = getIntent().getStringExtra("total_price");
                 final_price = Double.parseDouble(getIntent().getStringExtra("total_price"));
+                s1=getIntent().getStringExtra("total_price");
+
+                Log.e("final_price", String.valueOf(final_price));
+            }else if (getIntent().getStringExtra("status").equals("4")) {
+                fAmt = getIntent().getStringExtra("total");
+               final_price = Double.parseDouble((getIntent().getStringExtra("total")));
+                s1=getIntent().getStringExtra("total");
+
                 Log.e("final_price", String.valueOf(final_price));
             }
         }
@@ -308,6 +316,45 @@ public class BillingActivity extends CommonActivity
                     }
                 });
 
+            }else if (getIntent().getStringExtra("status").equalsIgnoreCase("4")){
+
+                layout_offers.setVisibility(View.VISIBLE);
+
+                //final double price = Double.parseDouble(getIntent().getStringExtra("total").replace(ConstValue.CURRENCY, " "));
+                /* Log.e("###", String.valueOf(price));
+                final double taxamt = (price * 10) / 100;
+                Log.e("###", String.valueOf(taxamt));
+                final_price = price;
+                Log.e("###", String.valueOf(final_price));*/
+                // tax.setText(ConstValue.CURRENCY + taxamt);
+                //    fAmt = getIntent().getStringExtra("total").replace(ConstValue.CURRENCY, " ");
+
+                total_price.setText(ConstValue.CURRENCY+" "+fAmt);
+                final_total.setText(String.valueOf(ConstValue.CURRENCY+" "+final_price));
+
+                //text_address.setText(getIntent().getStringExtra("address"));
+
+
+                text_details.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        Intent intent = new Intent(BillingActivity.this, AppointmentDetailsActivity.class);
+                        intent.putExtra("medicine", getIntent().getStringExtra("medicine"));
+
+                        Log.e("medicine", getIntent().getStringExtra("medicine"));
+
+                        intent.putExtra("start_time",time);
+                        intent.putExtra("appointment_date",date);
+
+                        intent.putExtra("total_price", fAmt);
+                        intent.putExtra("final_total", String.valueOf(final_price));
+                        intent.putExtra("status", "4");
+                        startActivity(intent);
+
+                    }
+                });
+
             }
         }
 
@@ -337,6 +384,11 @@ public class BillingActivity extends CommonActivity
                 } else if (getIntent().getStringExtra("status").equalsIgnoreCase("2")) {
 
                     intent.putExtra("Activity", "2");
+                    intent.putExtra("trans_amt", fAmt);
+                    intent.putExtra("isPaymentOptionChecked", isPaymentOptionChecked);
+                }else if (getIntent().getStringExtra("status").equalsIgnoreCase("4")) {
+
+                    intent.putExtra("Activity", "3");
                     intent.putExtra("trans_amt", fAmt);
                     intent.putExtra("isPaymentOptionChecked", isPaymentOptionChecked);
                 }
@@ -378,6 +430,9 @@ public class BillingActivity extends CommonActivity
                                     } else if (getIntent().getStringExtra("status").equalsIgnoreCase("3")) {
                                         Log.e("#####", "3");
                                         bookLab();
+                                    } else if (getIntent().getStringExtra("status").equalsIgnoreCase("4")) {
+                                        Log.e("#####", "4");
+                                        orderMedicine();
                                     }
                                 }
 
@@ -1397,6 +1452,198 @@ public class BillingActivity extends CommonActivity
             final_total.setText(String.valueOf(final_price));
         }
     }
+
+
+    public  void  orderMedicine(){
+
+        HashMap<String, String> params = new HashMap<String, String>();
+
+        params.put("prescription_id", getIntent().getStringExtra("pres_id"));
+        params.put("date_time", date+time);
+      ;
+        params.put("user_id", common.get_user_id());
+        params.put("medicine", getIntent().getStringExtra("medicine"));
+        params.put("address", getIntent().getStringExtra("address"));
+        params.put("payment_status", "0");
+        params.put("add_to_wallet", add_to_wallet);
+        params.put("is_use_wallet", String.valueOf(is_use_wallet));
+          /*  params.put("amount", String.valueOf(final_price));
+            params.put("is_use_wallet", String.valueOf(is_use_wallet));*/
+        if (isPayUmoney) {
+            params.put("payment_mode", "online");
+            params.put("txn_id", txn_id);
+            params.put("wallet_amt", String.valueOf(walletAmt));
+            params.put("is_use_wallet", String.valueOf(is_use_wallet));
+
+
+            if (isOfferApplied) {
+
+                params.put("promo_id", promoCodeId);
+
+                if (is_use_wallet == 1) {
+                    params.put("is_use_wallet", "1");
+                    params.put("wallet_amt", String.valueOf(walletAmt));
+                    params.put("amount", String.valueOf(final_price));
+                } else {
+                    params.put("is_use_wallet", "0");
+                    params.put("wallet_amt", String.valueOf(walletAmt));
+                    params.put("amount", String.valueOf(final_price));
+                }
+            } else {
+                params.put("promo_id", "");
+                params.put("amount", String.valueOf(final_price));
+                params.put("wallet_amt", String.valueOf(walletAmt));
+                params.put("is_use_wallet", String.valueOf(is_use_wallet));
+            }
+
+
+        } else if (isCash) {
+            params.put("payment_mode", "cash");
+            params.put("txn_id", "0");
+            params.put("amount", String.valueOf(final_price));
+            params.put("is_use_wallet", "0");
+            params.put("promo_id", "");
+        }
+
+        Log.e("PARAMS", params.toString());
+
+
+        CustomRequestForString customRequestForString = new CustomRequestForString(Request.Method.POST, ApiParams.MEDICINE_ORDER, params, this.createRequestSuccessListenerorderMedicine(), this.createRequestErrorListenerordermedicine());
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(customRequestForString);
+        startProgressDialog(BillingActivity.this);
+
+
+
+
+
+    }
+
+
+
+
+    private com.android.volley.Response.Listener<String> createRequestSuccessListenerorderMedicine() {
+        return new com.android.volley.Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.e("MEDICINE_BOOK_RESPONSE", response);
+
+
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    String result = jsonObject.getString("response");
+
+
+                    /*      if (result.equalsIgnoreCase("1")) {*/
+
+                    if (result.equalsIgnoreCase("1")) {
+
+                        if (isPayUmoney) {
+                            isPayUmoney = false;
+
+                            Log.e("is_use_wallet", String.valueOf(is_use_wallet));
+
+                            Intent intent = new Intent(BillingActivity.this, MyPayuDemoActivity.class);
+                            intent.putExtra("total_price", final_price);
+                            intent.putExtra("lab_name", lab_name);
+                            intent.putExtra("status", "0");
+                            intent.putExtra("txn_id", txn_id);
+                            if (add_to_wallet.equals("")) {
+                                intent.putExtra("add_to_wallet", "0");
+                            } else {
+                                intent.putExtra("add_to_wallet", add_to_wallet);
+                            }
+                            if (isWalletUse) {
+                                intent.putExtra("is_use_wallet", "1");
+                            } else {
+                                intent.putExtra("is_use_wallet", "0");
+                            }
+
+                            intent.putExtra("wallet_amt", String.valueOf(walletAmt));
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                            //  intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        } else if (isWalletUse) {
+
+                            dialog1 = new MaterialDialog.Builder(BillingActivity.this)
+                                    .customView(R.layout.dilog_order_success, false)
+                                    .show();
+                            dialog1.setCancelable(false);
+
+                            View view = dialog1.getView();
+
+                            TextView text_ok = view.findViewById(R.id.text_ok);
+                            text_ok.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    finish();
+                                    Intent intent = new Intent(BillingActivity.this, MainActivity.class);
+                                    //intent.putExtra("new","new");
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    startActivity(intent);
+                                }
+                            });
+
+                        } else if (isCash) {
+
+
+                            dialog1 = new MaterialDialog.Builder(BillingActivity.this)
+                                    .customView(R.layout.dilog_order_success, false)
+                                    .show();
+                            dialog1.setCancelable(false);
+
+                            View view = dialog1.getView();
+                            TextView text_ok = view.findViewById(R.id.text_ok);
+                            TextView txt_info = view.findViewById(R.id.txt_info);
+                            txt_info.setText("Order placed Successfully");
+                            text_ok.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    finish();
+                                    Intent intent = new Intent(BillingActivity.this, MainActivity.class);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    startActivity(intent);
+
+                                }
+                            });
+
+
+                        }
+
+
+                    } else {
+
+                        Toast.makeText(BillingActivity.this, "This time slot is recently booked.Please select other time slot.", Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+
+
+                } catch (JSONException e) {
+                    stopProgressDialog();
+                    e.printStackTrace();
+                }
+            }
+        };
+
+    }
+
+
+    private com.android.volley.Response.ErrorListener createRequestErrorListenerordermedicine() {
+        return new com.android.volley.Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                stopProgressDialog();
+                if (error instanceof TimeoutError) {
+                    MyUtility.showAlertMessage(BillingActivity.this, "Server is busy.Please try again");
+                }
+                Log.i("##", "##" + error.toString());
+                Toast.makeText(BillingActivity.this, "Lab is not available", Toast.LENGTH_SHORT).show();
+                //App.showAlert("Something Went Wrong, Please Try again",MultiTestSearchActivity.this);
+
+            }
+        };
+    }
+
 
 }
 

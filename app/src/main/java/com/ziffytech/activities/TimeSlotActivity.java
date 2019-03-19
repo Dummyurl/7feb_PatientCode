@@ -244,7 +244,7 @@ public class TimeSlotActivity extends CommonActivity implements DatePickerDialog
 
 
             textSalonName.setText(Html.fromHtml(selected_business.getBus_title()));
-            lbl_speciality.setText("(" + selected_business.getDoct_speciality() + ")");
+            lbl_speciality.setText("(" + selected_business.getDoct_multi_speciality() + ")");
             lbl_degree.setText(selected_business.getDoct_degree() + ", Exp. : " + selected_business.getDoct_experience() + " year");
 
             totalTime6.setText(" Rs. " + selected_business.getConsult_fee());
@@ -252,7 +252,7 @@ public class TimeSlotActivity extends CommonActivity implements DatePickerDialog
 
             Picasso.with(this).load(ConstValue.BASE_URL + "/uploads/profile/" + selected_business.getDoct_photo()).into(doctImage);
             txt_docname.setText(selected_business.getDoct_name());
-          //  adress.setText(selected_business.getBus_google_street());
+            //  adress.setText(selected_business.getBus_google_street());
             text_address.setText(selected_business.getBus_google_street());
             Log.e("CLINIC_ADDRESS", selected_business.getBus_google_street());
 

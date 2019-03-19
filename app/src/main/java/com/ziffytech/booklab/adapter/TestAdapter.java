@@ -48,7 +48,7 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.MyViewHolerMod
 
         TestModel item = arrayList.get(position);
         holder.mTestcheck.setText(item.getTest_name());
-        //   holder.tvPrice.setText(ConstValue.CURRENCY+item.getPrice());
+         //   holder.tvPrice.setText(ConstValue.CURRENCY+item.getPrice());
         //  Log.e("PRICE",item.getPrice());
 
         holder.mTestcheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

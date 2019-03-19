@@ -60,16 +60,6 @@ public class Otppage extends CommonActivity implements View.OnClickListener {
         }
 
 
-        /*SmsReceiver.bindListener(new SmsListener() {
-            @Override
-            public void messageReceived(String messageText) {
-                Log.d("Text", messageText);
-                String[] splited = messageText.split("\\s+");
-                Toast.makeText(Otppage.this, "Message: " + messageText, Toast.LENGTH_LONG).show();
-                edt_otp.setText("" + splited[0]);
-            }
-        });*/
-
     }
 
     private void SendOtp() throws JSONException {
@@ -169,19 +159,6 @@ public class Otppage extends CommonActivity implements View.OnClickListener {
 
 
     }
-
-   /* public void readMessage()
-    {
-        Log.e("####","TRUE");
-        SmsReceiver.bindListener(new SmsListener() {
-            @Override
-            public void messageReceived(String messageText, String sendtext)
-             {
-                Log.e("Text",messageText);
-                edt_otp.setText(messageText);
-            }
-        });
-    }*/
 
 
     private void userRegister(HashMap<String, String> params) {

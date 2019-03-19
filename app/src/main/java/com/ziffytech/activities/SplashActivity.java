@@ -1,6 +1,5 @@
 package com.ziffytech.activities;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -15,16 +14,9 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.LinearLayoutCompat;
-import android.text.InputFilter;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
-import android.util.TypedValue;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -34,35 +26,18 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.appinvite.FirebaseAppInvite;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import com.google.firebase.dynamiclinks.PendingDynamicLinkData;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.ziffytech.Config.ApiParams;
 import com.ziffytech.R;
-import com.ziffytech.models.CategoryModel;
 import com.ziffytech.models.VersionModel;
 import com.ziffytech.util.SaveSharedPreference;
-import com.ziffytech.util.VJsonRequest;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.lang.reflect.Type;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.Manifest.permission.CAMERA;
 import static android.Manifest.permission.READ_CALENDAR;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
-import static android.Manifest.permission.READ_SMS;
-import static android.Manifest.permission.RECEIVE_SMS;
-import static android.Manifest.permission.SEND_SMS;
 import static android.Manifest.permission.WRITE_CALENDAR;
-import static android.Manifest.permission.WRITE_CONTACTS;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 

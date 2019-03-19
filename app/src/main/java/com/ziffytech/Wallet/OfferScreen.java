@@ -87,6 +87,8 @@ public class OfferScreen extends CommonActivity implements OffersAdapter.OnOffer
 
         } else if (getIntent().getStringExtra("Activity").equalsIgnoreCase("2")) {
             params.put("code_use_for", "1");
+        } else if (getIntent().getStringExtra("Activity").equalsIgnoreCase("3")) {
+            params.put("code_use_for", "2");
         }
 
 

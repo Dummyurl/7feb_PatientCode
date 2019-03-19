@@ -15,6 +15,9 @@
                 <item
                     android:id="@+id/nav_history"
                     android:title="My Appointments" />
+    <item
+                    android:id="@+id/nav_orders"
+                    android:title="My Orders" />
                 <item
                     android:id="@+id/nav_password"
                     android:title="@string/nav_change_password" />

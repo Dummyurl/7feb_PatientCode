@@ -152,17 +152,14 @@
                 <android.support.v7.widget.RecyclerView
                     android:layout_margin="5dp"
                     android:padding="5dp"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:id="@+id/recyclerview_package_thyro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                 </android.support.v7.widget.RecyclerView>
-
             </RelativeLayout>
-
         </LinearLayout>
-
     </ScrollView>
 
 </LinearLayout>

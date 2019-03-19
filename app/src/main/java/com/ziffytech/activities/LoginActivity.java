@@ -271,10 +271,7 @@ public class LoginActivity extends CommonActivity implements View.OnClickListene
                 }
 
 
-
-
 */
-
 
                 if (!email.equals("")) {
 
@@ -442,10 +439,10 @@ public class LoginActivity extends CommonActivity implements View.OnClickListene
 
         else if (requestCode == 1) {
             if (resultCode == Activity.RESULT_OK) {
-               // Toast.makeText(this, "Added Contact", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(this, "Added Contact", Toast.LENGTH_SHORT).show();
             }
             if (resultCode == Activity.RESULT_CANCELED) {
-               // Toast.makeText(this, "Cancelled Added Contact", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(this, "Cancelled Added Contact", Toast.LENGTH_SHORT).show();
             }
 
         } else {
@@ -459,7 +456,7 @@ public class LoginActivity extends CommonActivity implements View.OnClickListene
             if (loginResult.getError() != null) {
                 // display login error
                 String toastMessage = loginResult.getError().getErrorType().getMessage();
-              //  Toast.makeText(this, toastMessage, Toast.LENGTH_LONG).show();
+                //  Toast.makeText(this, toastMessage, Toast.LENGTH_LONG).show();
 
             } else if (loginResult.getAccessToken() != null) {
                 // on successful login, proceed to the account activity
@@ -1003,7 +1000,7 @@ public class LoginActivity extends CommonActivity implements View.OnClickListene
                 // Get phone number
                 PhoneNumber phoneNumber = account.getPhoneNumber();
                 if (phoneNumber != null) {
-                     phoneNumberString = phoneNumber.toString().replace("+91","");
+                    phoneNumberString = phoneNumber.toString().replace("+91","");
                     // Toast.makeText(LoginActivity.this, ""+phoneNumberString, Toast.LENGTH_SHORT).show();
                     SocialLogin(2,phoneNumberString);
                 }

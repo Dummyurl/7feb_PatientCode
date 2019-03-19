@@ -42,6 +42,7 @@ public class ProfileActivity extends CommonActivity implements BottomNavigationV
         setHeaderTitle("");
 
             String letter;
+
             letter =common.getSession(ApiParams.USER_FULLNAME).substring(0, 1);
             ColorGenerator mColorGenerator = ColorGenerator.DEFAULT;
             int color = mColorGenerator.getRandomColor();

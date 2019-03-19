@@ -41,14 +41,14 @@ public class LocalityAdapter extends RecyclerView.Adapter<LocalityAdapter.Produc
     }
 
     @Override
-    public void onBindViewHolder(final ProductHolder holder, final int position)
-    {
+    public void onBindViewHolder(final ProductHolder holder, final int position){
         final DoctorSearchModel categoryModel = list.get(position);
 
-        holder.lbl_title.setText(categoryModel.getDoct_name() +" ( "+categoryModel.get_doc_spe()+" )");
+        holder.lbl_title.setText(categoryModel.getDoct_name() +" ( "+categoryModel.getDoct_multi_speciality()+" )");
         holder.txt_clinic.setText(categoryModel.getBus_title());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(
+                new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -69,7 +69,7 @@ public class LocalityAdapter extends RecyclerView.Adapter<LocalityAdapter.Produc
         return list.size();
     }
 
-    class ProductHolder extends RecyclerView.ViewHolder {
+    class ProductHolder extends RecyclerView.ViewHolder{
         TextView lbl_title,txt_clinic;
         public ProductHolder(View itemView) {
             super(itemView);
@@ -78,7 +78,7 @@ public class LocalityAdapter extends RecyclerView.Adapter<LocalityAdapter.Produc
         }
     }
 
-    public void filterList(ArrayList<DoctorSearchModel> filterdNames) {
+    public void filterList(ArrayList<DoctorSearchModel> filterdNames){
         this.list = filterdNames;
         notifyDataSetChanged();
     }

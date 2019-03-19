@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.firebase:firebase-invites:12.0.1@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-invites-12.0.1.aar/0d3b199c4de0b3ff0cb9bac24635772c/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-invites-12.0.1.aar/0d3b199c4de0b3ff0cb9bac24635772c/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-invites-12.0.1.aar/583d06dfa095bc6265e0e1f11afb4f14/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/firebase-invites-12.0.1.aar/583d06dfa095bc6265e0e1f11afb4f14/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -39,7 +39,7 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:text="Quantity :"
-              android:layout_weight="0.8"
+              android:layout_weight="0.7"
               android:layout_gravity="center|end"
               android:textAlignment="textEnd"
               android:textSize="@dimen/dimen_14sp"
@@ -47,20 +47,32 @@
           <LinearLayout
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:layout_weight="0.2">
+              android:orientation="vertical"
+              android:layout_weight="0.3">
+
+              <TextView
+                  android:id="@+id/text_qty"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:textSize="14sp"
+                  android:padding="@dimen/padding_10"
+                  android:text="45"/>
+
               <EditText
                   android:id="@+id/edit_qty"
-                  android:layout_width="100dp"
+                  android:layout_width="match_parent"
                   android:layout_height="wrap_content"
-                  android:hint="enter qty"
-                  android:textAlignment="center"
-                  android:padding="@dimen/padding_10"
                   android:background="@drawable/bg_rect_border"
-                  android:textSize="14sp"
-                  />
+                  android:hint="enter qty"
+                  android:inputType="number"
+                  android:visibility="gone"
+                  android:padding="@dimen/padding_10"
+                  android:textAlignment="center"
+                  android:textSize="14sp" />
           </LinearLayout>
 
       </LinearLayout>
+
 
     </LinearLayout>
 
