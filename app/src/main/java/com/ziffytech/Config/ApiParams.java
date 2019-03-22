@@ -125,7 +125,7 @@ public class ApiParams
  public static String GET_MEDICAL_HISTORY=ConstValue.BASE_PHARMACY+"Pharmacy_api/list_of_prescription";
  public static String GET_PRESCRIPTION_WEBVIEW=ConstValue.BASE_PHARMACY+"onlineprescription/updateView_for_api/";
  public static String MEDICINE_ORDER = ConstValue.BASE_PHARMACY+"Pharmacy_api/order_medicine_api";
- public static String MEDICINE_HISTORY = ConstValue.BASE_PHARMACY+"Pharmacy_api/order_medicine_history";
+ public static String MEDICINE_HISTORY = ConstValue.BASE_PHARMACY+"Pharmacy_api/get_user_medicin_history";
 
 
  /**PATIENT CONSULT API****/

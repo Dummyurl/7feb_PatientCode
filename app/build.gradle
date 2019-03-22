@@ -141,10 +141,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:17.3.4'
     implementation 'com.google.android.gms:play-services:16.0.0'
     implementation 'me.relex:circleindicator:1.2.2@aar'
-    implementation 'com.google.android.gms:play-services-base:16.0.0'
-    implementation 'com.google.firebase:firebase-dynamic-links:16.0.0'
-    implementation 'com.google.firebase:firebase-invites:16.0.0'
-    implementation 'com.facebook.android:account-kit-sdk:4.+'
+    implementation 'com.google.android.gms:play-services-base:16.1.0'
+    implementation 'com.google.firebase:firebase-dynamic-links:16.1.8'
+    implementation 'com.google.firebase:firebase-invites:16.1.1'
+    implementation 'com.facebook.android:account-kit-sdk:4.22.1'
     configurations {
         all*.exclude group: 'com.android.support', module: 'support-v13'
     }

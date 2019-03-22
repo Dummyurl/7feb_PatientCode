@@ -23,6 +23,10 @@ import com.ziffytech.activities.CommonActivity;
 import com.ziffytech.activities.CustomRequestForString;
 import com.ziffytech.util.MyUtility;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -30,16 +34,14 @@ import java.util.List;
 public class MedicineOrderHistory extends CommonActivity {
 
     ArrayList<OnlineModel> onlineModelArrayList;
-    ArrayList<OfflineModel> offlineModels;
-
+    ArrayList<OfflineModel> offlineModelArrayList;
     TextView text_date;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-
-    private int mHour, mMinute;
-    private int mDay, mMonth, mYear, msec;
     OnlineFragment onlineFragment;
     OfflineFragment offlineFragment;
+
+
 
 
     @Override
@@ -49,7 +51,6 @@ public class MedicineOrderHistory extends CommonActivity {
         setHeaderTitle("Medicine Order History");
         allowBack();
 
-
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setOffscreenPageLimit(3);
         setupViewPager(viewPager);
@@ -57,23 +58,30 @@ public class MedicineOrderHistory extends CommonActivity {
         tabLayout.setupWithViewPager(viewPager);
 
 
-      /*  HashMap<String, String> params = new HashMap<String, String>();
-        // params.put("user_id", common.getSession("user_id"));
-        params.put("user_id",common.get_user_id() );
 
-        Log.e("PARAMS", params.toString());
+        HashMap<String, String> params = new HashMap<String, String>();
+        params.put("user_id",common.get_user_id());
+        Log.e("PARAMS",params.toString());
         CustomRequestForString customRequestForString = new CustomRequestForString(Request.Method.POST, ApiParams.MEDICINE_HISTORY, params, this.createRequestSuccessListenerTimeSlot(), this.createRequestErrorListenerTimeSlot());
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(customRequestForString);
-*/
+        startProgressDialog(MedicineOrderHistory.this);
+
+
 
     }
+
+
 
 
     private void setupViewPager(ViewPager viewPager) {
 
 
+
+        onlineFragment = OnlineFragment.newInstance();
         offlineFragment = OfflineFragment.newInstance();
+//        EveningFragment eveningFragment = EveningFragment.newInstance(extrasEvn);
+
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
@@ -115,17 +123,109 @@ public class MedicineOrderHistory extends CommonActivity {
     }
 
 
+
+
+
+
     private Response.Listener<String> createRequestSuccessListenerTimeSlot() {
         return new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
-                Log.e("med_history_RESPONSE", response.toString());
+                stopProgressDialog();
 
+                Log.e("med_history_response", response.toString());
+
+
+                onlineModelArrayList = new ArrayList<>();
+                offlineModelArrayList = new ArrayList<>();
+
+                try {
+
+                    JSONObject jsonObject = new JSONObject(response);
+
+                    if (jsonObject.getInt("response") == 1) {
+
+                        JSONArray online = jsonObject.getJSONArray("online");
+                        JSONArray offline = jsonObject.getJSONArray("offline");
+
+                        if (!online.equals("")) {
+
+                            for (int i = 0; i < online.length(); i++) {
+
+                                JSONObject object = online.getJSONObject(i);
+
+                                OnlineModel onlineModel = new OnlineModel();
+
+                                if (!object.isNull("txn_id")){
+                                    onlineModel.setTxn_id(object.getString("txn_id"));
+                                }else {
+                                    onlineModel.setTxn_id("");
+                                }
+
+                                onlineModel.setDate_time(object.getString("created"));
+                                onlineModel.setOrder_details(object.getString("user_prescription"));
+                                onlineModel.setAmount(object.getString("amount"));
+
+                                if (object.has("txn_id") && (!object.getString("txn_id").equals(""))){
+                                    Log.e("txn_id","true");
+                                    onlineModel.setTxn_id(object.getString("txn_id"));
+                                }else {
+                                    onlineModel.setTxn_id("0");
+                                }
+
+                                onlineModel.setStatus(object.getString("payment_status"));
+
+                                onlineModelArrayList.add(onlineModel);
+
+                                Log.e("onlineModelArrayList",onlineModelArrayList.toString());
+                            }
+
+
+                        }
+                        if (!offline.equals("")) {
+
+                            for (int i = 0; i < offline.length(); i++) {
+
+                                JSONObject object = offline.getJSONObject(i);
+
+                                OfflineModel offlineModel = new OfflineModel();
+
+
+                                offlineModel.setPres_img(object.getString("image"));
+                                offlineModel.setDate_time(object.getString("created"));
+                                offlineModel.setPrescriptionoff_id(object.getString("prescriptionoff_id"));
+
+                                Log.e("image",offlineModel.getPres_img());
+                                Log.e("created",offlineModel.getDate_time());
+
+
+                                offlineModelArrayList.add(offlineModel);
+                                Log.e("offlineModelArrayList",offlineModelArrayList.toString());
+                            }
+
+
+                        }
+
+                        onlineFragment.updateDataOnline(onlineModelArrayList);
+                        offlineFragment.updateDataOffline(offlineModelArrayList);
+
+
+                    } else {
+
+                        MyUtility.showAlertMessage(MedicineOrderHistory.this, "History Not Available.");
+
+
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
             }
-
         };
+
+
     }
 
 
@@ -134,6 +234,7 @@ public class MedicineOrderHistory extends CommonActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
 
+                stopProgressDialog();
                 if (error instanceof TimeoutError)
                 {
                     MyUtility.showAlertMessage(MedicineOrderHistory.this, "Server is busy.Please try again");

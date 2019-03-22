@@ -56,6 +56,12 @@ public class DateTimeActivity extends CommonActivity {
         Log.e("#pres_id", pres_id);
 
 
+        if (!common.getSession("location").equals("")){
+
+            address.setText(common.getSession("location"));
+        }
+
+
 
 
         buttonChooseDate.setOnClickListener(new View.OnClickListener() {

@@ -7,6 +7,7 @@ public class OnlineModel {
     String date_time;
     String delivery_status;
     String order_details;
+    String amount;
 
     public String getTxn_id() {
         return txn_id;
@@ -46,5 +47,13 @@ public class OnlineModel {
 
     public void setOrder_details(String order_details) {
         this.order_details = order_details;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
     }
 }

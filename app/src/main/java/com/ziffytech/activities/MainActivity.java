@@ -397,7 +397,7 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
             nav_Menu.findItem(R.id.nav_wallet).setVisible(true);
             nav_Menu.findItem(R.id.nav_vaccination).setVisible(false);
             nav_Menu.findItem(R.id.nav_history).setVisible(false);
-            nav_Menu.findItem(R.id.nav_orders).setVisible(false);
+            nav_Menu.findItem(R.id.nav_orders).setVisible(true);
             // nav_Menu.findItem(R.id.nav_refer).setVisible(false);
             // navHeader.findViewById(R.id.txtFullName).setVisibility(View.GONE);
             // navHeader.findViewById(R.id.textEmailId).setVisibility(View.GONE);
@@ -409,7 +409,7 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
             nav_Menu.findItem(R.id.nav_profile).setVisible(false);
             nav_Menu.findItem(R.id.nav_vaccination).setVisible(false);
             nav_Menu.findItem(R.id.nav_history).setVisible(false);
-            nav_Menu.findItem(R.id.nav_orders).setVisible(false);
+            nav_Menu.findItem(R.id.nav_orders).setVisible(true);
             nav_Menu.findItem(R.id.nav_login).setVisible(false);
             nav_Menu.findItem(R.id.nav_wallet).setVisible(true);
             //nav_Menu.findItem(R.id.nav_refer).setVisible(true);

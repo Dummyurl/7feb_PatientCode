@@ -11,6 +11,7 @@ public class Testappointment
     String lab_appointment_test;
     String lab_name;
     String test_count;
+    String status;
 
     public String getLab_appointment_count() {
         return test_count;
@@ -58,5 +59,13 @@ public class Testappointment
 
     public void setLab_start_time(String lab_start_time) {
         this.start_time = lab_start_time;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

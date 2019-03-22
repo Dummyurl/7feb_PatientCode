@@ -89,7 +89,7 @@ public class BillingActivity extends CommonActivity
         if (getIntent().hasExtra("status")) {
 
             if (getIntent().getStringExtra("status").equals("0")) {//
-                fAmt = getIntent().getStringExtra("total_price");
+                fAmt = getIntent().getStringExtra("total_price").replace(ConstValue.CURRENCY,"");
               s1=getIntent().getStringExtra("total_price").replace(ConstValue.CURRENCY,"");
                 final_price = Double.parseDouble(s1.replace("()",""));
                 Log.e("final_price", String.valueOf(final_price));
@@ -345,7 +345,7 @@ public class BillingActivity extends CommonActivity
                         Log.e("medicine", getIntent().getStringExtra("medicine"));
 
                         intent.putExtra("start_time",time);
-                        intent.putExtra("appointment_date",date);
+                        intent.putExtra("appointment_date",date+time);
 
                         intent.putExtra("total_price", fAmt);
                         intent.putExtra("final_total", String.valueOf(final_price));
@@ -459,6 +459,12 @@ public class BillingActivity extends CommonActivity
                                     } else if (getIntent().getStringExtra("status").equalsIgnoreCase("2")) {
                                         Log.e("#####", "2");
                                         bookLab();
+                                    }else if (getIntent().getStringExtra("status").equalsIgnoreCase("2")) {
+                                        Log.e("#####", "2");
+                                        bookLab();
+                                    }else if (getIntent().getStringExtra("status").equalsIgnoreCase("4")) {
+                                        Log.e("#####", "4");
+                                        orderMedicine();
                                     }
                                 }
                             });
@@ -1246,7 +1252,7 @@ public class BillingActivity extends CommonActivity
                 if (error instanceof TimeoutError) {
                     MyUtility.showAlertMessage(BillingActivity.this, "Server is busy.Please try again");
                 }
-                Log.i("##", "##" + error.toString());
+                Log.i("##","##" + error.toString());
                 hideProgressBar();
             }
         };
@@ -1334,6 +1340,8 @@ public class BillingActivity extends CommonActivity
                 params.put("promo_id", promoCodeId);
                 //params.put("promo_id", "5");
                 params.put("transaction_amt", fAmt);
+
+                Log.e("PARAMS",params.toString());
                 CustomRequestForString customRequestForString = new CustomRequestForString(Request.Method.POST, ApiParams.APPLY_PROMO_CODE, params, this.createRequestSuccessListenerOffers(), this.createRequestErrorListenerOffers());
                 RequestQueue requestQueue = Volley.newRequestQueue(this);
                 requestQueue.add(customRequestForString);
@@ -1544,9 +1552,10 @@ public class BillingActivity extends CommonActivity
                             Log.e("is_use_wallet", String.valueOf(is_use_wallet));
 
                             Intent intent = new Intent(BillingActivity.this, MyPayuDemoActivity.class);
-                            intent.putExtra("total_price", final_price);
-                            intent.putExtra("lab_name", lab_name);
-                            intent.putExtra("status", "0");
+                            intent.putExtra("total_price",  String.valueOf(final_price));
+                            Log.e("total_price", String.valueOf(final_price));
+
+                            intent.putExtra("status", "4");
                             intent.putExtra("txn_id", txn_id);
                             if (add_to_wallet.equals("")) {
                                 intent.putExtra("add_to_wallet", "0");

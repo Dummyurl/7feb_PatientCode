@@ -100,8 +100,7 @@ public class MedicalHistoryAdapter extends RecyclerView.Adapter<MedicalHistoryAd
     }
 
 
-    class ViewHolder extends RecyclerView.ViewHolder implements
-            View.OnClickListener {
+    class ViewHolder extends RecyclerView.ViewHolder  {
         TextView clinicName;
         TextView doctorName;
         TextView date_time;
@@ -117,15 +116,11 @@ public class MedicalHistoryAdapter extends RecyclerView.Adapter<MedicalHistoryAd
             btnView = (Button) itemView.findViewById(R.id.btn_view);
             btnOrderMedicine = (Button) itemView.findViewById(R.id.btn_order);
 
-            itemView.setOnClickListener(this);
-        }
-
-
-        @Override
-        public void onClick(View v) {
-            clickListener.onItemClick(v, getPosition());
 
         }
+
+
+
     }
 
     public void filterList(ArrayList<MedicalHistoryModel> filterdNames) {

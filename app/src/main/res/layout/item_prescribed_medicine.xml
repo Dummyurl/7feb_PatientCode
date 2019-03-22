@@ -13,6 +13,7 @@
         android:orientation="vertical"
         android:weightSum="1">
 
+
         <CheckBox
             android:id="@+id/check_medicine"
             android:layout_width="match_parent"
@@ -66,13 +67,26 @@
                   android:hint="enter qty"
                   android:inputType="number"
                   android:visibility="gone"
+                  android:maxLength="3"
                   android:padding="@dimen/padding_10"
                   android:textAlignment="center"
                   android:textSize="14sp" />
           </LinearLayout>
 
+
       </LinearLayout>
 
+        <TextView
+            android:id="@+id/text_not_available"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Not Available in the stock."
+            android:gravity="start"
+            android:layout_marginLeft="@dimen/padding_15"
+            android:layout_marginRight="@dimen/padding_15"
+            android:padding="@dimen/padding_5"
+            android:visibility="gone"
+            android:textColor="@color/colorPrimary"/>
 
     </LinearLayout>
 

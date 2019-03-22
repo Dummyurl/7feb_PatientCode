@@ -16,12 +16,13 @@ import com.ziffytech.R;
 import java.util.ArrayList;
 
 
-public class OfflineFragment extends Fragment {
+public class OfflineFragment extends Fragment
+{
     RecyclerView recyclerView;
     TextView tv_no_data;
     LinearLayoutManager layoutManager;
-    //ArrayList<TimeSlotModel> arrayListAll =new ArrayList<>();
-    //private HistoryAdapter historyAdapter;
+    ArrayList<OfflineModel> arrayListAll =new ArrayList<>();
+    private MedicalHistoryfflineDetailsAdapter historyAdapter;
 
     public OfflineFragment() {
     }
@@ -42,34 +43,34 @@ public class OfflineFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView= inflater.inflate(R.layout.frag_off, container, false);
 
- /*       recyclerView=rootView.findViewById(R.id.recyclerview_offline);
+        recyclerView=rootView.findViewById(R.id.recyclerview_offline);
         tv_no_data=rootView.findViewById(R.id.tv_no_data);
         tv_no_data.setVisibility(View.VISIBLE);
         recyclerView.setVisibility(View.GONE);
 
-        GridLayoutManager layout = new GridLayoutManager(getActivity(),2, GridLayoutManager.VERTICAL,false);
+        GridLayoutManager layout = new GridLayoutManager(getActivity(),1, GridLayoutManager.VERTICAL,false);
 
         recyclerView.setLayoutManager(layout);
 
-*/
-     /*   TimeSlotActivity timeSlotActivity = (TimeSlotActivity) getActivity();
-        historyAdapter=new HistoryAdapter(getActivity(),arrayListAll,"0",timeSlotActivity);
+
+        historyAdapter=new MedicalHistoryfflineDetailsAdapter(getActivity(),arrayListAll);
         recyclerView.setAdapter(historyAdapter);
 
-*/
         return rootView;
 
     }
 
-    public void updateData(ArrayList<OfflineModel> arrayList){
+    public void updateDataOffline(ArrayList<OfflineModel> arrayList){
+
+        Log.e("arraylist",arrayList.toString());
         if (recyclerView!=null) {
             if (!arrayList.isEmpty()) {
 
                 recyclerView.setVisibility(View.VISIBLE);
                 tv_no_data.setVisibility(View.GONE);
-              /*  arrayListAll.clear();
+                arrayListAll.clear();
                 arrayListAll.addAll(arrayList);
-                historyAdapter.notifyDataSetChanged();*/
+                historyAdapter.notifyDataSetChanged();
 
             } else {
                 Log.e("isEmpty", "true");

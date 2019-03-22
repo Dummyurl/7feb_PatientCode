@@ -74,13 +74,13 @@ public class MedicineOrderAdressActivity extends CommonActivity implements DateP
             public void onClick(View v) {
 
 
-               // startActivity(new Intent(MedicineOrderAdressActivity.this, MedicationHistory.class));
+            startActivity(new Intent(MedicineOrderAdressActivity.this, MedicationHistory.class));
 
-                Intent i=new Intent(MedicineOrderAdressActivity.this, MasterWebView.class);
-                i.putExtra("title","Medication History");
-                i.putExtra("link",ConstValue.BASE_PHARMACY+"onlineprescription/medication_history_list_api/"+common.getSession("user_id"));
-                Log.e("link",pharamPath+common.getSession("user_id"));
-                startActivity(i);
+               // Intent i=new Intent(MedicineOrderAdressActivity.this, MasterWebView.class);
+               // i.putExtra("title","Medication History");
+               // i.putExtra("link",ConstValue.BASE_PHARMACY+"onlineprescription/medication_history_list_api/"+common.getSession("user_id"));
+               // Log.e("link",pharamPath+common.getSession("user_id"));
+               // startActivity(i);
 
             }
 

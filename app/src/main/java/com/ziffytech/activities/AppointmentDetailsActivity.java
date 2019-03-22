@@ -209,6 +209,15 @@ public class AppointmentDetailsActivity extends CommonActivity {
 
             total_price.setText(getIntent().getStringExtra("final_total"));
             final_total.setText(getIntent().getStringExtra("final_total"));
+            text_date.setText(getIntent().getStringExtra("appointment_date"));
+            text_time.setText(getIntent().getStringExtra("start_time"));
+            text_test.setText("Medicine Details");
+
+            layoutTest.setVisibility(View.VISIBLE);
+            layout_time.setVisibility(View.GONE);
+
+            labName.setVisibility(View.GONE);
+            text_time.setVisibility(View.GONE);
 
 
 

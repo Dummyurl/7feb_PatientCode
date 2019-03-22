@@ -608,7 +608,7 @@ public class TimeSlotActivity extends CommonActivity implements DatePickerDialog
 
                         textSalonName.setText(object.getString("bus_title"));
                         text_address.setText(object.getString("bus_title"));
-                        lbl_speciality.setText(object.getString("doct_speciality"));
+                        lbl_speciality.setText(object.getString("doct_multi_speciality"));
                         lbl_degree.setText(object.getString("doct_degree"));
                         txtTotalTime.setText(object.getString("start_con_time")+(object.getString("end_con_time")));
                         totalTime6.setText(object.getString("consult_fee"));

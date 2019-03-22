@@ -88,8 +88,12 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
             });
 
 
-        } else {
+        } else if (model.getTrans_mode().equals("2")){
             holder.paid_for.setText("Doctor Appointment");
+        }else if (model.getTrans_mode().equals("3")){
+            holder.paid_for.setText("Medicine Order");
+
+            holder.layout_to.setVisibility(View.GONE);
         }
 
         holder.dateTime.setText(model.getDate_time());
@@ -227,6 +231,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         LinearLayout layoutHistory;
         TextView tv_not_found;
         TextView text_view_details;
+        LinearLayout layout_to;
 
 
         ViewHolder(View itemView) {
@@ -241,6 +246,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
             tv_not_found = (TextView) itemView.findViewById(R.id.tv_not_found);
             text_view_details = (TextView) itemView.findViewById(R.id.text_view_details);
             layoutHistory=itemView.findViewById(R.id.layout_item_history);
+            layout_to=itemView.findViewById(R.id.layout_to);
 
             /*itemView.setOnClickListener(this);*/
         }

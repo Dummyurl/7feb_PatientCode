@@ -5,6 +5,7 @@ public class OfflineModel {
     String pres_img;
     String status;
     String date_time;
+    String prescriptionoff_id;
 
     public String getPres_img() {
         return pres_img;
@@ -28,5 +29,13 @@ public class OfflineModel {
 
     public void setDate_time(String date_time) {
         this.date_time = date_time;
+    }
+
+    public String getPrescriptionoff_id() {
+        return prescriptionoff_id;
+    }
+
+    public void setPrescriptionoff_id(String prescriptionoff_id) {
+        this.prescriptionoff_id = prescriptionoff_id;
     }
 }

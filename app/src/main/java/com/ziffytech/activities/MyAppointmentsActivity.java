@@ -277,7 +277,6 @@ public class MyAppointmentsActivity extends CommonActivity {
                     intent.putExtra("doc_name",appointment.getDoct_name());
                     intent.putExtra("bus_id",appointment.getBus_id());
                     intent.putExtra("appointment_details",appointmentDetails);
-
                     intent.putExtra("Activity", "5");
                     startActivity(intent);
                 }

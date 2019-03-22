@@ -273,6 +273,15 @@ public class TestAppointmentList extends CommonActivity
             TextView txtClinicPhone = (TextView) view.findViewById(R.id.txtClincPhone);
             Button btnRate = (Button) view.findViewById(R.id.rate);
             Button btnCancel = (Button) view.findViewById(R.id.cancel);
+
+            if (model1.getStatus().equals("1")){
+                btnCancel.setVisibility(View.GONE);
+            }else if (model1.getStatus().equals("0")){
+
+                btnCancel.setVisibility(View.VISIBLE);
+            }
+
+
             btnCancel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

@@ -10,6 +10,8 @@
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/title"
+        android:maxLength="50"
+        android:ellipsize="end"
         android:textSize="14dp"
         android:textColor="@color/black"/>
     <TextView

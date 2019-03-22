@@ -47,7 +47,7 @@ public class DoctorMainCategoriesActivity extends CommonActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctors_main_catgeories);
 
-        setHeaderTitle("Find Doctor",common.getSession(ApiParams.CURRENT_CITY));
+        setHeaderTitle("Find Doctor");
         allowBack();
 
         categoryArray = new ArrayList<>();

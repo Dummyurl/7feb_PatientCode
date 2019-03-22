@@ -45,7 +45,7 @@
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.ziffytech.GenericFileProvider"
+            android:authorities="com.ziffytech.util.GenericFileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -415,6 +415,8 @@
         <activity android:name=".thyrocare.Ordersummarythyro" />
         <activity android:name=".Pharmacy.MedicationHistory" />
         <activity android:name=".Pharmacy.OrderPrescribedMedicine" />
+        <activity android:name=".Pharmacy.ViewPrescription" />
+
     </application>
 
 </manifest>

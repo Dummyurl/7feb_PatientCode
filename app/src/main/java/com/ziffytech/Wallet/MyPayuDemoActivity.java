@@ -9,6 +9,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,6 +52,7 @@ public class MyPayuDemoActivity extends CommonActivity {
     String merchant_id = "6358042";
     String merchant_salt = "pJa4LBJWMg";
     String wallet_amt,is_use_wallet,add_to_wallet;
+    LinearLayout layout_to;
     private PayUmoneySdkInitializer.PaymentParam mPaymentParams;
     private WebView mWebView;
     MaterialDialog dialog1;
@@ -80,6 +82,9 @@ public class MyPayuDemoActivity extends CommonActivity {
         setHeaderTitle("PayuMoney");
         allowBack();
 
+
+
+
         common = new CommonClass(MyPayuDemoActivity.this);
 
 
@@ -100,14 +105,20 @@ public class MyPayuDemoActivity extends CommonActivity {
         textTo = findViewById(R.id.txt_paid_to);
         txtFor = findViewById(R.id.txt_paid_for);
         txt_amt_pay = findViewById(R.id.txt_amt_pay);
+        layout_to=findViewById(R.id.layout_to);
 
         if (getIntent().getStringExtra("status").equals("1")) {
 
             txtFor.setText("Doctor Appointment");
             textTo.setText(getIntent().getStringExtra("doct_name"));
             txt_amt_pay.setText(ConstValue.CURRENCY+(getIntent().getStringExtra("total_price")));
-        } else {
+        } else  if (getIntent().getStringExtra("status").equals("4")){
 
+            txtFor.setText("Medicine Order");
+            layout_to.setVisibility(View.GONE);
+            txt_amt_pay.setText(ConstValue.CURRENCY+(getIntent().getStringExtra("total_price")));
+
+        }else {
 
             txtFor.setText("Lab Appointment");
             textTo.setText(getIntent().getStringExtra("lab_name"));
@@ -206,7 +217,7 @@ public class MyPayuDemoActivity extends CommonActivity {
                 .setUdf8(udf8)
                 .setUdf9(udf9)
                 .setUdf10(udf10)
-                .setIsDebug(false)
+                .setIsDebug(true)
                 .setKey(merchant_key)
                 .setMerchantId(merchant_id);
 
@@ -375,6 +386,12 @@ public class MyPayuDemoActivity extends CommonActivity {
 
                     View view = dialog1.getView();
                     TextView text_ok = view.findViewById(R.id.text_ok);
+                    TextView text_info = view.findViewById(R.id.txt_info);
+
+                    if (getIntent().getStringExtra("status").equals("4")){
+
+                        text_info.setText("Thanks for Ordering.");
+                    }
                     text_ok.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {

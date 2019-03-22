@@ -64,7 +64,7 @@ public class BookActivity extends CommonActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_doctors);
         allowBack();
-        setHeaderTitle("Doctor List",common.getSession(ApiParams.CURRENT_CITY));
+        setHeaderTitle("Doctor List");
 
         gps = new GPSTracker(BookActivity.this);
 

@@ -16,13 +16,13 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.ziffytech.Config.ConstValue;
 import com.ziffytech.R;
-import com.ziffytech.activities.AdapterTestlistshowing;
-import com.ziffytech.activities.Model;
 import com.ziffytech.util.MyUtility;
+
 
 import java.util.ArrayList;
 
@@ -31,7 +31,7 @@ public class OrderMedicineAdapter extends RecyclerView.Adapter<OrderMedicineAdap
     private ArrayList<MedicineOrderModel> modelArrayList;
     private ArrayList<MedicineOrderModel> selectedList;
     Context context;
-    OnItemClickListener clickListener;
+
 
 
     public OrderMedicineAdapter(Context context, ArrayList<MedicineOrderModel> names) {
@@ -54,9 +54,7 @@ public class OrderMedicineAdapter extends RecyclerView.Adapter<OrderMedicineAdap
 
         Log.e("model", String.valueOf(model));
 
-      //  holder.checkBoxMedicine.setText(model.getMedicine_name()+"("+ ConstValue.CURRENCY+model.getQty()+")");
-        holder.text_qty.setText(model.getQuantity());
-        holder.checkBoxMedicine.setText(model.getDrug_name());
+      //  holder.checkBoxMedicine.setText(model.getMedicine_name()+"("+ ConstValue.CURRENCY"+")");
 
         Log.e("name", model.getDrug_name());
         Log.e("qty", model.getQuantity());
@@ -64,23 +62,34 @@ public class OrderMedicineAdapter extends RecyclerView.Adapter<OrderMedicineAdap
 
         if (model.getAvailability().equals("0")) {
 
+            holder.checkBoxMedicine.setText(model.getDrug_name());
+            holder.text_qty.setText(model.getQuantity());
+
+
+            holder.text_not_available.setVisibility(View.VISIBLE);
+
             Log.e("availabililty", model.getAvailability());
             holder.checkBoxMedicine.setEnabled(false);
             holder.checkBoxMedicine.setTextColor(Color.parseColor("#787878"));
+
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                    MyUtility.showAlertMessage(context, "Medicine is not available for now");
-
+                    Toast.makeText(context, "Medicine not available.", Toast.LENGTH_SHORT).show();
                 }
             });
-
 
 //          holder.checkBoxMedicine.setEnabled(false);
 //          holder.checkBoxMedicine.setTextColor(Color.parseColor("#787878"));
         } else {
+
+
+            holder.checkBoxMedicine.setText(model.getDrug_name()+"("+ConstValue.CURRENCY+model.getMedicine_price()+")");
+            holder.text_qty.setText(model.getQuantity());
+
+            holder.text_not_available.setVisibility(View.GONE);
 
             holder.checkBoxMedicine.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
@@ -123,8 +132,38 @@ public class OrderMedicineAdapter extends RecyclerView.Adapter<OrderMedicineAdap
 
                 @Override
                 public void afterTextChanged(Editable s) {
-                    modelArrayList.get(position).setQuantity(String.valueOf(holder.edit_qty.getText()));
-                    Log.e("##" + "Quantity", position + modelArrayList.get(position).getQuantity());
+
+                    int length=s.length();
+
+                    if (length==0){
+
+                        MyUtility.showAlertMessage(context,"Please enter quantity.");
+                        holder.checkBoxMedicine.setChecked(false);
+                        holder.edit_qty.setText(model.getQuantity());
+                        holder.text_qty.setText(modelArrayList.get(position).getQuantity());
+                    }else {
+
+                        modelArrayList.get(position).setQuantity(String.valueOf(holder.edit_qty.getText()));
+                        Log.e("##" + "Quantity", position + modelArrayList.get(position).getQuantity());
+                    }
+
+
+
+
+                 /*   if (!s.equals("")){
+
+                        modelArrayList.get(position).setQuantity(String.valueOf(holder.edit_qty.getText()));
+                        Log.e("##" + "Quantity", position + modelArrayList.get(position).getQuantity());
+                    }else {
+
+                        Log.e("EDit","true");
+                        MyUtility.showAlertMessage(context,"###Please enter quantity.");
+
+                        holder.checkBoxMedicine.setChecked(false);
+
+
+                    }*/
+
 
                 }
             });
@@ -148,11 +187,11 @@ public class OrderMedicineAdapter extends RecyclerView.Adapter<OrderMedicineAdap
 
 
 
-    class ViewHolder extends RecyclerView.ViewHolder implements
-            View.OnClickListener {
+    class ViewHolder extends RecyclerView.ViewHolder  {
         CheckBox checkBoxMedicine;
         EditText edit_qty;
         TextView text_qty;
+        TextView text_not_available;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -160,16 +199,13 @@ public class OrderMedicineAdapter extends RecyclerView.Adapter<OrderMedicineAdap
             checkBoxMedicine = itemView.findViewById(R.id.check_medicine);
             edit_qty = itemView.findViewById(R.id.edit_qty);
             text_qty = itemView.findViewById(R.id.text_qty);
+            text_not_available = itemView.findViewById(R.id.text_not_available);
             edit_qty.setVisibility(View.GONE);
 
-            itemView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View v) {
-            clickListener.onItemClick(v, getPosition());
 
         }
+
+
     }
 
 

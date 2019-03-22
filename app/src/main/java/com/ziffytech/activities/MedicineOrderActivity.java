@@ -213,7 +213,7 @@ public class MedicineOrderActivity extends CommonActivity
                     //Toast.makeText(this, ""+bitmap1, Toast.LENGTH_SHORT).show();
 
 
-                    final int maxSize = 960;
+                    final int maxSize = 1024;
                     int outWidth;
                     int outHeight;
                     int inWidth = bitmap1.getWidth();
@@ -416,7 +416,7 @@ public class MedicineOrderActivity extends CommonActivity
     private void showSuccessDialog()
     {
         AlertDialog.Builder ad=new AlertDialog.Builder(this);
-        ad.setMessage("Your request has been taken.We will get back to you soon.");
+        ad.setMessage("Prescription Uploaded Successfully.");
         ad.setCancelable(false);
         ad.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override

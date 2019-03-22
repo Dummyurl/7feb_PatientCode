@@ -2,7 +2,6 @@ package com.ziffytech.Pharmacy;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -20,6 +19,8 @@ public class OnlineFragment extends Fragment {
     RecyclerView recyclerView;
     TextView tv_no_data;
     LinearLayoutManager layoutManager;
+    ArrayList<OnlineModel> arrayListAll =new ArrayList<>();
+    MedicalHistoryOnlineDetailsAdapter medicalHistoryOnlineDetailsAdapter;
 
     public OnlineFragment() {
     }
@@ -39,37 +40,39 @@ public class OnlineFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView= inflater.inflate(R.layout.frag_onl, container, false);
-/*
 
         recyclerView=rootView.findViewById(R.id.recyclerview_online);
         tv_no_data=rootView.findViewById(R.id.tv_no_data);
         tv_no_data.setVisibility(View.VISIBLE);
         recyclerView.setVisibility(View.GONE);
 
-        GridLayoutManager layout = new GridLayoutManager(getActivity(),2, GridLayoutManager.VERTICAL,false);
 
-        recyclerView.setLayoutManager(layout);
 
-*/
+        layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(layoutManager);
 
-     /*   TimeSlotActivity timeSlotActivity = (TimeSlotActivity) getActivity();
-        historyAdapter=new HistoryAdapter(getActivity(),arrayListAll,"0",timeSlotActivity);
-        recyclerView.setAdapter(historyAdapter);
 
-*/
+       // MedicineOrderHistory medicineOrderHistory = (MedicineOrderHistory) getActivity();
+         medicalHistoryOnlineDetailsAdapter =new MedicalHistoryOnlineDetailsAdapter(getActivity(),arrayListAll);
+        recyclerView.setAdapter(medicalHistoryOnlineDetailsAdapter);
+
         return rootView;
 
     }
 
-    public void updateData(ArrayList<OnlineModel> arrayList){
+    public void updateDataOnline(ArrayList<OnlineModel> arrayList){
+
+        Log.e("arraylist",arrayList.toString());
         if (recyclerView!=null) {
             if (!arrayList.isEmpty()) {
 
                 recyclerView.setVisibility(View.VISIBLE);
                 tv_no_data.setVisibility(View.GONE);
-               /* arrayListAll.clear();
+                arrayListAll.clear();
                 arrayListAll.addAll(arrayList);
-                historyAdapter.notifyDataSetChanged();*/
+                medicalHistoryOnlineDetailsAdapter.notifyDataSetChanged();
 
             } else {
                 Log.e("isEmpty", "true");
