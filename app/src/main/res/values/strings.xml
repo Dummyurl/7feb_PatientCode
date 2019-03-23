@@ -148,7 +148,7 @@
     <string name="valid_not_match">Re Enter password not match</string>
     <string name="update_profile">Update Profile</string>
     <string name="change_password">Change Password</string>
-    <string name="my_appointments">My Appointment</string>
+    <string name="my_appointments">My Lab Appointments</string>
     <string name="update">Update</string>
     <string name="profile_update_success">Profile Updated Successfully</string>
 

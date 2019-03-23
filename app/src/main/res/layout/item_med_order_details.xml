@@ -139,15 +139,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:visibility="gone"
                 android:layout_marginLeft="@dimen/padding_10"
                 android:layout_marginRight="@dimen/padding_10"
                 android:layout_marginTop="@dimen/padding_10">
-                <Button
+                <TextView
                     android:id="@+id/btn_cancel"
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/dimen_40dp"
-                    android:background="@color/white"
-                    android:text="cancel"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_10"
+                    android:text="CANCEL"
                     android:textColor="@color/colorPrimary"/>
 
 

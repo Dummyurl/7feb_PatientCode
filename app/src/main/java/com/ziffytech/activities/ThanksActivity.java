@@ -100,9 +100,9 @@ public class ThanksActivity extends CommonActivity {
 
                   isProfile=checkProfile();
 
-                  if (isProfile){
+                 /* if (isProfile){*/
                       confirm();
-                  }else {
+               /*   }else {
 
 
                       AlertDialog.Builder ad = new AlertDialog.Builder(ThanksActivity.this);
@@ -119,7 +119,7 @@ public class ThanksActivity extends CommonActivity {
                       dialog.show();
 
 
-                  }
+                  }*/
 
                 }
 

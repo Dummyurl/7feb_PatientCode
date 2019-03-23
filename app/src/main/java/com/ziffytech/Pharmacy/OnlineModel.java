@@ -1,6 +1,8 @@
 package com.ziffytech.Pharmacy;
 
-public class OnlineModel {
+import java.io.Serializable;
+
+public class OnlineModel implements Serializable {
 
     String txn_id;
     String status;
@@ -8,6 +10,7 @@ public class OnlineModel {
     String delivery_status;
     String order_details;
     String amount;
+    String prescription_id;
 
     public String getTxn_id() {
         return txn_id;
@@ -55,5 +58,13 @@ public class OnlineModel {
 
     public void setAmount(String amount) {
         this.amount = amount;
+    }
+
+    public String getPrescription_id() {
+        return prescription_id;
+    }
+
+    public void setPrescription_id(String prescription_id) {
+        this.prescription_id = prescription_id;
     }
 }

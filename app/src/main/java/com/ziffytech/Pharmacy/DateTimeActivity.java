@@ -25,6 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.util.Calendar;
 
 public class DateTimeActivity extends CommonActivity {
@@ -98,6 +99,10 @@ public class DateTimeActivity extends CommonActivity {
 
                 total = price * qty;
                 total_price = total_price + total;
+
+              total_price=  roundTwoDecimals(total_price);
+
+
             }
 
 
@@ -157,6 +162,12 @@ public class DateTimeActivity extends CommonActivity {
 
 
 
+    }
+
+    double roundTwoDecimals(double d)
+    {
+        DecimalFormat twoDForm = new DecimalFormat("#.##");
+        return Double.valueOf(twoDForm.format(d));
     }
 
 

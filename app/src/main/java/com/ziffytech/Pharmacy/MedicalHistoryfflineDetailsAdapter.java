@@ -15,16 +15,19 @@ import com.ziffytech.R;
 import com.ziffytech.activities.AdapterTestlistshowing;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MedicalHistoryfflineDetailsAdapter extends RecyclerView.Adapter<MedicalHistoryfflineDetailsAdapter.ViewHolder> {
 
     private ArrayList<OfflineModel> modelArrayList;
     Context context;
     OnItemClickListener clickListener;
+    OnAppointmentClickListener onAppointmentClickListener;
 
-    public MedicalHistoryfflineDetailsAdapter(Context context, ArrayList<OfflineModel> names) {
+    public MedicalHistoryfflineDetailsAdapter(Context context, ArrayList<OfflineModel> names,OnAppointmentClickListener onAppointmentClickListener) {
         this.context = context;
         this.modelArrayList = names;
+        this.onAppointmentClickListener=onAppointmentClickListener;
     }
 
     @Override
@@ -55,6 +58,9 @@ public class MedicalHistoryfflineDetailsAdapter extends RecyclerView.Adapter<Med
             @Override
             public void onClick(View v) {
 
+
+
+                onAppointmentClickListener.onCancelAppointmentClick(model);
 
             }
         });
@@ -87,7 +93,7 @@ public class MedicalHistoryfflineDetailsAdapter extends RecyclerView.Adapter<Med
 
         TextView date_time;
         TextView text_view_details;
-        Button btn_cancel;
+        TextView btn_cancel;
 
 
         ViewHolder(View itemView) {
@@ -96,7 +102,7 @@ public class MedicalHistoryfflineDetailsAdapter extends RecyclerView.Adapter<Med
 
             date_time = (TextView) itemView.findViewById(R.id.txt_date_time);
             text_view_details = (TextView) itemView.findViewById(R.id.text_view_details);
-            btn_cancel = (Button) itemView.findViewById(R.id.btn_cancel);
+            btn_cancel = (TextView) itemView.findViewById(R.id.btn_cancel);
 
 
 
@@ -111,4 +117,17 @@ public class MedicalHistoryfflineDetailsAdapter extends RecyclerView.Adapter<Med
 
         Log.e("FILTERED LIST", "" + modelArrayList);
     }
+
+
+    public interface OnAppointmentClickListener {
+
+        public void onCancelAppointmentClick(OfflineModel appointementModel);
+
+
+
+        //    public void onUpdateVitalSigns(String weight, String feet,String inches, String bp, String pulse, String rp, String temp,String app_id,String user_id,String doct_id,String bus_id,String problem,String duration);
+
+    }
+
+
 }

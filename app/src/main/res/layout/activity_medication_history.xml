@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-
         android:background="@color/appbackground"
         android:layout_below="@+id/search_layout">
 
@@ -19,14 +18,14 @@
 
         <TextView
             android:id="@+id/text_notfound"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:text="No record found"
             android:textColor="#000"
             android:textSize="16sp"
             android:gravity="center"
             android:visibility="gone"
             android:layout_centerInParent="true"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
 
 
         <LinearLayout
@@ -42,6 +41,7 @@
                 android:id="@+id/recyclerview_med_history"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="visible"
                 android:layout_marginTop="5dp">
 
             </android.support.v7.widget.RecyclerView>

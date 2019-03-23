@@ -205,6 +205,8 @@ public class ApiParams
  public static String GET_CONTACTS = ConstValue.BASE_URL+API_V+"/get_emergency_number";
  public  static String GET_CITY = ConstValue.BASE_URL+API_V+"/get_city";
  public  static String GET_REMAINDERS = ConstValue.BASE_URL+API_V+"/get_remainder_prescription";
+ public  static String CANCEL_OFFLINE = ConstValue.BASE_PHARMACY+"Pharmacy_api/cancel_offline_medicine_order";
+ public  static String CANCEL_ONLINE = ConstValue.BASE_URL+API_V+"Pharmacy_api/cancel_online_medicine_order";
 
 
 

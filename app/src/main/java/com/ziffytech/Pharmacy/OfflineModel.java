@@ -1,6 +1,8 @@
 package com.ziffytech.Pharmacy;
 
-public class OfflineModel {
+import java.io.Serializable;
+
+public class OfflineModel implements Serializable {
 
     String pres_img;
     String status;

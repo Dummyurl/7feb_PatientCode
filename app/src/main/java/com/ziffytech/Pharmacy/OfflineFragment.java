@@ -53,7 +53,8 @@ public class OfflineFragment extends Fragment
         recyclerView.setLayoutManager(layout);
 
 
-        historyAdapter=new MedicalHistoryfflineDetailsAdapter(getActivity(),arrayListAll);
+        MedicineOrderHistory medicineOrderHistory = (MedicineOrderHistory) getActivity();
+        historyAdapter=new MedicalHistoryfflineDetailsAdapter(getActivity(),arrayListAll,medicineOrderHistory);
         recyclerView.setAdapter(historyAdapter);
 
         return rootView;

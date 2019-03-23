@@ -11,6 +11,7 @@ import android.content.pm.Signature;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -40,9 +41,12 @@ import com.android.volley.toolbox.Volley;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.facebook.accountkit.AccountKit;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.dynamiclinks.DynamicLink;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
+import com.google.firebase.dynamiclinks.ShortDynamicLink;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.ziffytech.BuildConfig;
@@ -405,7 +409,7 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
         }else{
             nav_Menu.findItem(R.id.nav_appointment).setVisible(true);
             nav_Menu.findItem(R.id.nav_logout).setVisible(true);
-            nav_Menu.findItem(R.id.nav_password).setVisible(true);
+            nav_Menu.findItem(R.id.nav_password).setVisible(false);
             nav_Menu.findItem(R.id.nav_profile).setVisible(false);
             nav_Menu.findItem(R.id.nav_vaccination).setVisible(false);
             nav_Menu.findItem(R.id.nav_history).setVisible(false);
@@ -1011,6 +1015,40 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
                     }
                 });
     }
+
+
+
+/*
+    public void createShortLink() {
+        Uri link = Uri.parse("https://demo.digiquall.com/bestdail")
+                .buildUpon()
+                .appendQueryParameter("type", "Offer")// here u can add ur extra parameters
+                .appendQueryParameter("id", offer.getId())// here u can add ur extra parameters
+                .build();
+        Task<ShortDynamicLink> shortLinkTask = FirebaseDynamicLinks.getInstance().createDynamicLink()
+                .setDomainUriPrefix("")
+                .setLink(link)
+                .setAndroidParameters(new DynamicLink.AndroidParameters.Builder().build())
+                .buildShortDynamicLink()
+                .addOnCompleteListener(this, new OnCompleteListener<ShortDynamicLink>() {
+                    @Override
+                    public void onComplete(@NonNull Task<ShortDynamicLink> task) {
+                        if (task.isSuccessful()) {
+                            Uri shortLink = task.getResult().getShortLink();
+                            Intent intent = new Intent();
+                            String msg = "See This Awesome Offer : " +  shortLink;
+                            intent.setAction(Intent.ACTION_SEND);
+                            intent.putExtra(Intent.EXTRA_TEXT, msg);
+                            intent.setType("text/plain");
+                            startActivity(intent);
+
+                        } else {
+                         MyUtility.showToast("Unable to share please try again.",MainActivity.this);
+                        }
+                    }
+                });
+    }*/
+
 
 
 

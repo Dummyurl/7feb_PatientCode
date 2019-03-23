@@ -54,8 +54,8 @@ public class OnlineFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
 
-       // MedicineOrderHistory medicineOrderHistory = (MedicineOrderHistory) getActivity();
-         medicalHistoryOnlineDetailsAdapter =new MedicalHistoryOnlineDetailsAdapter(getActivity(),arrayListAll);
+       MedicineOrderHistory medicineOrderHistory = (MedicineOrderHistory) getActivity();
+         medicalHistoryOnlineDetailsAdapter =new MedicalHistoryOnlineDetailsAdapter(getActivity(),arrayListAll,medicineOrderHistory);
         recyclerView.setAdapter(medicalHistoryOnlineDetailsAdapter);
 
         return rootView;

@@ -217,7 +217,7 @@ public class MyPayuDemoActivity extends CommonActivity {
                 .setUdf8(udf8)
                 .setUdf9(udf9)
                 .setUdf10(udf10)
-                .setIsDebug(true)
+                .setIsDebug(false)
                 .setKey(merchant_key)
                 .setMerchantId(merchant_id);
 

@@ -13,22 +13,30 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+import com.ziffytech.Config.ApiParams;
 import com.ziffytech.R;
 import com.ziffytech.activities.AdapterTestlistshowing;
 import com.ziffytech.activities.AppointmentDetailsActivity;
 import com.ziffytech.activities.BillingActivity;
+import com.ziffytech.activities.CustomRequestForString;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MedicalHistoryOnlineDetailsAdapter extends RecyclerView.Adapter<MedicalHistoryOnlineDetailsAdapter.ViewHolder> {
 
     private ArrayList<OnlineModel> modelArrayList;
     Context context;
     AdapterTestlistshowing.OnItemClickListener clickListener;
+    OnAppointmentClickListener onAppointmentClickListener;
 
-    public MedicalHistoryOnlineDetailsAdapter(Context context, ArrayList<OnlineModel> names) {
+    public MedicalHistoryOnlineDetailsAdapter(Context context, ArrayList<OnlineModel> names,OnAppointmentClickListener onAppointmentClickListener) {
         this.context = context;
         this.modelArrayList = names;
+        this.onAppointmentClickListener = onAppointmentClickListener;
     }
 
     @Override
@@ -99,6 +107,18 @@ public class MedicalHistoryOnlineDetailsAdapter extends RecyclerView.Adapter<Med
         });
 
 
+        holder.btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                onAppointmentClickListener.onCancelAppointmentClick(model);
+
+
+            }
+        });
+
+
 
 
 
@@ -133,7 +153,7 @@ public class MedicalHistoryOnlineDetailsAdapter extends RecyclerView.Adapter<Med
         TextView text_view_details;
         TextView txt_txn_id;
         TextView txtv_status;
-        Button btn_cancel;
+        TextView btn_cancel;
         LinearLayout layout_txn;
 
         ViewHolder(View itemView) {
@@ -144,7 +164,7 @@ public class MedicalHistoryOnlineDetailsAdapter extends RecyclerView.Adapter<Med
             text_view_details= (TextView) itemView.findViewById(R.id.text_view_details);
             txt_txn_id= (TextView) itemView.findViewById(R.id.txt_txn_id);
             txtv_status= (TextView) itemView.findViewById(R.id.txtv_status);
-            btn_cancel= (Button) itemView.findViewById(R.id.btn_cancel);
+            btn_cancel= (TextView) itemView.findViewById(R.id.btn_cancel);
             layout_txn= (LinearLayout) itemView.findViewById(R.id.layout_txn);
 
         }
@@ -158,5 +178,16 @@ public class MedicalHistoryOnlineDetailsAdapter extends RecyclerView.Adapter<Med
         notifyDataSetChanged();
 
         Log.e("FILTERED LIST", "" + modelArrayList);
+    }
+
+
+    public interface OnAppointmentClickListener {
+
+        public void onCancelAppointmentClick(OnlineModel appointementModel);
+
+
+
+        //    public void onUpdateVitalSigns(String weight, String feet,String inches, String bp, String pulse, String rp, String temp,String app_id,String user_id,String doct_id,String bus_id,String problem,String duration);
+
     }
 }

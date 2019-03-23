@@ -40,7 +40,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:weightSum="1">
 
 
@@ -50,7 +50,7 @@
                         android:layout_height="wrap_content"
                         android:layout_toLeftOf="@+id/rating"
                         android:padding="5dp"
-                        android:layout_weight="0.4"
+
                         android:text="name of doctor"
                         android:textAllCaps="true"
                         android:textSize="14sp"
@@ -58,15 +58,9 @@
 
                     <TextView
                         android:id="@+id/specilaity"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/degree"
-                        android:layout_gravity="center"
-                        android:layout_weight="0.6"
-                        android:ellipsize="end"
-                        android:gravity="center_horizontal"
-                        android:maxLength="15"
-                        android:maxLines="1"
                         android:padding="5dp"
                         android:text="speciality"
                         android:textSize="12sp" />

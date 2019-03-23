@@ -1,10 +1,12 @@
 package com.ziffytech.Pharmacy;
 
+import android.content.DialogInterface;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +24,7 @@ import com.ziffytech.R;
 import com.ziffytech.activities.CommonActivity;
 import com.ziffytech.activities.CustomRequestForString;
 import com.ziffytech.util.MyUtility;
+import com.ziffytech.util.Utility;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,7 +34,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class MedicineOrderHistory extends CommonActivity {
+public class MedicineOrderHistory extends CommonActivity implements MedicalHistoryOnlineDetailsAdapter.OnAppointmentClickListener,MedicalHistoryfflineDetailsAdapter.OnAppointmentClickListener{
 
     ArrayList<OnlineModel> onlineModelArrayList;
     ArrayList<OfflineModel> offlineModelArrayList;
@@ -40,6 +43,10 @@ public class MedicineOrderHistory extends CommonActivity {
     private ViewPager viewPager;
     OnlineFragment onlineFragment;
     OfflineFragment offlineFragment;
+    OnlineModel deletedOnline;
+    OfflineModel deletedOffline;
+    boolean isOffline=false;
+    boolean isOnline=false;
 
 
 
@@ -89,6 +96,93 @@ public class MedicineOrderHistory extends CommonActivity {
         adapter.addFragment(onlineFragment, "Online");
         adapter.addFragment(offlineFragment, "Offline");
         viewPager.setAdapter(adapter);
+
+    }
+
+    @Override
+    public void onCancelAppointmentClick(final OnlineModel appointementModel) {
+
+        AlertDialog.Builder ad=new AlertDialog.Builder(MedicineOrderHistory.this);
+        ad.setMessage("Are you sure?");
+
+        ad.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                deletedOnline =appointementModel;
+                isOnline=true;
+                HashMap<String, String> params = new HashMap<String, String>();
+                params.put("user_id",common.get_user_id());
+                params.put("prescription_id",deletedOnline.getPrescription_id());
+
+
+                Log.e("PARAMS", params.toString());
+
+                CustomRequestForString customRequestForString = new CustomRequestForString(Request.Method.POST,ApiParams.CANCEL_OFFLINE, params, createRequestSuccessListenerCancelAppointment(),createRequestErrorListenerCancelAppointment());
+                RequestQueue requestQueue = Volley.newRequestQueue(MedicineOrderHistory.this);
+                requestQueue.add(customRequestForString);
+                showPrgressBar();
+
+
+            }
+        });  ad.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                dialogInterface.dismiss();
+            }
+        });
+        AlertDialog dialog=ad.create();
+        dialog.show();
+        dialog.setCancelable(false);
+
+
+
+
+
+    }
+
+    @Override
+    public void onCancelAppointmentClick(final OfflineModel appointementModel) {
+
+
+
+        AlertDialog.Builder ad=new AlertDialog.Builder(MedicineOrderHistory.this);
+        ad.setMessage("Are you sure?");
+
+        ad.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                deletedOffline =appointementModel;
+                isOffline=true;
+                HashMap<String, String> params = new HashMap<String, String>();
+                params.put("prescriptionoff_id",deletedOffline.getPrescriptionoff_id());
+                params.put("user_id",common.get_user_id());
+                params.put("is_cancel","1");
+
+
+                Log.e("PARAMS", params.toString());
+
+                CustomRequestForString customRequestForString = new CustomRequestForString(Request.Method.POST,ApiParams.CANCEL_OFFLINE, params, createRequestSuccessListenerCancelAppointment(),createRequestErrorListenerCancelAppointment());
+                RequestQueue requestQueue = Volley.newRequestQueue(MedicineOrderHistory.this);
+                requestQueue.add(customRequestForString);
+                showPrgressBar();
+
+
+            }
+        });  ad.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                dialogInterface.dismiss();
+            }
+        });
+        AlertDialog dialog=ad.create();
+        dialog.show();
+        dialog.setCancelable(false);
+
+
+
+
 
     }
 
@@ -166,6 +260,7 @@ public class MedicineOrderHistory extends CommonActivity {
                                 onlineModel.setDate_time(object.getString("created"));
                                 onlineModel.setOrder_details(object.getString("user_prescription"));
                                 onlineModel.setAmount(object.getString("amount"));
+                                onlineModel.setPrescription_id(object.getString("prescription_id"));
 
                                 if (object.has("txn_id") && (!object.getString("txn_id").equals(""))){
                                     Log.e("txn_id","true");
@@ -244,4 +339,71 @@ public class MedicineOrderHistory extends CommonActivity {
             }
         };
     }
+
+
+
+
+    private Response.Listener<String> createRequestSuccessListenerCancelAppointment ()
+    {
+        return new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.e("RESPONSE", response);
+              hideProgressBar();
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+
+                    if (jsonObject.getInt("status") == 1) {
+                        MyUtility.showAlertMessage(MedicineOrderHistory.this, "Order has been cancelled successfully");
+
+
+                        if (isOffline){
+                            isOffline=false;
+                            offlineModelArrayList.remove(deletedOffline);
+                            offlineFragment.updateDataOffline(offlineModelArrayList);
+
+                        }else if (isOnline){
+
+                            isOnline=false;
+                            onlineModelArrayList.remove(deletedOffline);
+                            onlineFragment.updateDataOnline(onlineModelArrayList);
+
+                        }
+
+
+                    }else {
+                        MyUtility.showAlertMessage(MedicineOrderHistory.this, "Order cancellation Fail");
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        };
+    }
+
+
+    private Response.ErrorListener createRequestErrorListenerCancelAppointment ()
+    {
+        return new Response.ErrorListener()
+        {
+            @Override
+            public void onErrorResponse(VolleyError error)
+            {
+
+            hideProgressBar();
+
+                if (error instanceof TimeoutError)
+                {
+                    MyUtility.showAlertMessage(MedicineOrderHistory.this, "Server is busy.Please try again");
+                }
+                Log.i("##", "##" + error.toString());
+
+            }
+        };
+
+    }
+
+
+
 }

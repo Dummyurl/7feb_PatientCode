@@ -119,6 +119,7 @@
                 android:weightSum="3">
 
                 <Button
+                    android:visibility="gone"
                     android:id="@+id/cancel"
                     android:layout_width="100dp"
                     android:layout_height="30dp"
