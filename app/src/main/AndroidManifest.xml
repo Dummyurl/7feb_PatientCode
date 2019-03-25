@@ -65,7 +65,7 @@
         -->
         <meta-data
             android:name="com.facebook.accountkit.ApplicationName"
-            android:value="@string/app_name" />
+            android:value= "@string/app_name" />
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/FACEBOOK_APP_ID" />

@@ -155,6 +155,9 @@ public class TimeSlotActivity extends CommonActivity implements DatePickerDialog
         lin_tablayout = (LinearLayout) findViewById(R.id.lin_tablayout);
         toprating = (RelativeLayout) findViewById(R.id.toprating);
         clinic_details = (RelativeLayout) findViewById(R.id.clinic_details);
+
+
+
         layout_social = (LinearLayout) findViewById(R.id.layout_social);
 
         imgv_bookcall = (ImageView) findViewById(R.id.imgv_bookcall);
