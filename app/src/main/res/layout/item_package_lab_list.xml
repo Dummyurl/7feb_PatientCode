@@ -73,7 +73,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
-                        android:drawableLeft="@drawable/ic_clock"
+                        android:drawableLeft="@drawable/ic_clock_new"
                         android:drawablePadding="5dp"
                         android:text="Availability : "
                         android:textColor="@color/grey"
@@ -110,11 +110,6 @@
                         android:visibility="gone" />
 
 
-
-
-
-
-
                 </RelativeLayout>
 
                 <Button
@@ -123,7 +118,7 @@
                     android:layout_height="35dp"
                     android:layout_gravity="end"
                     android:layout_marginTop="5dp"
-                    android:background="@drawable/my_gradient_drawable"
+                    android:background="@drawable/my_gradient_back"
                     android:text="BOOK"
                     android:textColor="#fff"
                     android:textSize="12dp"

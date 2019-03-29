@@ -268,26 +268,22 @@ public class ChatActivity extends CommonActivity implements  LoaderManager.Loade
 
                     case R.id.textonline:
 
-                        if (MyUtility.isConnected(ChatActivity.this)) {
+                        if (MyUtility.isConnected(ChatActivity.this))
+                        {
 
-                        //    String is_online = cursor.getString(cursor.getColumnIndex(DataProvider.COL_IS_ONLINE));
+                           //String is_online = cursor.getString(cursor.getColumnIndex(DataProvider.COL_IS_ONLINE));
 
-                         /*   if (is_online.equalsIgnoreCase("no")) {
+                            /*   if (is_online.equalsIgnoreCase("no")) {
 
                                 view.setVisibility(View.GONE);
-
-
                             } else {
-
                                 view.setVisibility(View.VISIBLE);
-
                             }
                             */
 
-                        } else {
-
+                        } else
+                        {
                             view.setVisibility(View.GONE);
-
                         }
 
 
@@ -301,51 +297,36 @@ public class ChatActivity extends CommonActivity implements  LoaderManager.Loade
                         final String u_is_group = cursor.getString(cursor.getColumnIndex(DataProvider.COL_IS_GROUP));
                         final String GROUP_id = cursor.getString(cursor.getColumnIndex(DataProvider.COL_GROUP_ID));
 
-
                         Picasso.with(ChatActivity.this).load(ConstValue.BASE_URL + "/uploads/profile/" + image).into((ImageView) view);
 
-
-
-
-                        view.setOnClickListener(new View.OnClickListener() {
+                        view.setOnClickListener(new View.OnClickListener()
+                        {
                             @Override
-                            public void onClick(View v) {
-
-                             /*   if (u_is_group.equalsIgnoreCase("no")) {
+                            public void onClick(View v)
+                            {
+                             /* if (u_is_group.equalsIgnoreCase("no")) {
 
                                     ProfileDialog dialog = new ProfileDialog(getActivity(),
                                             social_type, social_id, image, user_id, user_name, u_is_group);
                                     dialog.show();
-
-
                                 } else {
-
-
                                     ProfileDialog dialog = new ProfileDialog(getActivity(),
                                             social_type, social_id, image, GROUP_id, user_name, u_is_group);
                                     dialog.show();
-
-
                                 }
                                 */
-
                             }
                         });
-
 
                         return true;
 
                     case R.id.textlastmsg:
 
-
                         String last_msg = cursor.getString(columnIndex);
-
-
-
                         String is_typing = cursor.getString(cursor.getColumnIndex(DataProvider.COL_IS_TYPING));
 
-                        if (is_typing.equalsIgnoreCase("yes")) {
-
+                        if (is_typing.equalsIgnoreCase("yes"))
+                        {
                             // ((TextView)view).setTextColor(getResources().getColor(R.color.green4));
                             ((TextView) view).setText("typing...");
                             ((TextView) view).setTextColor(getResources().getColor(R.color.typing));
@@ -355,56 +336,41 @@ public class ChatActivity extends CommonActivity implements  LoaderManager.Loade
                             String is_image = cursor.getString(cursor.getColumnIndex(DataProvider.COL_IS_IMAGE));
                             String is_stream = cursor.getString(cursor.getColumnIndex(DataProvider.COL_IS_STREAM_PROFILE));
 
-                            if (is_image.equalsIgnoreCase("yes")) {
-
+                            if (is_image.equalsIgnoreCase("yes"))
+                            {
                                 if(last_msg.contains("explicate") || last_msg.contains("storage")){
-
 
                                     ((TextView) view).setText("Image");
                                     ((TextView) view).setTextColor(getResources().getColor(R.color.no_typing));
 
-
                                 }else{
 
                                     ((TextView) view).setText(last_msg);
                                     ((TextView) view).setTextColor(getResources().getColor(R.color.no_typing));
-
                                 }
 
-
-                            } else if (is_stream.equalsIgnoreCase("yes")) {
-
-
-
+                            } else if (is_stream.equalsIgnoreCase("yes"))
+                            {
                                 if(last_msg.contains(".mp4")){
-
-
                                     ((TextView) view).setText("Stream");
                                     ((TextView) view).setTextColor(getResources().getColor(R.color.no_typing));
-
                                 }else{
-
                                     ((TextView) view).setText(last_msg);
                                     ((TextView) view).setTextColor(getResources().getColor(R.color.no_typing));
-
                                 }
 
                             } else {
-
                                 ((TextView) view).setText(last_msg);
                                 ((TextView) view).setTextColor(getResources().getColor(R.color.no_typing));
-
-
                             }
-
                         }
-
 
                         return true;
 
                     case R.id.text2:
                         int count = cursor.getInt(columnIndex);
-                        if (count > 0) {
+                        if (count > 0)
+                        {
                             view.setVisibility(View.VISIBLE);
                             ((TextView) view).setText(String.valueOf(count));
                         } else {
@@ -428,19 +394,14 @@ public class ChatActivity extends CommonActivity implements  LoaderManager.Loade
             public void onItemClick(AdapterView<?> adapterView, View v, int i, long l) {
 
                     TextView tv=(TextView)v.findViewById((R.id.textid));
-                   String[] t= tv.getText().toString().split("#");
-
-
+                    String[] t= tv.getText().toString().split("#");
                     Intent intent = new Intent(ChatActivity.this, UserChatActivity.class);
                     intent.putExtra(ServerUtilities.AppClass.PROFILE_ID, t[0]);
                     intent.putExtra("is_group","");
                     startActivity(intent);
 
-
             }
         });
-
-
 
         getLoaderManager().initLoader(0, null, this);
 

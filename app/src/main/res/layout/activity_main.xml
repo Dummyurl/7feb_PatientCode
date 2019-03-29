@@ -39,9 +39,6 @@
 
             <include layout="@layout/activity_main_screen" />
 
-
-
-
         </LinearLayout>
 
 

@@ -277,7 +277,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/fb_button"
+                android:background="@drawable/my_gradient_drawable"
                 android:drawableLeft="@drawable/facebook"
                 android:fontFamily="casual"
                 android:padding="5dp"

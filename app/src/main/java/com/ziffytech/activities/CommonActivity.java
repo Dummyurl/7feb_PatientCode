@@ -1,9 +1,12 @@
 package com.ziffytech.activities;
 
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -20,13 +23,21 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocomplete;
+import com.google.gson.Gson;
 import com.kaopiz.kprogresshud.KProgressHUD;
 import com.ziffytech.Config.ApiParams;
 import com.ziffytech.R;
+import com.ziffytech.thyrocare.CartDetailModel;
 import com.ziffytech.util.CommonClass;
 import com.ziffytech.util.MyUtility;
 import com.ziffytech.util.VJsonRequest;
@@ -35,10 +46,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import cc.cloudist.acplibrary.ACProgressConstant;
 import cc.cloudist.acplibrary.ACProgressFlower;
+
+import static com.ziffytech.util.Preferences.MyPREFERENCES;
 
 /*
  * Created by subhashsanghani on 5/22/17.
@@ -51,11 +65,14 @@ public abstract class CommonActivity extends AppCompatActivity {
     private TextView mLocatonTextView;
     ProgressBar progressBar;
 
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         common = new CommonClass(this);
         super.onCreate(savedInstanceState);
     }
+    @SuppressLint("RestrictedApi")
     public void allowBack(){
         getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -336,9 +353,10 @@ public abstract class CommonActivity extends AppCompatActivity {
                 common.setSession(ApiParams.CURRENT_CITY,arr[i]);
                 mLocatonTextView.setText(common.getSession(ApiParams.CURRENT_CITY));
 
-
             }
         });
         ad.create().show();
     }
+
+
 }

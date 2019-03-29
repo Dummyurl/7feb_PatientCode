@@ -211,12 +211,12 @@ public class MainActivity extends CommonActivity implements NavigationView.OnNav
 
         }
 
-        mDemoSlider = (SliderLayout)findViewById(R.id.ziffyslider);
-        HashMap<String,Integer> file_maps = new HashMap<String, Integer>();
-        file_maps.put("1",R.drawable.newbanners1);
-        file_maps.put("2",R.drawable.newbanners2);
-        file_maps.put("3",R.drawable.newbanners3);
-
+        mDemoSlider = (SliderLayout) findViewById(R.id.ziffyslider);
+        HashMap<String, Integer> file_maps = new HashMap<String, Integer>();
+        file_maps.put("1", R.drawable.banner4);
+        file_maps.put("2", R.drawable.banner2);
+        file_maps.put("3", R.drawable.banner3);
+        file_maps.put("4", R.drawable.banner);
         for(String name : file_maps.keySet())
         {
             TextSliderView textSliderView = new TextSliderView(this);

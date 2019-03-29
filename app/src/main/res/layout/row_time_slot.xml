@@ -13,7 +13,7 @@
         android:id="@+id/clockimage"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:src="@drawable/time_clock"
+        android:src="@drawable/ic_clock_new"
         android:layout_gravity="center_horizontal"/>
 
     <TextView

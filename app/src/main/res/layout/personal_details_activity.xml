@@ -477,7 +477,7 @@
             android:text="skip"
             android:layout_weight="1"
             android:textColor="@color/colorTextWhite"
-            android:background="@drawable/my_gradient_drawable"
+            android:background="@drawable/my_gradient_back"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -489,7 +489,7 @@
             android:layout_alignParentBottom="true"
             android:text="Next"
             android:textColor="@color/colorTextWhite"
-            android:background="@drawable/my_gradient_drawable"
+            android:background="@drawable/my_gradient_back"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

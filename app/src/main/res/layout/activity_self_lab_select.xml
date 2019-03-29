@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/appbackground">
+    android:background="@color/white">
 
 
    <HorizontalScrollView
@@ -41,7 +41,7 @@
         android:orientation="vertical"
         android:layout_below="@+id/txt_location"
         android:layout_margin="@dimen/padding_10"
-        android:background="@drawable/fb_button"
+        android:background="@drawable/my_gradient_drawable"
         android:clickable="true">
 
 
@@ -60,7 +60,7 @@
             android:imeOptions="actionDone"
             android:maxLength="20"
             android:padding="10dp"
-            android:textColor="@color/greyshade"
+            android:textColor="@color/black"
             android:textColorHint="@color/greyshade"
             android:textSize="14dp" />
 
@@ -75,7 +75,7 @@
         android:layout_below="@+id/search_layout"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="@color/appbackground"
+        android:background="@color/white"
         android:padding="10dp">
 
         <android.support.v7.widget.RecyclerView

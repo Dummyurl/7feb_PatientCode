@@ -7,10 +7,16 @@
     <color name="colorAccent">#23bc9a</color>
     -->
 
-    <color name="colorPrimary">#ff422a</color>
+    <color name="colorPrimary">#077d8b</color>
+    <color name="colorPrimary1">#1BA7B9</color>
+    <color name="colorPrimaryDark">#006b78</color>
+    <color name="colorAccent">#22AF87</color>
+
+    <!--<color name="colorPrimary">#ff422a</color>
     <color name="colorPrimary1">#ff6a58</color>
     <color name="colorPrimaryDark">#e82d16</color>
-    <color name="colorAccent">#da3722</color>
+    <color name="colorAccent">#da3722</color>-->
+
     <color name="light_white">#80ffffff</color>
     <color name="light_red">#ff8d7f</color>
     <color name="appbackground">#f9f3f3</color>
@@ -55,5 +61,14 @@
     <color name="accent">#78909c</color>
     <color name="control_normal">#888888</color>
     <color name="fab_pressed">#546e7a</color>
+
+    <color name="fb_colorPrimary">#077d8b</color>
+    <color name="fb_colorPrimary1">#006B78</color>
+    <color name="fb_colorPrimaryDark">#006b78</color>
+    <color name="fb_colorAccent">#FF4C4C</color>
+    <color name="fb_ligh_grey">#EEEEEE</color>
+
+
+
 
 </resources>

@@ -49,16 +49,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Produc
         String path = categoryModel.getImage();
 
         Picasso.with(activity).load(ConstValue.BASE_URL + "/uploads/admin/category/" + path).into(holder.icon_image);
-
         holder.lbl_title.setText(categoryModel.getTitle());
-
-
         Log.e("DOCTOR COUNT",(categoryModel.getTitle()+"-"+categoryModel.getDoc_cnt()));
-
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View v)
+            {
                 ActiveModels.CATEGORY_MODEL = list.get(position);
                 Intent intent = new Intent(activity,BookActivity.class);
                 intent.putExtra("cat_id", ActiveModels.CATEGORY_MODEL.getId());

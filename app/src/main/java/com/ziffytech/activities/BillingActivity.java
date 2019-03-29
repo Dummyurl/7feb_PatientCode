@@ -40,7 +40,8 @@ import java.util.HashMap;
 import java.util.Random;
 
 
-public class BillingActivity extends CommonActivity {
+public class BillingActivity extends CommonActivity
+{
 
     private static final int MY_SOCKET_TIMEOUT_MS = 5000;
     private static final String CASHBACK = "cash_back";
@@ -88,9 +89,9 @@ public class BillingActivity extends CommonActivity {
         if (getIntent().hasExtra("status")) {
 
             if (getIntent().getStringExtra("status").equals("0")) {//
-                fAmt = getIntent().getStringExtra("total_price").replace(ConstValue.CURRENCY, "");
-                s1 = getIntent().getStringExtra("total_price").replace(ConstValue.CURRENCY, "");
-                final_price = Double.parseDouble(s1.replace("()", ""));
+                fAmt = getIntent().getStringExtra("total_price").replace(ConstValue.CURRENCY,"");
+              s1=getIntent().getStringExtra("total_price").replace(ConstValue.CURRENCY,"");
+                final_price = Double.parseDouble(s1.replace("()",""));
                 Log.e("final_price", String.valueOf(final_price));
 
             } else if (getIntent().getStringExtra("status").equals("1")) {//appti
@@ -101,19 +102,19 @@ public class BillingActivity extends CommonActivity {
             } else if (getIntent().getStringExtra("status").equals("2")) {
                 fAmt = getIntent().getStringExtra("total");
                 final_price = Double.parseDouble(getIntent().getStringExtra("total"));
-                s1 = getIntent().getStringExtra("total").replace(ConstValue.CURRENCY, "");
+                s1=getIntent().getStringExtra("total").replace(ConstValue.CURRENCY,"");
 
                 Log.e("final_price", String.valueOf(final_price));
-            } else if (getIntent().getStringExtra("status").equals("3")) {
+            }else if (getIntent().getStringExtra("status").equals("3")) {
                 fAmt = getIntent().getStringExtra("total_price");
                 final_price = Double.parseDouble(getIntent().getStringExtra("total_price"));
-                s1 = getIntent().getStringExtra("total_price");
+                s1=getIntent().getStringExtra("total_price");
 
                 Log.e("final_price", String.valueOf(final_price));
-            } else if (getIntent().getStringExtra("status").equals("4")) {
+            }else if (getIntent().getStringExtra("status").equals("4")) {
                 fAmt = getIntent().getStringExtra("total");
-                final_price = Double.parseDouble((getIntent().getStringExtra("total")));
-                s1 = getIntent().getStringExtra("total");
+               final_price = Double.parseDouble((getIntent().getStringExtra("total")));
+                s1=getIntent().getStringExtra("total");
 
                 Log.e("final_price", String.valueOf(final_price));
             }
@@ -170,8 +171,8 @@ public class BillingActivity extends CommonActivity {
 
                 Log.e("####", "SELF TEST");
 
-                total_price.setText(fAmt);
-                final_total.setText(ConstValue.CURRENCY + " " + String.valueOf(final_price));
+                total_price.setText(ConstValue.CURRENCY+fAmt);
+                final_total.setText(ConstValue.CURRENCY+" "+String.valueOf(final_price));
                 text_address.setText(getIntent().getStringExtra("address"));
 
 
@@ -251,8 +252,8 @@ public class BillingActivity extends CommonActivity {
                 Log.e("###", String.valueOf(final_price));
                 // tax.setText(ConstValue.CURRENCY + taxamt);
                 fAmt = getIntent().getStringExtra("total");
-                total_price.setText(ConstValue.CURRENCY + fAmt);
-                final_total.setText(ConstValue.CURRENCY + String.valueOf(final_price));
+                total_price.setText(ConstValue.CURRENCY+fAmt);
+                final_total.setText(ConstValue.CURRENCY+String.valueOf(final_price));
                 text_address.setText(getIntent().getStringExtra("address"));
 
 
@@ -276,7 +277,7 @@ public class BillingActivity extends CommonActivity {
                     }
                 });
 
-            } else if (getIntent().getStringExtra("status").equalsIgnoreCase("3")) {
+            }else if (getIntent().getStringExtra("status").equalsIgnoreCase("3")){
 
                 layout_offers.setVisibility(View.VISIBLE);
 
@@ -289,8 +290,8 @@ public class BillingActivity extends CommonActivity {
                 // tax.setText(ConstValue.CURRENCY + taxamt);
                 //    fAmt = getIntent().getStringExtra("total").replace(ConstValue.CURRENCY, " ");
 
-                total_price.setText(ConstValue.CURRENCY + " " + fAmt);
-                final_total.setText(String.valueOf(ConstValue.CURRENCY + " " + final_price));
+                total_price.setText(ConstValue.CURRENCY+" "+fAmt);
+                final_total.setText(String.valueOf(ConstValue.CURRENCY+" "+final_price));
 
                 //text_address.setText(getIntent().getStringExtra("address"));
 
@@ -304,8 +305,8 @@ public class BillingActivity extends CommonActivity {
 
                         Log.e("TEST TEST", getIntent().getStringExtra("test_names"));
                         intent.putExtra("lab_name", getIntent().getStringExtra("lab_name"));
-                        intent.putExtra("start_time", time);
-                        intent.putExtra("appointment_date", date);
+                        intent.putExtra("start_time",time);
+                        intent.putExtra("appointment_date",date);
                         intent.putExtra("tax", "0");
                         intent.putExtra("total_price", fAmt);
                         intent.putExtra("final_total", String.valueOf(final_price));
@@ -315,7 +316,7 @@ public class BillingActivity extends CommonActivity {
                     }
                 });
 
-            } else if (getIntent().getStringExtra("status").equalsIgnoreCase("4")) {
+            }else if (getIntent().getStringExtra("status").equalsIgnoreCase("4")){
 
                 layout_offers.setVisibility(View.VISIBLE);
 
@@ -328,8 +329,8 @@ public class BillingActivity extends CommonActivity {
                 // tax.setText(ConstValue.CURRENCY + taxamt);
                 //    fAmt = getIntent().getStringExtra("total").replace(ConstValue.CURRENCY, " ");
 
-                total_price.setText(ConstValue.CURRENCY + " " + fAmt);
-                final_total.setText(String.valueOf(ConstValue.CURRENCY + " " + final_price));
+                total_price.setText(ConstValue.CURRENCY+" "+fAmt);
+                final_total.setText(String.valueOf(ConstValue.CURRENCY+" "+final_price));
 
                 //text_address.setText(getIntent().getStringExtra("address"));
 
@@ -343,8 +344,8 @@ public class BillingActivity extends CommonActivity {
 
                         Log.e("medicine", getIntent().getStringExtra("medicine"));
 
-                        intent.putExtra("start_time", time);
-                        intent.putExtra("appointment_date", date + "  " + time);
+                        intent.putExtra("start_time",time);
+                        intent.putExtra("appointment_date",date+time);
 
                         intent.putExtra("total_price", fAmt);
                         intent.putExtra("final_total", String.valueOf(final_price));
@@ -385,7 +386,7 @@ public class BillingActivity extends CommonActivity {
                     intent.putExtra("Activity", "2");
                     intent.putExtra("trans_amt", fAmt);
                     intent.putExtra("isPaymentOptionChecked", isPaymentOptionChecked);
-                } else if (getIntent().getStringExtra("status").equalsIgnoreCase("4")) {
+                }else if (getIntent().getStringExtra("status").equalsIgnoreCase("4")) {
 
                     intent.putExtra("Activity", "3");
                     intent.putExtra("trans_amt", fAmt);
@@ -407,12 +408,15 @@ public class BillingActivity extends CommonActivity {
                         if (isCash) {
 
                             checkWallet.setVisibility(View.GONE);
-                            if (isOfferApplied) {
+                            if (isOfferApplied)
+                            {
                                 isCash = false;
                                 isPayUmoney = true;
                                 MyUtility.showAlertMessage(BillingActivity.this, "This promo code is not applicable for pay by cash option");
-                            } else {
-                                if (getIntent().hasExtra("status")) {
+                            } else
+                            {
+                                if (getIntent().hasExtra("status"))
+                                {
                                     Log.e("Pay_by_cash", "true");
                                     if (getIntent().getStringExtra("status").equalsIgnoreCase("0")) {
                                         Log.e("########", "0");
@@ -455,10 +459,10 @@ public class BillingActivity extends CommonActivity {
                                     } else if (getIntent().getStringExtra("status").equalsIgnoreCase("2")) {
                                         Log.e("#####", "2");
                                         bookLab();
-                                    } else if (getIntent().getStringExtra("status").equalsIgnoreCase("2")) {
+                                    }else if (getIntent().getStringExtra("status").equalsIgnoreCase("2")) {
                                         Log.e("#####", "2");
                                         bookLab();
-                                    } else if (getIntent().getStringExtra("status").equalsIgnoreCase("4")) {
+                                    }else if (getIntent().getStringExtra("status").equalsIgnoreCase("4")) {
                                         Log.e("#####", "4");
                                         orderMedicine();
                                     }
@@ -501,6 +505,7 @@ public class BillingActivity extends CommonActivity {
                     dialog.show();
 
 
+
                 }
             }
 
@@ -514,7 +519,8 @@ public class BillingActivity extends CommonActivity {
             // calculateWalletAmt(true);
             checkWallet.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+                {
                     calculateWalletAmt(isChecked);
 
                 }
@@ -547,10 +553,12 @@ public class BillingActivity extends CommonActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 isPaymentOptionChecked = true;
 
-                if (checkedId == R.id.cash) {
+                if (checkedId == R.id.cash)
+                {
 
 
-                    if (checkWallet.isChecked()) {
+                    if (checkWallet.isChecked())
+                    {
                         checkWallet.setChecked(false);
                         calculateWalletAmt(false);
                     }
@@ -678,7 +686,8 @@ public class BillingActivity extends CommonActivity {
                         //  isCashback = false;
                         isOfferApplied = false;
 
-                    } else if (discountType.equals(CASHBACK)) {
+                    } else if (discountType.equals(CASHBACK))
+                    {
                         tv_apply.setVisibility(View.GONE);
                         layout_offers.setVisibility(View.VISIBLE);
                         discountType = "";
@@ -711,11 +720,11 @@ public class BillingActivity extends CommonActivity {
             /// isWalletP = false;
 
             if (discountType.equals(CASHBACK)) {
-                final_price = Double.parseDouble(fAmt.replace(ConstValue.CURRENCY, ""));
+                final_price = Double.parseDouble(fAmt.replace(ConstValue.CURRENCY,""));
             } else if (discountType.equals(DISCOUNT)) {
                 final_price = final_price + 50;
             } else {
-                final_price = Double.parseDouble(fAmt.replace(ConstValue.CURRENCY, ""));
+                final_price = Double.parseDouble(fAmt.replace(ConstValue.CURRENCY,""));
             }
             final_total.setText(String.valueOf(final_price));
             walletAmt = Double.parseDouble(common.getSession(ApiParams.ZIFFY_WALLET_AMT));
@@ -724,7 +733,8 @@ public class BillingActivity extends CommonActivity {
 
     }
 
-    private void confirmBooking() {
+    private void confirmBooking()
+    {
 
         /*txn_id
           amount
@@ -733,7 +743,8 @@ public class BillingActivity extends CommonActivity {
         $wallet_amt =  $this->input->post("wallet_amt");
         $promo_id =  $this->input->post("promo_id");*/
 
-        if (MyUtility.isConnected(BillingActivity.this)) {
+        if (MyUtility.isConnected(BillingActivity.this))
+        {
             HashMap<String, String> params = new HashMap<String, String>();
             params.put("bus_id", getIntent().getStringExtra("bus_id"));
             params.put("user_id", getIntent().getStringExtra("user_id"));
@@ -750,7 +761,8 @@ public class BillingActivity extends CommonActivity {
             Log.e("is_use_wallet", String.valueOf(is_use_wallet));
 
 
-            if (isPayUmoney) {
+            if (isPayUmoney)
+            {
                 params.put("payment_mode", "online");
                 params.put("txn_id", txn_id);
                 Log.e("Payu" + "txn_id", txn_id);
@@ -859,9 +871,9 @@ public class BillingActivity extends CommonActivity {
             } else if (isCash) {
                 params.put("payment_mode", "cash");
                 params.put("txn_id", "0");
-                if (String.valueOf(final_price).contains(ConstValue.CURRENCY)) {
-                    params.put("amount", String.valueOf(final_price).replace(ConstValue.CURRENCY, ""));
-                } else {
+                if (String.valueOf(final_price).contains(ConstValue.CURRENCY)){
+                    params.put("amount", String.valueOf(final_price).replace(ConstValue.CURRENCY,""));
+                }else {
                     params.put("amount", String.valueOf(final_price));
                 }
 
@@ -876,7 +888,7 @@ public class BillingActivity extends CommonActivity {
             requestQueue.add(customRequestForString);
             startProgressDialog(BillingActivity.this);
 
-        } else if (getIntent().getStringExtra("status").equalsIgnoreCase("3")) {
+        } else if (getIntent().getStringExtra("status").equalsIgnoreCase("3")){
 
 
             /* Call<JsonObject> call3 = apiInterface.bookLab(getIntent().getStringExtra("lab_id"), getIntent().getStringExtra("finalDate"), getIntent().getStringExtra("finalTime"), getIntent().getStringExtra("app_id"), getIntent().getStringExtra("ishome"), getIntent().getStringExtra("test"), common.get_user_id(), txnid, getIntent().getStringExtra("total"), pay_mode,"0");*/
@@ -885,10 +897,10 @@ public class BillingActivity extends CommonActivity {
             params.put("lab_id", getIntent().getStringExtra("lab_id"));
             params.put("appointment_date", getIntent().getStringExtra("finalDate"));
             params.put("start_time", getIntent().getStringExtra("start_time"));
-            params.put("home_collection", "1");
+            params.put("home_collection","1");
             params.put("user_id", common.get_user_id());
             params.put("test", getIntent().getStringExtra("test"));
-            params.put("appointment_id", "965");
+            params.put("appointment_id","965");
             params.put("payment_status", "0");
             params.put("add_to_wallet", add_to_wallet);
             params.put("is_use_wallet", String.valueOf(is_use_wallet));
@@ -938,7 +950,7 @@ public class BillingActivity extends CommonActivity {
             startProgressDialog(BillingActivity.this);
 
 
-        } else {
+        }else {
 
 
             if (MyUtility.isConnected(BillingActivity.this)) {
@@ -961,14 +973,17 @@ public class BillingActivity extends CommonActivity {
                     params.put("is_use_wallet", String.valueOf(is_use_wallet));
 
 
-                    if (isOfferApplied) {
+                    if (isOfferApplied)
+                    {
                         params.put("promo_id", promoCodeId);
 
-                        if (is_use_wallet == 1) {
+                        if (is_use_wallet == 1)
+                        {
                             params.put("is_use_wallet", "1");
                             params.put("wallet_amt", String.valueOf(walletAmt));
                             params.put("amount", String.valueOf(final_price));
-                        } else {
+                        } else
+                        {
                             params.put("is_use_wallet", "0");
                             params.put("wallet_amt", String.valueOf(walletAmt));
                             params.put("amount", String.valueOf(final_price));
@@ -1237,7 +1252,7 @@ public class BillingActivity extends CommonActivity {
                 if (error instanceof TimeoutError) {
                     MyUtility.showAlertMessage(BillingActivity.this, "Server is busy.Please try again");
                 }
-                Log.i("##", "##" + error.toString());
+                Log.i("##","##" + error.toString());
                 hideProgressBar();
             }
         };
@@ -1326,7 +1341,7 @@ public class BillingActivity extends CommonActivity {
                 //params.put("promo_id", "5");
                 params.put("transaction_amt", fAmt);
 
-                Log.e("PARAMS", params.toString());
+                Log.e("PARAMS",params.toString());
                 CustomRequestForString customRequestForString = new CustomRequestForString(Request.Method.POST, ApiParams.APPLY_PROMO_CODE, params, this.createRequestSuccessListenerOffers(), this.createRequestErrorListenerOffers());
                 RequestQueue requestQueue = Volley.newRequestQueue(this);
                 requestQueue.add(customRequestForString);
@@ -1432,26 +1447,28 @@ public class BillingActivity extends CommonActivity {
     private void calculateAmt() {
 
 
-        if (discountType.equals(DISCOUNT)) {
+        if (discountType.equals(DISCOUNT))
+        {
             Log.e("###", "true");
             final_price = final_price - discount_amt;
             final_total.setText(String.valueOf(final_price));
             txtv_total_discount.setText(ConstValue.CURRENCY + String.valueOf(discount_amt));
             Log.e("Final_price", String.valueOf(final_price));
 
-        } else if (discountType.equals(CASHBACK)) {
+        } else if (discountType.equals(CASHBACK))
+        {
             final_total.setText(String.valueOf(final_price));
         }
     }
 
 
-    public void orderMedicine() {
+    public  void  orderMedicine(){
 
         HashMap<String, String> params = new HashMap<String, String>();
 
         params.put("prescription_id", getIntent().getStringExtra("pres_id"));
-        params.put("date_time", date + time);
-        ;
+        params.put("date_time", date+time);
+      ;
         params.put("user_id", common.get_user_id());
         params.put("medicine", getIntent().getStringExtra("medicine"));
         params.put("address", getIntent().getStringExtra("address"));
@@ -1505,7 +1522,12 @@ public class BillingActivity extends CommonActivity {
         startProgressDialog(BillingActivity.this);
 
 
+
+
+
     }
+
+
 
 
     private com.android.volley.Response.Listener<String> createRequestSuccessListenerorderMedicine() {
@@ -1530,7 +1552,7 @@ public class BillingActivity extends CommonActivity {
                             Log.e("is_use_wallet", String.valueOf(is_use_wallet));
 
                             Intent intent = new Intent(BillingActivity.this, MyPayuDemoActivity.class);
-                            intent.putExtra("total_price", String.valueOf(final_price));
+                            intent.putExtra("total_price",  String.valueOf(final_price));
                             Log.e("total_price", String.valueOf(final_price));
 
                             intent.putExtra("status", "4");
@@ -1624,7 +1646,7 @@ public class BillingActivity extends CommonActivity {
                     MyUtility.showAlertMessage(BillingActivity.this, "Server is busy.Please try again");
                 }
                 Log.i("##", "##" + error.toString());
-                //Toast.makeText(BillingActivity.this, "Lab is not available", Toast.LENGTH_SHORT).show();
+                Toast.makeText(BillingActivity.this, "Lab is not available", Toast.LENGTH_SHORT).show();
                 //App.showAlert("Something Went Wrong, Please Try again",MultiTestSearchActivity.this);
 
             }

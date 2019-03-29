@@ -64,7 +64,7 @@
     <string name="createaccount_and">and</string>
     <string name="createaccount_privacypolicy">Privacy Policy</string>
     <string name="createaccount_next">Next</string>
-    <string name="login_now">Login Now</string>
+    <string name="login_now">Login</string>
     <string name="sign_in">Sign In</string>
     <string name="signin_emailaddress">Email address</string>
     <string name="signin_password">Password</string>

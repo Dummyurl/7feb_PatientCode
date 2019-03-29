@@ -71,13 +71,13 @@ public class AdapterTestlistshowing extends RecyclerView.Adapter<AdapterTestlist
     class ViewHolder extends RecyclerView.ViewHolder implements
             View.OnClickListener {
         TextView textViewName;
-        TextView text_price;
+       // TextView text_add;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             textViewName = (TextView) itemView.findViewById(R.id.text_test_name);
-         //   text_price = (TextView) itemView.findViewById(R.id.text_price);
+       //     text_add = (TextView) itemView.findViewById(R.id.text_add);
 
             itemView.setOnClickListener(this);
         }

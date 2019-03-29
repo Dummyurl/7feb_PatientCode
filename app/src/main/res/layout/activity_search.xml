@@ -4,7 +4,7 @@
     android:id="@+id/activity_search"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/appbackground">
+    android:background="@drawable/my_gradient_drawable">
 
 
     <ScrollView
@@ -373,6 +373,7 @@
         android:textColor="@color/colorTextWhite"
         android:background="@drawable/my_gradient_back"
         android:id="@+id/filterserachbutton"
+        android:layout_margin="10dp"
         />
 
 

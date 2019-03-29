@@ -96,18 +96,28 @@
     </style>
 
     <style name="AppLoginTheme.Salmon" parent="Theme.AccountKit">
-        <item name="com_accountkit_primary_color">@android:color/white</item>
-        <item name="com_accountkit_primary_text_color">#363636</item>
-        <item name="com_accountkit_secondary_color">@android:color/white</item>
+        <item name="com_accountkit_primary_color">@color/fb_colorPrimary</item>
+        <item name="com_accountkit_primary_text_color">@color/grey</item>
+        <item name="com_accountkit_secondary_color">@color/fb_ligh_grey</item>
         <item name="com_accountkit_secondary_text_color">
             ?attr/com_accountkit_primary_text_color
         </item>
-        <item name="com_accountkit_status_bar_color">@color/colorPrimary</item>
-        <item name="com_accountkit_background_color">@color/colorPrimary1</item>
-        <item name="com_accountkit_button_background_color">@color/white</item>
-        <item name="com_accountkit_button_text_color">#363636</item>
-        <item name="com_accountkit_icon_color">@android:color/white</item>
+        <item name="com_accountkit_status_bar_color">@color/fb_colorPrimaryDark</item>
+        <item name="com_accountkit_background_color">@color/white</item>
+        <item name="com_accountkit_button_background_color">@color/fb_colorPrimary1</item>
+        <item name="com_accountkit_button_text_color">@color/white</item>
+        <item name="com_accountkit_icon_color">@color/fb_ligh_grey</item>
         <item name="com_accountkit_toolbar_elevation">8dp</item>
+    </style>
+
+    <style name="TextLabel" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">@color/greyshade</item>
+        <item name="android:textSize">15sp</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/white</item>
+        <item name="colorControlNormal">@color/greyshade</item>
+        <item name="colorControlActivated">@color/white</item>
     </style>
 
 

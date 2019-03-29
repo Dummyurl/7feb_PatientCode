@@ -61,9 +61,10 @@
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:text="Search"
-            android:background="@color/dark_grey"
+            android:background="@drawable/my_gradient_back"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"/>
 
 
     </LinearLayout>

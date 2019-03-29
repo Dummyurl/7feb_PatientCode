@@ -37,8 +37,8 @@ android {
         applicationId "com.ziffytech"
         minSdkVersion 20
         targetSdkVersion 28
-        versionCode 65
-        versionName "1.65"
+        versionCode 67
+        versionName "1.67"
         multiDexEnabled true
 //      signingConfig signingConfigs.keypath
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -116,6 +116,8 @@ dependencies {
     implementation 'com.astuetz:pagerslidingtabstrip:1.0.1'
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.github.clans:fab:1.6.4'
+
     implementation 'org.jsoup:jsoup:1.10.2'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'com.github.bumptech.glide:glide:4.8.0'

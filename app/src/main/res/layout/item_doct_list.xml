@@ -89,7 +89,6 @@
                                 android:layout_height="wrap_content"
                                 android:text="100-200"
                                 android:textSize="12sp"
-
                                 android:layout_weight="0.2"/>
 
                         </LinearLayout>
@@ -104,13 +103,15 @@
                                 android:layout_width="50dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="0.8"
-                                android:src="@drawable/ic_availability"/>
+                                android:src="@drawable/ic_clock_new"
+                               />
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="8.00 AM-10.00 PM"
                                 android:textSize="12sp"
-                                android:layout_weight="0.2"/>
+                                android:layout_weight="0.2"
+                                android:layout_marginLeft="5dp"/>
 
                         </LinearLayout>
 
@@ -128,7 +129,7 @@
             android:layout_height="35dp"
             android:layout_gravity="end"
             android:layout_marginTop="5dp"
-            android:background="@drawable/my_gradient_drawable"
+            android:background="@drawable/my_gradient_back"
             android:text="Book Appointment"
             android:textColor="#fff"
             android:textSize="12dp" />

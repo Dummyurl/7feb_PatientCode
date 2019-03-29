@@ -35,8 +35,6 @@ import java.util.List;
 
 public class DoctorMainCategoriesActivity extends CommonActivity
 {
-
-
     RecyclerView categoryRecyclerView;
     ArrayList<MainCatModel> categoryArray;
     MainCategoryAdapter categoryAdapter;
@@ -148,30 +146,25 @@ public class DoctorMainCategoriesActivity extends CommonActivity
                         try {
                             JSONObject jsonObject=new JSONObject(responce);
 
-                            if(jsonObject.getInt("responce")==1){
-
-
+                            if(jsonObject.getInt("responce")==1)
+                            {
                                 JSONArray data=jsonObject.getJSONArray("data");
-
                                 Gson gson = new Gson();
                                 Type listType = new TypeToken<List<MainCatModel>>() {
                                 }.getType();
                                 categoryArray.clear();
                                 categoryArray.addAll((Collection<? extends MainCatModel>) gson.fromJson(data.toString(), listType));
                                 categoryAdapter.notifyDataSetChanged();
-
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
                     }
                     @Override
                     public void VError(String responce) {
                         hideProgressBar();
                     }
                 });
-
 
     }
 
@@ -185,16 +178,13 @@ public class DoctorMainCategoriesActivity extends CommonActivity
         {
             this.list = list;
             this.activity = activity;
-
         }
 
         @Override
         public ProductHolder onCreateViewHolder(ViewGroup parent, int viewType)
         {
             View view = null;
-
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_main_category_item,parent,false);
-
             return new ProductHolder(view);
         }
 
@@ -203,7 +193,6 @@ public class DoctorMainCategoriesActivity extends CommonActivity
         {
             final MainCatModel categoryModel = list.get(position);
            // String path = categoryModel.getImage();
-
             if(categoryModel.getCat_img()!=null)
             {
                 Picasso.with(activity).load(ConstValue.BASE_URL + "uploads/admin/category/" + categoryModel.getCat_img()).into(holder.icon_image);
@@ -211,10 +200,7 @@ public class DoctorMainCategoriesActivity extends CommonActivity
             holder.lbl_title.setText(categoryModel.getCategory());
             holder.txtv_subcat.setText(categoryModel.getSubcat());
 
-
         }
-
-
 
         @Override
         public int getItemCount() {

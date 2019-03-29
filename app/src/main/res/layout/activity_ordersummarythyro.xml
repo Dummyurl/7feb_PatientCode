@@ -434,6 +434,7 @@
             android:textSize="14dp"
             android:text="To be Paid :"
             android:paddingBottom="3dp"
+              android:textColor="@color/colorPrimary"
             />
 
             <TextView
@@ -441,6 +442,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
                 android:text="Rs."
+                android:textColor="@color/colorPrimaryDark"
                 android:id="@+id/txtv_carttotal"
                 />
 

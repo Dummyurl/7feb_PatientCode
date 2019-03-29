@@ -12,9 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:visibility="visible"
-        android:background="@color/white"
-        app:itemIconTint="@color/colorPrimary"
-        app:itemTextColor="@color/colorPrimary"
+        android:background="@drawable/my_gradient_back"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
         app:menu="@menu/bottom_navigation_menu"/>
 
 </FrameLayout>

@@ -49,15 +49,14 @@ public class ZiffyLabBooking extends CommonActivity implements View.OnClickListe
     RecyclerView recyclerViewPackage;
     GridLayoutManager layoutManager;
     ArrayList<SelectedPackageModel> arrayPAckage = new ArrayList<>();
-
     ArrayList<TopfivepickModel> tyro5modelArrayList;
     RecyclerView recyclerViewPackage2;
     LinearLayoutManager layoutManager2;
     TextView seeall;
 
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ziffy_lab_booking);
 
@@ -68,18 +67,16 @@ public class ZiffyLabBooking extends CommonActivity implements View.OnClickListe
         seeall.setOnClickListener(this);
 
         recyclerViewPackage = (RecyclerView) findViewById(R.id.recyclerview_package);
-        layoutManager = new GridLayoutManager(this, 2, GridLayoutManager.HORIZONTAL, false);
+        layoutManager = new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerViewPackage.setHasFixedSize(true);
         recyclerViewPackage.setLayoutManager(layoutManager);
-
 
         HashMap<String, String> params1 = new HashMap<String, String>();
         CustomRequestForString customRequestForString1 = new CustomRequestForString(Request.Method.POST, ApiParams.GET_PACKAGES, params1, this.createRequestSuccessListenerPackage(), this.createRequestErrorListenerPackage());
         RequestQueue requestQueue1 = Volley.newRequestQueue(this);
         requestQueue1.add(customRequestForString1);
         showPrgressBar();
-
 
         recyclerViewPackage2 = (RecyclerView) findViewById(R.id.recyclerview_package_thyro);
 
@@ -88,11 +85,10 @@ public class ZiffyLabBooking extends CommonActivity implements View.OnClickListe
         recyclerViewPackage2.setHasFixedSize(true);
         recyclerViewPackage2.setLayoutManager(layoutManager2);
 
-     /*   HashMap<String, String> params2 = new HashMap<String, String>();
+        HashMap<String, String> params2 = new HashMap<String, String>();
         CustomRequestForString customRequestForString2 = new CustomRequestForString(Request.Method.POST, ApiParams.GET_THYRO_5_PACKAGES, params2, this.createRequestSuccessListenerThyropack(), this.createRequestErrorListenerThyropack());
         RequestQueue requestQueue2 = Volley.newRequestQueue(this);
         requestQueue2.add(customRequestForString2);
-*/
 
         Intent iin = getIntent();
         Bundle b = iin.getExtras();
@@ -117,15 +113,16 @@ public class ZiffyLabBooking extends CommonActivity implements View.OnClickListe
     }
 
 
-
-
     @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.txtv_test_available) {
+    public void onClick(View v)
+    {
+        if (v.getId() == R.id.txtv_test_available)
+        {
             Intent i = new Intent(ZiffyLabBooking.this, RecommmendedTest.class);
             startActivity(i);
         }
-        if (v.getId() == R.id.editSearchlab) {
+        if (v.getId() == R.id.editSearchlab)
+        {
             Intent i = new Intent(ZiffyLabBooking.this, SelfTestserach.class);
             startActivity(i);
         }

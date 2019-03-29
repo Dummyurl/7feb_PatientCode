@@ -108,10 +108,7 @@ public class UserChatActivity extends CommonActivity implements
             profileSocialId = c.getString(c.getColumnIndex(DataProvider.COL_SOCIAL_ID));
             profileSocialType = c.getString(c.getColumnIndex(DataProvider.COL_SOCIAL_TYPE));
 
-
             setHeaderTitle(Utils.makeUppperLetter(profileName));
-
-
 
             SharedPreferences sharedpreferences=getSharedPreferences("my_pref", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedpreferences.edit();

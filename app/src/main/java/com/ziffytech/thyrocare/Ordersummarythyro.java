@@ -205,8 +205,8 @@ public class Ordersummarythyro extends CommonActivity implements View.OnClickLis
 
             GetData();
 
-            String isHomeChecked = "1";
-            String tax_amt = "0";
+             String isHomeChecked = "1";
+             String tax_amt = "0";
 
              Intent intent = new Intent(Ordersummarythyro.this, BillingActivity.class);
              intent.putExtra("lab_id","1001");
@@ -222,11 +222,13 @@ public class Ordersummarythyro extends CommonActivity implements View.OnClickLis
              intent.putExtra("final_total", carttotal);
              intent.putExtra("appointment_id", "965");
              intent.putExtra("status", "3");
+
              Log.e("appointment_date",getIntent().getExtras().getString("date"));
              Log.e("start_time",getIntent().getExtras().getString("timeslot"));
              Log.e("test",new Gson().toJson(arrayPAckage).toString());
              Log.e("total_price",carttotal);
              Log.e("test_names",new Gson().toJson(arrayPAckageTesname).toString());
+
              startActivity(intent);
 
         }
@@ -259,7 +261,6 @@ public class Ordersummarythyro extends CommonActivity implements View.OnClickLis
 
         for (int i=0;i<billdetailArrayList2.size();i++)
         {
-
             SelectedPackageModel selectedModel = new SelectedPackageModel();
             BillingDetailModel packageModel = billdetailArrayList2.get(i);
             selectedModel.setNames(packageModel.getName());

@@ -6,7 +6,7 @@ public class CartDetailModel
     Integer total;
     Integer subtotal;
     Integer discount;
-    String elementsincart;
+    String  elementsincart;
 
     public Integer getTotal() {
         return total;

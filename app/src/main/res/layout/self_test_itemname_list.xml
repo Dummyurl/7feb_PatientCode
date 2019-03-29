@@ -25,18 +25,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TEST NAME"
-                android:layout_weight="0.5"
+                android:layout_weight="0.3"
                 android:textSize="12sp"
                 android:padding="5dp"/>
+            
 
-         <!--   <TextView
-                android:id="@+id/text_price"
+          <!--  <TextView
+                android:id="@+id/text_add"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=" Rs. 12345  "
+                android:text=" ADD to CART "
                 android:textAlignment="textEnd"
-                android:layout_weight="0.5"
-                android:textSize="12sp"
+                android:layout_weight="0.7"
+                android:textSize="10sp"
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimary"
                 android:layout_marginRight="1dp"
                 android:padding="5dp"
                 android:gravity="end" />-->

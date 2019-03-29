@@ -57,6 +57,7 @@ public class PackageDetail extends CommonActivity implements View.OnClickListene
         allowBack();
 
         common.GetCartDetails(PackageDetail.this);
+
         shref = PackageDetail.this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
 
         profileid = getIntent().getStringExtra("PROFILEID");
@@ -83,6 +84,34 @@ public class PackageDetail extends CommonActivity implements View.OnClickListene
         RequestQueue requestQueue2 = Volley.newRequestQueue(this);
         requestQueue2.add(customRequestForString2);
         showPrgressBar();
+
+
+
+        Gson gson = new Gson();
+        String response=shref.getString(key , "");
+
+        if(response != null)
+        {
+            ArrayList<CartDetailModel> lstArrayList = gson.fromJson(response, new TypeToken<List<CartDetailModel>>(){}.getType());
+
+            if(lstArrayList != null && !lstArrayList.isEmpty()) {
+                CartDetailModel Model = lstArrayList.get(0);
+                cartcount = (TextView) findViewById(R.id.cartcount);
+                cartcount.setText("" + Model.getElementsincart().toString());
+
+            }
+            else{
+
+                cartcount = (TextView) findViewById(R.id.cartcount);
+                cartcount.setText("0");
+            }
+        }
+        else
+        {
+            Toast.makeText(this, ""+response, Toast.LENGTH_SHORT).show();
+        }
+
+
 
     }
 
@@ -230,29 +259,6 @@ public class PackageDetail extends CommonActivity implements View.OnClickListene
 
     private void SetUpView()
     {
-        Gson gson = new Gson();
-        String response=shref.getString(key , "");
-
-        if(response != null)
-        {
-            ArrayList<CartDetailModel> lstArrayList = gson.fromJson(response, new TypeToken<List<CartDetailModel>>(){}.getType());
-
-            if(lstArrayList != null && !lstArrayList.isEmpty()) {
-                CartDetailModel Model = lstArrayList.get(0);
-                cartcount = (TextView) findViewById(R.id.cartcount);
-                cartcount.setText("" + Model.getElementsincart().toString());
-
-            }
-            else{
-
-                cartcount = (TextView) findViewById(R.id.cartcount);
-                cartcount.setText("0");
-            }
-        }
-        else
-        {
-            Toast.makeText(this, ""+response, Toast.LENGTH_SHORT).show();
-        }
 
         text_test_name = (TextView)findViewById(R.id.text_test_name);
         package_test_count = (TextView)findViewById(R.id.package_test_count);

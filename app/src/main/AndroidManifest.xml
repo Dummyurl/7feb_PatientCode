@@ -52,6 +52,9 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
+
+
+
         <!--
         <meta-data
             android:name="com.payumoney.sdkui:plug-n-play:1.4.4"
@@ -65,7 +68,7 @@
         -->
         <meta-data
             android:name="com.facebook.accountkit.ApplicationName"
-            android:value= "@string/app_name" />
+            android:value="@string/app_name" />
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/FACEBOOK_APP_ID" />

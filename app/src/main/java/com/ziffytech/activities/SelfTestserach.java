@@ -146,7 +146,7 @@ public class SelfTestserach extends CommonActivity implements View.OnClickListen
 
             }else{
 
-              //  Toast.makeText(this, "No results found", Toast.LENGTH_SHORT).show();
+                //  Toast.makeText(this, "No results found", Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -354,7 +354,7 @@ public class SelfTestserach extends CommonActivity implements View.OnClickListen
                 if (error instanceof TimeoutError){
                     MyUtility.showAlertMessage(SelfTestserach.this,"Server is busy.Please try again");
                 }
-                Log.i("##", "##" + error.toString());
+                // Log.i("##", "##" + error.toString());
                 hideProgressBar();
             }
         };

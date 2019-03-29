@@ -17,22 +17,21 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-
             <LinearLayout
                 android:id="@+id/showll"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
-                android:background="@color/colorPrimary"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="@drawable/my_gradient_drawable"
+                android:layout_margin="10dp">
 
                 <LinearLayout
                     android:id="@+id/search_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:background="#ff8d7f"
                     android:clickable="true">
 
                     <EditText
@@ -49,8 +48,8 @@
                         android:focusableInTouchMode="true"
                         android:hint="Search by Lab Name / Test Name"
                         android:padding="7dp"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/light_white"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/greyshade"
                         android:textSize="14dp"
                         />
 
@@ -119,7 +118,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="458dp"
-                android:background="@color/light_grey">
+                android:background="@color/white">
 
 
                 <GridView

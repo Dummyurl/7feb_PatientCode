@@ -198,15 +198,9 @@
                             android:background="@drawable/fb_button"
                             />
 
-
-
                     </LinearLayout>
 
-
-
             </LinearLayout>
-
-
 
         </LinearLayout>
 
@@ -216,18 +210,15 @@
         android:layout_height="wrap_content"
         android:background="@color/grey">
 
-
         <Button
             android:id="@+id/confirm"
             android:textColor="@color/white"
             android:text="CONFIRM &amp; BOOK APPOINTMENT"
-            android:background="@drawable/my_gradient_drawable"
+            android:background="@drawable/my_gradient_back"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
-
-
 
 
     </RelativeLayout>

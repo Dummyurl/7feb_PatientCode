@@ -67,12 +67,9 @@ public class Timeslotforthyro extends CommonActivity implements View.OnClickList
         common.GetCartDetails(Timeslotforthyro.this);
         shref = Timeslotforthyro.this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         editor = shref.edit();
-
         relative = (RelativeLayout)findViewById(R.id.relative);
-
         txtv_gocart = (TextView)findViewById(R.id.txtv_gocart);
         txtv_gocart.setOnClickListener(this);
-
         recyclerview_timeslot = (RecyclerView) findViewById(R.id.recyclerview_timeslot);
         layoutManager = new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false);
         layoutManager.setOrientation(GridLayoutManager.VERTICAL);
@@ -161,13 +158,10 @@ public class Timeslotforthyro extends CommonActivity implements View.OnClickList
             public void onDateSelected(Calendar date, int position)
             {
                 selectedDateStr = DateFormat.format("yyyy-MM-dd", date).toString();
-
                 String format = DateFormat.format("EEEE, MMM d, yyyy", date).toString();
                 txtv_todays_date.setText(""+format);
-
                 Toast.makeText(Timeslotforthyro.this, selectedDateStr + " selected!", Toast.LENGTH_SHORT).show();
                 Log.i("onDateSelected", selectedDateStr + " - Position = " + position);
-
                 GetTimeslot(selectedDateStr);
 
             }
@@ -180,9 +174,7 @@ public class Timeslotforthyro extends CommonActivity implements View.OnClickList
     {
         HashMap<String, String> params2 = new HashMap<String, String>();
         params2.put("date",selectedDateStr2);
-
         Snackbar.make(relative, "Selected Date : " + selectedDateStr2, Snackbar.LENGTH_LONG).setAction("Action", null).show();
-
         CustomRequestForString customRequestForString2 = new CustomRequestForString(Request.Method.POST, ApiParams.GETTIMESLOT, params2, this.createRequestSuccessListenerThyrotimeslot(), this.createRequestErrorListenerThyrotimeslot());
         RequestQueue requestQueue2 = Volley.newRequestQueue(this);
         requestQueue2.add(customRequestForString2);
@@ -224,7 +216,6 @@ public class Timeslotforthyro extends CommonActivity implements View.OnClickList
                 {
                     e.printStackTrace();
                 }
-
             }
         };
     }
@@ -250,11 +241,7 @@ public class Timeslotforthyro extends CommonActivity implements View.OnClickList
         if(v.getId()==R.id.txtv_gocart)
         {
             Snackbar.make(v, "Please Select Your Preffered Time Slot..", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-
         }
-
     }
-
-
 
 }

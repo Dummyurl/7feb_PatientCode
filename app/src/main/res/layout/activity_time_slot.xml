@@ -76,18 +76,21 @@
                                     android:textColor="@color/black"
                                     android:textSize="16dp" />
 
-                                <TextView
-                                    android:id="@+id/specilaity"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@+id/txt_docname"
-                                    android:layout_gravity="center"
-                                    android:padding="1dp"
-                                    android:text="Cardiologist"
-                                    android:textColor="@color/greyshade"
-                                    android:textSize="9dp" />
+
 
                             </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/specilaity"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txt_docname"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center_horizontal"
+                                android:padding="1dp"
+                                android:text="Cardiologist"
+                                android:textColor="@color/greyshade"
+                                android:textSize="9dp" />
 
 
                             <TextView
@@ -435,15 +438,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="10dp">
 
                 <Button
                     android:id="@+id/buttonChooseDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@drawable/my_gradient_drawable"
+                    android:background="@drawable/my_gradient_back"
                     android:drawablePadding="5dp"
                     android:gravity="center"
                     android:text="Book Appointment"

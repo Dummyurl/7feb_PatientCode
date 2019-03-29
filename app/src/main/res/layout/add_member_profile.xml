@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/appbackground">
+    >
 
     <ScrollView
         android:layout_width="match_parent"
@@ -12,7 +12,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_margin="10dp"
-        android:background="@drawable/fb_button">
+        >
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -289,7 +289,7 @@
         android:id="@+id/add_member_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/my_gradient_back"
         android:text="Member Add"
         android:textColor="@color/colorTextWhite" />
 

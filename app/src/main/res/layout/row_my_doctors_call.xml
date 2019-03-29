@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    android:background="@drawable/bg_round_rect"
+    android:background="@drawable/fb_button"
     android:layout_marginLeft="5dp"
     android:layout_marginRight="5dp"
     android:layout_marginTop="2dp">
@@ -63,7 +63,33 @@
                         android:layout_below="@+id/degree"
                         android:padding="5dp"
                         android:text="speciality"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/text_small"
+                        android:ellipsize="end"
+                        android:maxLines="1"/>
+
+                    <TextView
+                        android:id="@+id/degree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center_horizontal"
+                        android:padding="2dp"
+                        android:text="MBBS"
+                        android:textSize="@dimen/text_small"
+                        android:visibility="gone"/>
+
+
+                    <TextView
+                        android:id="@+id/clinic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:padding="5dp"
+                        android:text="Clinic name"
+                        android:textSize="@dimen/text_small" />
 
                 </LinearLayout>
 
@@ -81,29 +107,7 @@
                 android:padding="2dp"
                 android:weightSum="2">
 
-                <TextView
-                    android:id="@+id/degree"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="5dp"
-                    android:gravity="center_horizontal"
-                    android:padding="2dp"
-                    android:text="MBBS"
-                    android:textSize="@dimen/text_small" />
 
-
-                <TextView
-                    android:id="@+id/clinic"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:gravity="center"
-                    android:maxLength="30"
-                    android:maxLines="1"
-                    android:padding="2dp"
-                    android:text="Clinic name"
-                    android:textSize="@dimen/text_small" />
 
 
             </LinearLayout>
@@ -136,7 +140,7 @@
                     android:textColor="@color/white"
                     android:textSize="13dp"
                     android:textStyle="bold"
-                    android:background="@drawable/my_gradient_drawable"/>
+                    android:background="@drawable/my_gradient_back"/>
 
 
             </LinearLayout>
@@ -146,6 +150,8 @@
 
 
     </LinearLayout>
+
+
 
 
 </LinearLayout>

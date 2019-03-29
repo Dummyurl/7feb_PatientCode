@@ -51,6 +51,7 @@ public class ProfileActivity extends CommonActivity implements BottomNavigationV
             ImageView thumbnail_image1=(ImageView)findViewById(R.id.thumbnail_image1);
             thumbnail_image1.setImageDrawable(mDrawableBuilder);
 
+
         bottom_navigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         bottom_navigation.setOnNavigationItemSelectedListener(this);
         bottom_navigation.getMenu().findItem(R.id.navigation_profile).setChecked(true);

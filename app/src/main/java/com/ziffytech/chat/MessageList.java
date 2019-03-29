@@ -41,7 +41,7 @@ import java.util.Date;
  * Created by Mahesh on 08/01/18.
  */
 
-public class MessageList   extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
+public class MessageList extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
 
 
@@ -75,7 +75,6 @@ public class MessageList   extends Fragment implements LoaderManager.LoaderCallb
         final IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
         getActivity().registerReceiver(coonectionRegister, intentFilter);
-
 
         msg_list = (ListView) rootView.findViewById(R.id.msglistitem);
         msg_list.setAdapter(adapter);

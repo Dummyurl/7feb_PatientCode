@@ -2,25 +2,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/appbackground">
-
-
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/appbackground"
         android:layout_below="@+id/search_layout">
-
 
 
         <TextView
             android:id="@+id/text_notfound"
             android:layout_width="match_parent"
             android:text="No record found"
-            android:textColor="#000"
+            android:textColor="@color/gray"
             android:textSize="16sp"
             android:gravity="center"
             android:visibility="gone"
@@ -46,9 +41,21 @@
 
             </android.support.v7.widget.RecyclerView>
 
+
         </LinearLayout>
 
     </LinearLayout>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_call"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/my_gradient_back"
+        android:layout_margin="@dimen/padding_15"
+        android:src="@drawable/ic_call"/>
 
 
 

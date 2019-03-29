@@ -477,7 +477,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@drawable/my_gradient_drawable"
+        android:background="@drawable/my_gradient_back"
         android:text="Download pdf"
         android:padding="@dimen/padding_5"
         android:layout_margin="@dimen/padding_5"

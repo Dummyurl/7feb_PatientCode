@@ -130,7 +130,7 @@
                                     android:layout_alignParentBottom="true"
                                     android:layout_centerHorizontal="true"
                                     android:text="@string/find_a_doctor"
-                                    android:textColor="@color/colorPrimary"
+                                    android:textColor="@color/grey"
                                     android:textSize="10dp"
                                     android:textStyle="bold" />
 
@@ -168,7 +168,7 @@
                                     android:layout_alignParentBottom="true"
                                     android:layout_centerHorizontal="true"
                                     android:text="@string/medical_records"
-                                    android:textColor="@color/colorPrimary"
+                                    android:textColor="@color/grey"
                                     android:textSize="10dp"
                                     android:textStyle="bold" />
 
@@ -206,7 +206,7 @@
                                     android:layout_alignParentBottom="true"
                                     android:layout_centerHorizontal="true"
                                     android:text="@string/book_bycall"
-                                    android:textColor="@color/colorPrimary"
+                                    android:textColor="@color/grey"
                                     android:textSize="10dp"
                                     android:textStyle="bold" />
 
@@ -264,7 +264,7 @@
                                     android:layout_alignParentBottom="true"
                                     android:layout_centerHorizontal="true"
                                     android:text="@string/order_medicine"
-                                    android:textColor="@color/colorPrimary"
+                                    android:textColor="@color/grey"
                                     android:textSize="10dp"
                                     android:textStyle="bold" />
 
@@ -316,7 +316,7 @@
                                     android:layout_alignParentBottom="true"
                                     android:layout_centerHorizontal="true"
                                     android:text="@string/booklab"
-                                    android:textColor="@color/colorPrimary"
+                                    android:textColor="@color/grey"
                                     android:textSize="10dp"
                                     android:textStyle="bold" />
 
@@ -368,7 +368,7 @@
                                     android:layout_alignParentBottom="true"
                                     android:layout_centerHorizontal="true"
                                     android:text="@string/chat"
-                                    android:textColor="@color/colorPrimary"
+                                    android:textColor="@color/grey"
                                     android:textSize="10dp"
                                     android:textStyle="bold" />
 
@@ -415,7 +415,7 @@
                                     android:layout_alignParentBottom="true"
                                     android:layout_centerHorizontal="true"
                                     android:text="@string/askwuestion"
-                                    android:textColor="@color/colorPrimary"
+                                    android:textColor="@color/grey"
                                     android:textSize="10dp"
                                     android:textStyle="bold" />
 
@@ -452,7 +452,7 @@
                                     android:layout_alignParentBottom="true"
                                     android:layout_centerHorizontal="true"
                                     android:text="@string/remainders"
-                                    android:textColor="@color/colorPrimary"
+                                    android:textColor="@color/grey"
                                     android:textSize="10dp"
                                     android:textStyle="bold" />
 
@@ -488,7 +488,7 @@
                                     android:layout_alignParentBottom="true"
                                     android:layout_centerHorizontal="true"
                                     android:text="Emergency"
-                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textColor="@color/grey"
                                     android:textSize="10dp"
                                     android:textStyle="bold" />
 
@@ -502,7 +502,8 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
 
 
                             <android.support.v7.widget.RecyclerView

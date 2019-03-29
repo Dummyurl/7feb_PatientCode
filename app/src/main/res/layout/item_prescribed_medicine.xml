@@ -81,12 +81,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Not Available in the stock."
+            android:textSize="12sp"
             android:gravity="start"
             android:layout_marginLeft="@dimen/padding_15"
             android:layout_marginRight="@dimen/padding_15"
             android:padding="@dimen/padding_5"
             android:visibility="gone"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/red"/>
 
     </LinearLayout>
 

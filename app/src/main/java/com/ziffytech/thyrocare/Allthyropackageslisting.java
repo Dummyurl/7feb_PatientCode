@@ -38,7 +38,7 @@ import java.util.List;
 
 import static com.ziffytech.util.Preferences.MyPREFERENCES;
 
-public class Allthyropackageslisting extends CommonActivity implements View.OnClickListener
+public class  Allthyropackageslisting extends CommonActivity implements View.OnClickListener
 {
     Button txtv_test_available;
     EditText editSearchpak;
@@ -55,6 +55,7 @@ public class Allthyropackageslisting extends CommonActivity implements View.OnCl
     PackageAdapterThyroAll packageAdapter;
     TextView cartcount,txtv_schedule;
     CartDetailModel model;
+
     String key = "Key";
     ArrayList<CartDetailModel> ModelArrayList=new ArrayList();
     SharedPreferences shref;
@@ -71,9 +72,10 @@ public class Allthyropackageslisting extends CommonActivity implements View.OnCl
 
         shref = Allthyropackageslisting.this.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         //editor = shref.edit();
+
         common.GetCartDetails(Allthyropackageslisting.this);
 
-        model = new CartDetailModel();
+        //model = new CartDetailModel();
         txtv_test_available = (Button) findViewById(R.id.txtv_test_available);
         recyclerViewPackage = (RecyclerView) findViewById(R.id.recyclerview_package);
         txtv_schedule = (TextView)findViewById(R.id.txtv_schedule);
@@ -135,10 +137,10 @@ public class Allthyropackageslisting extends CommonActivity implements View.OnCl
                 cartcount.setText(""+Model.getElementsincart().toString());
             }
             else
-                {
+            {
                     cartcount = (TextView)findViewById(R.id.cartcount);
                     cartcount.setText("0");
-                }
+            }
         }
         else
         {

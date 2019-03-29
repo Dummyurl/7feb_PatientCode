@@ -163,30 +163,6 @@ public class LoginActivity extends CommonActivity implements View.OnClickListene
             }
         });
 
-
-       /* editEmail.setDrawableClickListener(new DrawableClickListener() {
-
-
-            public void onClick(DrawablePosition target) {
-                switch (target) {
-                    case LEFT:
-                        //Do something here
-                        break;
-
-                    default:
-                        break;
-                }
-            }
-
-        });
-*/
-
-
-
-
-
-
-
         text_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -244,34 +220,6 @@ public class LoginActivity extends CommonActivity implements View.OnClickListene
             public void onClick(View v) {
                 String email = editEmail.getText().toString();
                 String password = editPassword.getText().toString();
-
-                // Check for a valid email address.
-               /* if (TextUtils.isEmpty(email)) {
-                    // common.setToastMessage(getString(R.string.valid_required_email));
-                    editEmail.setError(getString(R.string.valid_required_email));
-                    editEmail.setFocusable(true);
-
-                    return;
-
-                    // cancel = true;
-                }else if (!isValidEmail(email)) {
-                    editEmail.setError(getString(R.string.valid_email));
-                    editEmail.setFocusable(true);
-                    return;
-                }
-                if (TextUtils.isEmpty(password)) {
-                    editPassword.setError(getString(R.string.valid_required_password));
-                    editPassword.setFocusable(true);
-                    return;
-                }
-
-                if (!MyUtility.isConnected(LoginActivity.this)) {
-                    MyUtility.showAlertMessage(LoginActivity.this, MyUtility.INTERNET_ERROR);
-                    return;
-                }
-
-
-*/
 
                 if (!email.equals("")) {
 

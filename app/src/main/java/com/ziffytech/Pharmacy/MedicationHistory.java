@@ -1,6 +1,10 @@
 package com.ziffytech.Pharmacy;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -31,6 +35,7 @@ public class MedicationHistory extends CommonActivity {
     TextView tvnotfound;
     ArrayList<MedicalHistoryModel> historyModelArrayList;
     LinearLayoutManager layoutManager;
+    FloatingActionButton fab_call;
 
 
     @Override
@@ -41,6 +46,18 @@ public class MedicationHistory extends CommonActivity {
         setHeaderTitle("Medication History");
         allowBack();
         setUpViews();
+
+
+
+        fab_call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", "7499913961", null));
+                startActivity(intent);
+
+            }
+        });
 
 
         HashMap<String, String> params = new HashMap<String, String>();
@@ -58,6 +75,7 @@ public class MedicationHistory extends CommonActivity {
     private Response.Listener<String> createRequestSuccessListenerMedicalHistory() {
         return new Response.Listener<String>() {
 
+            @SuppressLint("RestrictedApi")
             @Override
             public void onResponse(String response) {
 
@@ -100,6 +118,8 @@ public class MedicationHistory extends CommonActivity {
 
                         recyclerview_med_history.setVisibility(View.GONE);
                         tvnotfound.setVisibility(View.VISIBLE);
+                        fab_call.setVisibility(View.GONE);
+
                     }
 
 
@@ -137,6 +157,7 @@ public class MedicationHistory extends CommonActivity {
         recyclerview_med_history.setHasFixedSize(true);
         recyclerview_med_history.setLayoutManager(layoutManager);
         tvnotfound = findViewById(R.id.text_notfound);
+        fab_call = findViewById(R.id.fab_call);
 
     }
 }
